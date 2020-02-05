@@ -8,4 +8,4 @@ Main branch for IT 390
 1.  click clone
 2.  click clone with HTTPS
 3.  navigate to the directory that you want to pull the code to
-4.  type "git pull https://gitlab.com/it390-group3/group-project-main-branch.git"
+4.  type "git clone https://gitlab.com/it390-group3/group-project-main-branch.git"
