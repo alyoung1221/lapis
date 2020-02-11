@@ -1,0 +1,33 @@
+.app-navbar {
+  margin: 0 auto;
+  height: 50px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-navbar li {
+  list-style: none;
+}
+
+.app-navbar li a {
+  color: black;
+  text-decoration: none;
+  transition: all 0.1s;
+}
+
+.app-navbar li a:hover {
+  border-bottom: 2px solid #555;
+  color: #555;
+}
+
+.nav-right {
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
+}
+
+.logo-bold {
+  font-weight: 800;
+}
