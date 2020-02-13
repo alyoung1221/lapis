@@ -1,1 +1,61 @@
-<p>profile works!</p>
+<div class="main-container">
+  <div class="section-container userprofile-container">
+    <div class="picture-container">
+      <img class="profile-picture" src="{{ picture }}" />
+    </div>
+    <div class="profile-name">
+      <p>{{ name }}</p>
+    </div>
+    <div class="settings-container">
+      <ul class="settings-list">
+        <li><input placeholder="Friend search" /></li>
+        <li><a href="#">Friend List</a></li>
+        <li><a href="#">Account Settings</a></li>
+        <li><a href="#">Profile Customization</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-container suggestion-container">
+    <h2 class="section-header">Here are some people with similar interests:</h2>
+    <div class="suggestion-container">
+      <div
+        class="userlist-container"
+        *ngFor="let suggestion of friendSuggestions"
+      >
+        <ul class="user-container">
+          <div class="user-left">
+            <li class="user-picture-container">
+              <img class="user-picture" src="{{ suggestion.picture }}" />
+            </li>
+          </div>
+          <div class="user-right">
+            <li class="user-name">Name: {{ suggestion.name }}</li>
+            <li class="user-age">Age: {{ suggestion.age }}</li>
+            <li class="user-major">Major: {{ suggestion.major }}</li>
+            <li class="user-hobbies">Hobbies: {{ suggestion.hobbies }}</li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-container">
+    <h2 class="section-header">Here is a list of your friends:</h2>
+    <div class="userlist-container" *ngFor="let friend of friends">
+      <ul class="user-container">
+        <div class="user-left">
+          <li class="user-picture-container">
+            <img class="user-picture" src="{{ friend.picture }}" />
+          </li>
+        </div>
+        <div class="user-right">
+          <li class="user-name">Name: {{ friend.name }}</li>
+          <li class="user-age">Age: {{ friend.age }}</li>
+          <li class="user-major">Major: {{ friend.major }}</li>
+          <li class="user-hobbies">Hobbies: {{ friend.hobbies }}</li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
