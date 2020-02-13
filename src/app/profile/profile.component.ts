@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-profile',
@@ -14,10 +15,11 @@ export class ProfileComponent implements OnInit {
   friends: Array<object>;
   friendSuggestions: Array<object>;
 
-  constructor() { }
+  constructor(private db: AngularFirestore) { }
 
   ngOnInit() {
     this.getInformation();
+    // console.log(this.db.collection('test').valueChanges().subscribe(val => console.log(val))); 
   }
 
   getInformation() {
