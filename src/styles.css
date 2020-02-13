@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*
+* This is a global CSS file that will be applied to the entire application
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+}
