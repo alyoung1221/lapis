@@ -6,8 +6,30 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../navbar.component.css">
 </head>
 <body>
   <app-root></app-root>
+
+  <nav>
+    <div class="app-navbar">
+      <div class="nav-left">
+        <a class="logo" routerLink="/">Hobby<span class="logo-bold">Hub</span></a>
+      </div>
+      <ul class="nav-right">
+        <li>
+          <input
+            class="nav-searchbar"
+            type="search"
+            placeholder="Search HobbyHub"
+          />
+        </li>
+        <li><a routerLink="/about">About</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+        <li><a routerLink="/profile">Profile</a></li>
+      </ul>
+    </div>
+    <router-outlet></router-outlet>
+  </nav>
 </body>
 </html>
