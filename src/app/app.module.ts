@@ -10,9 +10,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Importing all of the custom-made components we have developed.
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SampleComponent } from './sample/sample.component';
+import { UsercardComponent } from './shared/usercard/usercard.component';
+import { HobbycardComponent } from './shared/hobbycard/hobbycard.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -31,6 +33,8 @@ const config = {
     NavbarComponent,
     ProfileComponent,
     SampleComponent,
+    UsercardComponent,
+    HobbycardComponent,
   ],
   imports: [
     BrowserModule,

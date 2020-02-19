@@ -1,0 +1,9 @@
+.hobby {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff6b6a;
+  color: white;
+  margin: 10px;
+}
