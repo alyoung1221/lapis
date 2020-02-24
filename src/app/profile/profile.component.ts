@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { UsercardComponent } from 'src/app/shared/usercard/usercard.component';
+import { HobbycardComponent } from 'src/app/shared/hobbycard/hobbycard.component';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +13,7 @@ export class ProfileComponent implements OnInit {
   picture: string;
   name: string;
   age: number;
-  hobbies: Array<object>;
+  hobbies: Array<string>;
   friends: Array<object>;
   friendSuggestions: Array<object>;
 
@@ -23,6 +25,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getInformation() {
+    this.hobbies = ['soccer', 'music', 'cooking', 'technology', 'movies'];
     this.friends = [
       {
         name: 'Eric Mahoney',
