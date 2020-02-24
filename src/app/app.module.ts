@@ -13,12 +13,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SampleComponent } from './sample/sample.component';
-<<<<<<< HEAD
 import { UsercardComponent } from './shared/usercard/usercard.component';
 import { HobbycardComponent } from './shared/hobbycard/hobbycard.component';
-=======
 import { FriendsComponent } from './components/friends/friends.component';
->>>>>>> master
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -37,12 +34,9 @@ const config = {
     NavbarComponent,
     ProfileComponent,
     SampleComponent,
-<<<<<<< HEAD
     UsercardComponent,
     HobbycardComponent,
-=======
     FriendsComponent,
->>>>>>> master
   ],
   imports: [
     BrowserModule,
