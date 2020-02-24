@@ -5,6 +5,13 @@
     "profile suggestions"
     "profile friends";
   grid-template-columns: 30% 60%;
+  background-color: #565676;
+  color: #fff;
+  height: 100vh;
+}
+
+.section-header {
+  font-weight: 400;
 }
 
 .section-container li {
@@ -13,7 +20,7 @@
 
 .section-container a {
   text-decoration: none;
-  color: black;
+  color: #eee;
 }
 
 .userprofile-container {
