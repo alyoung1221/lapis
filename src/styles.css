@@ -5,6 +5,11 @@
 */
 
 @import url("https://fonts.googleapis.com/css?family=Nunito&display=swap");
+
+:root {
+  --main-color: #26619c;
+}
+
 * {
   font-family: "Nunito", sans-serif;
   margin: 0;
