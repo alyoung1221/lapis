@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // Importing all of the Firestore Modules required to get data from our database.
 import { AngularFireModule } from '@angular/fire';
@@ -11,11 +12,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SampleComponent } from './sample/sample.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SampleComponent } from './components/sample/sample.component';
 import { UsercardComponent } from './shared/usercard/usercard.component';
-import { HobbycardComponent } from './shared/hobbycard/hobbycard.component';
 import { FriendsComponent } from './components/friends/friends.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -36,8 +38,9 @@ const config = {
     FriendsComponent,
     SampleComponent,
     UsercardComponent,
-    HobbycardComponent,
     FriendsComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ const config = {
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
