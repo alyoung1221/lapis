@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'firebase';
-import { ProfileComponent } from 'src/app/profile/profile.component';
+import { ProfileComponent } from 'src/app/components/profile/profile.component';
 
 @Component({
   selector: 'app-usercard',
