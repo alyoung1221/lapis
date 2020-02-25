@@ -33,6 +33,7 @@ const config = {
     AppComponent,
     NavbarComponent,
     ProfileComponent,
+    FriendsComponent,
     SampleComponent,
     UsercardComponent,
     HobbycardComponent,
