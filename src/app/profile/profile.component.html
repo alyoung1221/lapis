@@ -1,0 +1,36 @@
+<div class="main-container">
+  <div class="section-container userprofile-container">
+    <div class="picture-container">
+      <img class="profile-picture" src="{{ picture }}" />
+    </div>
+    <div class="profile-name">
+      <p>{{ name }}</p>
+    </div>
+    <div class="settings-container">
+      <ul class="settings-list">
+        <li><input placeholder="Friend search" /></li>
+        <li><a href="#">Friend List</a></li>
+        <li><a href="#">Account Settings</a></li>
+        <li><a href="#">Profile Customization</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-container suggestion-container">
+    <h2 class="section-header">Here are some people with similar interests:</h2>
+    <div class="userlist-container">
+      <div class="user" *ngFor="let suggestion of friendSuggestions">
+        <app-usercard [user]="suggestion"></app-usercard>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-container friendlist-container">
+    <h2 class="section-header">Here are some people with similar interests:</h2>
+    <div class="userlist-container">
+      <div class="user" *ngFor="let friend of friends">
+        <app-usercard [user]="friend"></app-usercard>
+      </div>
+    </div>
+  </div>
+</div>

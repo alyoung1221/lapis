@@ -1,0 +1,89 @@
+.main-container {
+  padding: 5% 0%;
+  display: grid;
+  grid-template-areas:
+    "profile suggestions"
+    "profile friends";
+  grid-template-columns: 30% 60%;
+  background-color: #565676;
+  color: #fff;
+  height: 100vh;
+}
+
+.section-header {
+  font-weight: 400;
+}
+
+.section-container li {
+  list-style-type: none;
+}
+
+.section-container a {
+  text-decoration: none;
+  color: #eee;
+}
+
+.userprofile-container {
+  grid-area: profile;
+  justify-self: center;
+}
+
+.picture-container {
+  margin: 0 auto;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #efefef;
+  overflow: hidden;
+}
+.profile-picture {
+  position: absolute;
+  max-width: 100%;
+  bottom: 0;
+}
+.profile-name {
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.settings-container {
+  text-align: center;
+}
+
+.hobbies {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.settings-list li {
+  margin: 10px 0px;
+}
+
+.userlist-container {
+  grid-area: friends;
+}
+
+.suggestion-container {
+  grid-area: suggestions;
+}
+
+@media (max-width: 800px) {
+  .main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "profile"
+      "suggestions"
+      "friends";
+  }
+  .section-container {
+    margin: 0 auto;
+  }
+  .userlist-container {
+    margin: 0 auto;
+  }
+}
