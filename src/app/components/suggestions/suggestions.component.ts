@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Suggestion } from '../suggestion';
-import { SUGGESTIONS } from '../mock-suggestion';
+import { Suggestion } from './suggestion';
+import { SUGGESTIONS } from './mock-suggestion';
 
 @Component({
   selector: 'app-suggestion',
@@ -16,6 +16,7 @@ export class SuggestionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.suggestions) // see if array exists on console
   }
 
   onSelect(suggestion: Suggestion): void {

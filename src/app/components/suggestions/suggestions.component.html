@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head><link rel="stylesheet" href="suggestions.component.css"> </head>
-<h2>My Heroes</h2>
+
+<h2>Suggested Friends</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes"
-    [class.selected]="hero === selectedSuggestion"
+  <!--"for in loop" like in python: -->
+  <li *ngFor="let suggestion of suggestions" 
+    [class.selected]="suggestion === selectedSuggestion"
     (click)="onSelect(suggestion)">
     <span class="badge">{{suggestion.id}}</span> {{suggestion.name}}
   </li>
@@ -22,4 +21,4 @@
 
 </div>
 
-</html>
+

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // ngModel directs to here (much necessary import)
 
 // Importing all of the Firestore Modules required to get data from our database.
 import { AngularFireModule } from '@angular/fire';
@@ -52,6 +53,7 @@ const config = {
     AngularFireAuthModule,
     AngularFireStorageModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

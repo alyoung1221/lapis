@@ -1,4 +1,4 @@
-import { Suggestion } from 'src/app/components/suggestion';
+import { Suggestion } from 'src/app/components/suggestions/suggestion';
 
 export const SUGGESTIONS: Suggestion[] = [
   { id: 11, name: 'Dr Nice' },
