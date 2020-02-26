@@ -1,6 +1,9 @@
+// Importing all of the modules from Angular
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Importing all of the Firestore Modules required to get data from our database.
 import { AngularFireModule } from '@angular/fire';
@@ -9,7 +12,6 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Importing all of the custom-made components we have developed.
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -46,6 +48,7 @@ const config = {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,

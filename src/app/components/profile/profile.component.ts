@@ -14,8 +14,8 @@ export class ProfileComponent implements OnInit {
   picture: string;
   name: string;
   age: number;
-  friends: Array<object>;
-  friendSuggestions: Array<object>;
+  friends: object[];
+  friendSuggestions: object[];
 
   constructor(private db: AngularFirestore, private data: FriendsService) { }
 
@@ -51,11 +51,10 @@ export class ProfileComponent implements OnInit {
         age: 64,
         hobbies: [' Microsoft', ' Technology', ' Reading'],
         major: 'Computer Science'
-      }
+      },
     ];
     this.picture ? this.picture = this.picture : this.picture = '/assets/pictures/default_picture.png';
     this.name ? this.name = this.name : this.name = 'John Smith';
     this.age ? this.age = this.age : this.age = 21;
   }
-
 }
