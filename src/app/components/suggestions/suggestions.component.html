@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="suggestions.component.css"> </head>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedSuggestion"
+    (click)="onSelect(suggestion)">
+    <span class="badge">{{suggestion.id}}</span> {{suggestion.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedSuggestion">
+
+  <h2>{{selectedSuggestion.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedSuggestion.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedSuggestion.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
+
+</html>
