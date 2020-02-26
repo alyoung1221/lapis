@@ -1,35 +1,43 @@
 <div class="main-container">
   <div class="section-container userprofile-container">
-    <div class="picture-container">
-      <img class="profile-picture" src="{{ picture }}" />
-    </div>
-    <div class="profile-name">
-      <p>{{ name }}</p>
-    </div>
-    <div class="settings-container">
-      <ul class="settings-list">
-        <li><input placeholder="Friend search" /></li>
-        <li><a href="#">Friend List</a></li>
-        <li><a href="#">Account Settings</a></li>
-        <li><a href="#">Profile Customization</a></li>
-      </ul>
-    </div>
+    <div class="user-profile">
+      <div class="picture-container">
+        <img class="profile-picture" src="{{ picture }}" />
+      </div>
+      <div class="profile-name">
+        <p>{{ name }}</p>
+      </div>
+      <div class="settings-container">
+        <div class="search-container"><input class="friend-search" placeholder="Friend search..." /></div>
+        <h3 class="setting-header">SETTINGS</h3>
+        <ul class="settings-list">
+          <li><a href="#">Account Settings</a></li>
+          <li><a href="#">Profile Customization</a></li>
+        </ul>
+        <h3 class="setting-header">FRIENDS</h3>
+        <ul class="settings-list">
+          <li><a href="#">Friend List</a></li>
+        </ul>
+      </div>
+      </div>
   </div>
 
-  <div class="section-container suggestion-container">
-    <h2 class="section-header">Here are some people with similar interests:</h2>
-    <div class="userlist-container">
-      <div class="user" *ngFor="let suggestion of friendSuggestions">
-        <app-usercard [user]="suggestion"></app-usercard>
+  <div class="right-container">
+    <div class="section-container suggestion-container">
+      <h2 class="section-header">Here are some people with similar interests:</h2>
+      <div class="userlist-container">
+        <div class="user" *ngFor="let suggestion of friendSuggestions">
+          <app-usercard [user]="suggestion"></app-usercard>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="section-container friendlist-container">
-    <h2 class="section-header">Here are some people with similar interests:</h2>
-    <div class="userlist-container">
-      <div class="user" *ngFor="let friend of friends">
-        <app-usercard [user]="friend"></app-usercard>
+    <div class="section-container friendlist-container">
+      <h2 class="section-header">Here are your friends:</h2>
+      <div class="userlist-container">
+        <div class="user" *ngFor="let friend of friends">
+          <app-usercard [user]="friend"></app-usercard>
+        </div>
       </div>
     </div>
   </div>

@@ -18,6 +18,7 @@ import { UsercardComponent } from './shared/usercard/usercard.component';
 import { FriendsComponent } from './components/friends/friends.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -41,6 +42,7 @@ const config = {
     FriendsComponent,
     AboutComponent,
     ContactComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
