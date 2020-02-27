@@ -1,14 +1,14 @@
 import { Suggestion } from 'src/app/components/suggestions/suggestion';
 
 export const SUGGESTIONS: Suggestion[] = [
-  { id: 11, name: 'Dr Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+  { id: 11, name: 'James Holden'},
+  { id: 12, name: 'Amos Burton' },
+  { id: 13, name: 'Naomi Nagata' },
+  { id: 14, name: 'Alex Kamal' },
+  { id: 15, name: 'Joe Miller' },
+  { id: 16, name: 'Camina Drummer' },
+  { id: 17, name: 'Prax Meng' },
+  { id: 18, name: 'Julie Mao' },
+  { id: 19, name: 'Roberta Draper' },
+  { id: 20, name: 'Chrisjen Avasarala' }
 ];
