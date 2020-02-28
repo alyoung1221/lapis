@@ -1,0 +1,36 @@
+<div class="authBlock">
+  <h3>Sign Up</h3>
+  <div class="formGroup">
+    <input
+      type="text"
+      class="formControl"
+      placeholder="Email"
+      #userEmail
+      required
+    />
+  </div>
+  <div class="formGroup">
+    <input
+      type="password"
+      class="formControl"
+      placeholder="Password"
+      #userPassword
+      required
+    />
+  </div>
+  <!-- Calling SignIn Api from AuthenticationService -->
+  <div class="formGroup">
+    <input
+      type="button"
+      class="btn btnPrimary"
+      value="Sign Up"
+      (click)="signUp(userEmail.value, userPassword.value)"
+    />
+  </div>
+</div>
+<div class="message" *ngIf="registered">
+  You have been successfully registered.
+</div>
+<div class="message" *ngIf="registered == false">
+  Sorry, there was an error and you have not been successfully registered.
+</div>

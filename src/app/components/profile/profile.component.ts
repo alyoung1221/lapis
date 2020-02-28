@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
       console.log(val);
     });
     this.getInformation();
-    // console.log(this.db.collection('test').valueChanges().subscribe(val => console.log(val)));
+    let hello = this.db.collection('test').valueChanges().subscribe();
   }
 
   getInformation() {
