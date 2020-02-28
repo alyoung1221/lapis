@@ -7,7 +7,5 @@ import { HttpClient } from '@angular/common/http';
 export class FriendsService {
 
   constructor( private http: HttpClient) { }
-  getRandomFriends() {
-    return this.http.get('https://uinames.com/api/');
-  }
+
 }

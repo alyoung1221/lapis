@@ -7,6 +7,9 @@ import { FriendsComponent } from './components/friends/friends.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CreateuserComponent } from './components/createuser/createuser.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 const routes: Routes = [
@@ -15,6 +18,9 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'friends', component: FriendsComponent },
+  { path: 'createuser', component: CreateuserComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 

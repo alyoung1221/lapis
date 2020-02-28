@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Importing all of the Firestore Modules required to get data from our database.
 import { AngularFireModule } from '@angular/fire';
@@ -21,6 +22,9 @@ import { FriendsComponent } from './components/friends/friends.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CreateuserComponent } from './components/createuser/createuser.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -45,6 +49,9 @@ const config = {
     AboutComponent,
     ContactComponent,
     NotFoundComponent,
+    CreateuserComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +62,8 @@ const config = {
     AngularFireAuthModule,
     AngularFireStorageModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
