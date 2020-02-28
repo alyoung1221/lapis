@@ -28,7 +28,7 @@ doLogin(value) {
         (() => {
           return firebase.auth().signInWithEmailAndPassword(value.email, value.password)
           .then(res => {
-            this.loginSuccess = true;
+            this.loginSuccess = true; 
             resolve(res);
           }, err => {
             this.loginSuccess = false;
