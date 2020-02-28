@@ -24,15 +24,18 @@ export class LoginComponent implements OnInit {
 
 doLogin(value) {
     return new Promise<any>((resolve, reject) => {
-      firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-      .then(res => {
-        this.loginSuccess = true;
-        //this.router.navigateByUrl('/profile');
-        resolve(res);
-      }, err => {
-        this.loginSuccess = false;
-        reject(err);
-      });
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(
+        (() => {
+          return firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+          .then(res => {
+            this.loginSuccess = true;
+            resolve(res);
+          }, err => {
+            this.loginSuccess = false;
+            reject(err);
+          });
+        })
+      );
     });
   }
 

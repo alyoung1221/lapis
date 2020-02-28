@@ -2,10 +2,10 @@
   <div class="section-container userprofile-container">
     <div class="user-profile">
       <div class="picture-container">
-        <img class="profile-picture" src="{{ picture }}" />
+        <img class="profile-picture" src="{{ profile.picture }}" />
       </div>
       <div class="profile-name">
-        <p>{{ name }}</p>
+        <p>{{ profile.firstName }} {{ profile.lastName }}</p>
       </div>
       <div class="settings-container">
         <div class="search-container"><input class="friend-search" placeholder="Friend search..." /></div>
@@ -26,7 +26,7 @@
     <div class="section-container suggestion-container">
       <h2 class="section-header">Here are some people with similar interests:</h2>
       <div class="userlist-container">
-        <div class="user" *ngFor="let suggestion of friendSuggestions">
+        <div class="user" *ngFor="let suggestion of profile.suggestions">
           <app-usercard [user]="suggestion"></app-usercard>
         </div>
       </div>
@@ -35,7 +35,7 @@
     <div class="section-container friendlist-container">
       <h2 class="section-header">Here are your friends:</h2>
       <div class="userlist-container">
-        <div class="user" *ngFor="let friend of friends">
+        <div class="user" *ngFor="let friend of profile.friends">
           <app-usercard [user]="friend"></app-usercard>
         </div>
       </div>

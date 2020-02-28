@@ -1,8 +1,10 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { UsercardComponent } from 'src/app/shared/usercard/usercard.component';
 import { FriendsService } from '../../services/friends.service';
 import { Observable } from 'rxjs';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-profile',
@@ -10,51 +12,32 @@ import { Observable } from 'rxjs';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  picture: string;
-  name: string;
-  age: number;
-  friends: object[];
-  friendSuggestions: object[];
-
-  constructor(private db: AngularFirestore, private data: FriendsService) { }
+  profile = {
+    firstName: '',
+    lastName: '',
+    picture: '',
+    friends: [],
+    hobbies: [],
+    suggestions: [],
+    major: '',
+    gender: ''
+  };
+  constructor(private db: AngularFirestore, public fbAuth: AngularFireAuth) {}
 
   ngOnInit() {
-    let friend = this.data.getRandomFriends().subscribe(val => {
-      console.log(val);
+    this.fbAuth.authState.subscribe(data => {
+      const document = this.db.collection('users').doc(data.uid);
+      document.get().subscribe((userData => {
+        const user = userData.data();
+        this.profile.firstName = user.first;
+        this.profile.lastName = user.last;
+        this.profile.gender = user.gender;
+        this.profile.major = user.major;
+        this.profile.picture = user.picture;
+        this.profile.hobbies = user.hobbies;
+        this.profile.friends = user.friends;
+        this.profile.suggestions = user.suggestions;
+      }));
     });
-    this.getInformation();
-    let hello = this.db.collection('test').valueChanges().subscribe();
-  }
-
-  getInformation() {
-    this.friends = [
-      {
-        name: 'Eric Mahoney',
-        picture: '/assets/pictures/eric.jpg',
-        age: 21,
-        hobbies: [' Cooking', ' Soccer', ' Music'],
-        major: 'Information Technology'
-      },
-      {
-        name: 'Robert Downey Jr.',
-        picture: '/assets/pictures/sample1.jpg',
-        age: 54,
-        hobbies: [' Movies', ' Technology', ' Music'],
-        major: 'Theater'
-      },
-    ];
-    this.friendSuggestions = [
-      {
-        name: 'Bill Gates',
-        picture: '/assets/pictures/sample2.jpg',
-        age: 64,
-        hobbies: [' Microsoft', ' Technology', ' Reading'],
-        major: 'Computer Science'
-      },
-    ];
-    this.picture ? this.picture = this.picture : this.picture = '/assets/pictures/default_picture.png';
-    this.name ? this.name = this.name : this.name = 'John Smith';
-    this.age ? this.age = this.age : this.age = 21;
   }
 }
