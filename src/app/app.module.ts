@@ -16,6 +16,11 @@ import { SampleComponent } from './sample/sample.component';
 import { UsercardComponent } from './shared/usercard/usercard.component';
 import { HobbycardComponent } from './shared/hobbycard/hobbycard.component';
 import { FriendsComponent } from './components/friends/friends.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -37,6 +42,11 @@ const config = {
     SampleComponent,
     UsercardComponent,
     HobbycardComponent,
+    SignupComponent,
+    LoginComponent,
+    FooterComponent,
+    SearchComponent,
+    AdvancedSearchComponent,
   ],
   imports: [
     BrowserModule,
