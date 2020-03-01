@@ -46,7 +46,14 @@ export class SignupComponent implements OnInit {
         hobbies: [],
         friends: [],
       });
-      console.log(data.uid);
+      this.db.collection('friends').doc(data.uid).set({
+        sent: [],
+        received: [],
+        confirmed: [],
+      });
+      this.db.collection('suggestions').doc(data.uid).set({
+        suggestions: [],
+      });
     }));
   }
 
