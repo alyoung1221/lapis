@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SampleComponent } from './sample/sample.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SampleComponent } from './components/sample/sample.component';
 import { FriendsComponent } from './components/friends/friends.component';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
 
 const routes: Routes = [
-  { path: '', component: SignupComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'about', component: SampleComponent},
-  { path: 'contact', component: SampleComponent},
+  { path: '', component: SampleComponent},
+  { path: 'about', component: AboutComponent},
+  { path: 'contact', component: ContactComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'friends', component: FriendsComponent },
-  { path: 'advanced-search', component: AdvancedSearchComponent }
+  { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 
 @NgModule({
