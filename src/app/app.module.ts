@@ -16,9 +16,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SampleComponent } from './components/sample/sample.component';
 import { UsercardComponent } from './shared/usercard/usercard.component';
 import { FriendsComponent } from './components/friends/friends.component';
-import { AboutComponent } from './components/about/about.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -39,10 +41,12 @@ const config = {
     FriendsComponent,
     SampleComponent,
     UsercardComponent,
-    FriendsComponent,
-    AboutComponent,
-    ContactComponent,
-    NotFoundComponent,
+    HobbycardComponent,
+    SignupComponent,
+    LoginComponent,
+    FooterComponent,
+    SearchComponent,
+    AdvancedSearchComponent,
   ],
   imports: [
     BrowserModule,
