@@ -1,24 +1,30 @@
 <div class="left-section">
-<h2>Suggested Friends</h2>
-<ul class="heroes">
-  <!--"for in loop" like in python: -->
-  <li *ngFor="let suggestion of suggestions" 
-    [class.selected]="suggestion === selectedSuggestion"
-    (click)="onSelect(suggestion)">
-    <span class="badge">{{suggestion.id}}</span> {{suggestion.name}}
-  </li>
-</ul>
+  <h2>Suggested Friends</h2>
+  <ul class="heroes">
+    <!--"for in loop" like in python: -->
+    <li *ngFor="let suggestion of suggestions" 
+      [class.selected]="suggestion === selectedSuggestion"
+      (click)="onSelect(suggestion)">
+      <span class="badge">{{suggestion.id}}</span> {{suggestion.name}}
+    </li>
+  </ul>
 
-<div *ngIf="selectedSuggestion">
+  <div *ngIf="selectedSuggestion">
 
-  <h2>{{selectedSuggestion.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedSuggestion.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedSuggestion.name" placeholder="name"/>
-    </label>
+    <h2>{{selectedSuggestion.name | uppercase}} Details</h2>
+    <div><span>ID: </span>{{selectedSuggestion.id}}</div>
+    <div>
+      <label>Name:
+        <input [(ngModel)]="selectedSuggestion.name" placeholder="name"/>
+      </label>
+      <label>Hobbies:
+        <input [(ngModel)]="selectedSuggestion.hobbies" placeholder="hobbies"/>
+      </label>
+      <label>Interests:
+        <input [(ngModel)]="selectedSuggestion.interests" placeholder="interests"/>
+      </label>
+    </div>
+
   </div>
-
-</div>
 </div>
 
