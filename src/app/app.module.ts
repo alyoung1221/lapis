@@ -20,6 +20,7 @@ import { FriendsComponent } from './components/friends/friends.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SuggestionsComponent } from './components/suggestions/suggestions.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -44,6 +45,7 @@ const config = {
     AboutComponent,
     ContactComponent,
     SuggestionsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
