@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>friend matcher</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<script src="https://kit.fontawesome.com/b217619af5.js"crossorigin="anonymous"></script>
+	<style>
+		html, body {
+			margin: 20px;	
+		}
+		header {
+			text-align: center;
+		}
+	</style>
+</head>
+<body class="login">
+	<div class="body-container">
+		<div class="login-container">
+			<header><a href="index.html">hobby hub</a></header>
+			<br><br>
+			<main>
+				<form method="post" id="login">
+					<label for="email">E-mail</label><br>
+					<input type="email" id="email" name="email" title="Please enter your e-mail." maxlength="60">
+					<br><br>
+					<label for="password">Password</label><br>
+					<input type="password" id="password" name="password">
+					<br><br><br>
+					<button type="submit" id="submit" name="submit">Log In</button>
+				</form>
+				<br>
+				<div class="login-options">
+					<a href="reset-password.html" id="password">Forgot your password?</a>							
+					<p>Don't have an account? <a href="index.html" id="sign-up">Sign up</a></p>
+				</div>
+			</main>
+		</div>
+		<br><br>
+		<section id="download">
+			<p>Get the app.</p>
+			<br>
+			<div class="flex-container">
+				<a href="https://developer.apple.com/app-store/" target="_blank"><img src="images/apple-preorder.png" width="125px" height="42px" style="position: relative; top: 9px;"></a>
+				<a href="https://play.google.com/" target="_blank"><img src="images/google-play.png" width="140px" height="60px"></a>
+			</div>
+		</section>
+	</div>
+	<footer>
+		<div class="flex-container">
+			<nav>
+				<a href="about.html">About</a>
+				<a href="support.html">Support</a>
+				<a href="terms-of-service.html">Terms of Service</a>
+			</nav>
+			<p>&copy;<span id="date"></span>&nbsp;Hobby Hub</p>
+		</div>
+	</footer>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+	<script src="js/script.js"></script>
+    <script>
+        flatpickr('#dob', {
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "Y-m-d"
+        });
+		/*$("#sign-up").validate({
+			rules: {
+				name: "required",
+				email: {
+					required: true,
+					email: true
+				},
+				gender: "required",
+				dob: "date", 
+				password: {
+				    required: true,
+					pattern: /^\S*$/
+				},
+				password2: {
+				    required: true,
+					equalTo: "#password"
+				},
+				tos: {
+					required: true
+				}
+			}, 
+			messages: {
+				gender: "Please specify your gender.",
+				tos: "You must agree to the term of services."
+			}, 
+			highlight: function(element) {
+				$(element).addClass("error");
+			},
+			errorPlacement: function(error, element) {
+				if (element.attr("name") === "gender") {
+					error.insertAfter(document.getElementsByClassName("checkmark")[1]);
+				} 
+				else if (element.attr("name") === "tos") {
+					error.insertAfter(document.getElementsByClassName("checkmark")[2]);
+				}
+				else {
+					error.insertAfter(element);
+				}
+			}
+		});*/
+	</script>
+</body>
+</html>
