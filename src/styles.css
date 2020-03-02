@@ -3,7 +3,7 @@
 /*
 * This is a global CSS file that will be applied to the entire application
 */
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500|Raleway:300,400,500&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500|Raleway:300,400,500&display=swap");
 
 :root {
   --main-color: #26619c;
@@ -15,336 +15,373 @@
   padding: 0;
 }
 
-
 html {
-	-webkit-text-size-adjust: 100%;
-	-moz-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%;
-	scroll-behavior: smooth;	
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
-html, body {
-	margin: 20px;
-	font-weight: 300;
+html,
+body {
+  font-weight: 300;
 }
-html, body, input, button {
-	font-family: Poppins;
+html,
+body,
+input,
+button {
+  font-family: Poppins;
 }
 * {
-	margin: 0;
-  	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 *:focus {
-	outline: 0;
+  outline: 0;
 }
 a {
-	text-decoration: none;
-	color: #000;
+  text-decoration: none;
+  color: #000;
 }
 a:hover {
-	color: #707070;
+  color: #707070;
 }
-form a, footer a {
-	font-weight: 400;
+form a,
+footer a {
+  font-weight: 400;
 }
-h1, h2, h3 {
-	text-align: center;
+h1,
+h2,
+h3 {
+  text-align: center;
 }
 body {
-	flex-direction: column;
+  flex-direction: column;
 }
-body, .form-container, .flex-container, .body-container {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	flex-wrap: wrap;
+body,
+.form-container,
+.flex-container,
+.body-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
 }
 .body-container {
-	flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 .hidden {
-	position: absolute;
-	left: -9999px;
+  position: absolute;
+  left: -9999px;
 }
 h2 {
-	font-size: 1.5em;
-	font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 300;
 }
 h2 span {
-	font-style: italic;
-	font-size: .8em;
+  font-style: italic;
+  font-size: 0.8em;
 }
 
 /*Header*/
-	header {
-		font-weight: 600;
-		line-height: 1;
-		width: 25%;
-	}
-	header h1 {
-		background: -webkit-linear-gradient(#2190E3, #3A55B4);
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		font-size: 2.7em;
-		text-align: left;
-	}
-	
+header {
+  font-weight: 600;
+  line-height: 1;
+  width: 25%;
+}
+header h1 {
+  background: -webkit-linear-gradient(#2190e3, #3a55b4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.7em;
+  text-align: left;
+}
+
 /*Main*/
-	/*Search*/
-	#searchbar {
-		margin-left: 50px;
-		text-align: center;
-	}
-	#search {
-		font-size: 16px;
-		border: 1px solid #DDD;
-		margin-bottom: 50px;
-		height: 38px;
-		text-align: center;
-		width: 50vw;
-	}
-	#search:focus {
-		border: 1px solid #A9A9A9;
-	}
-	/*Form*/
-	label {
-		font-weight: 400;
-	}
-	.hidden {
-		position: absolute;
-		left: -9999px;
-	}
-	button, input[type="button"] {
-		background-color: transparent;
-		border: 0;
-		outline: 0;	
-		font-size: 90%;
-	}
-	#searchbar > div {
-		display: inline-block;
-		position: relative;
-		top: 3px;
-		left: -125px;
-	}
-	#searchbar > div input[type="radio"] {
-		position: absolute;
-		left: -9999px;
-	}
-	#searchbar > div > [type="radio"] + label, [type="radio"]:not(:checked) + label {
-		color: #6CADDF;
-		font-size: 1.5em;
-		z-index: 1;
-		margin-left: 10px;
-	}
-	#searchbar > div > [type="radio"]:checked + label, [type="radio"]:hover:not(:disabled) + label {
-		color: #2190E3;
-	}
-	#search input[type="text"], #search input[type="button"] {
-		border: 1px solid #CCC;
-		border-radius: 5px;
-		padding: 10px 15px;
-  }
-  
+/*Search*/
+#searchbar {
+  margin-left: 50px;
+  text-align: center;
+}
+#search {
+  font-size: 16px;
+  border: 1px solid #ddd;
+  margin-bottom: 50px;
+  height: 38px;
+  text-align: center;
+  width: 50vw;
+}
+#search:focus {
+  border: 1px solid #a9a9a9;
+}
+/*Form*/
+label {
+  font-weight: 400;
+}
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
+button,
+input[type="button"] {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 90%;
+}
+#searchbar > div {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  left: -125px;
+}
+#searchbar > div input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+#searchbar > div > [type="radio"] + label,
+[type="radio"]:not(:checked) + label {
+  color: #6caddf;
+  font-size: 1.5em;
+  z-index: 1;
+  margin-left: 10px;
+}
+#searchbar > div > [type="radio"]:checked + label,
+[type="radio"]:hover:not(:disabled) + label {
+  color: #2190e3;
+}
+#search input[type="text"],
+#search input[type="button"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
 /*Login/Sign-Up*/
-	#download {
-		text-align: center;
-	}
-	#download .flex-container {
-		justify-content: center;
-	}
-	.signup, .login {
-		background-color: #FAFAFA;
-	}
-	#sign-up a, a#sign-up {
-		border-bottom: .75px solid #2D75CD;
-	}
-	#sign-up a:hover, a#sign-up:hover {
-		color: #000;
-		border-bottom: .75px solid #2D75CD;
-	}
-	.form-container div {
-		margin-right: 50px;
-		min-width: 300px;
-	}
-	.form-container input {
-		width: 100%;
-	}
-	button, input[type="button"] {
-		background-color: transparent;
-		border: 0;
-		outline: 0;	
-		font-size: 90%;
-	}
-	#sign-up input, #login input {
-		background-color: transparent;
-		border: 0;
-		border-bottom: .9px solid #C3C3C3;
-		font-size: 1em;
-		font-weight: 300;
-	}
-	body > div > div.flatpickr-innerContainer > div > div.flatpickr-days > div > span.flatpickr-day.selected {
-		background: #2D75CD;
-		border: 0;
-	}
-	body > div > div.flatpickr-months > div > div > select, body > div > div.flatpickr-months > div > div > div > input, select {
-		font-size: .85em !important;
-	}
-	/*#search input.active, #search input:not([type="number"]):hover, #search input:not([type="number"]):active {
+#download {
+  text-align: center;
+}
+#download .flex-container {
+  justify-content: center;
+}
+.signup,
+.login {
+  background-color: #fafafa;
+}
+#sign-up a,
+a#sign-up {
+  border-bottom: 0.75px solid #2d75cd;
+}
+#sign-up a:hover,
+a#sign-up:hover {
+  color: #000;
+  border-bottom: 0.75px solid #2d75cd;
+}
+.form-container div {
+  margin-right: 50px;
+  min-width: 300px;
+}
+.form-container input {
+  width: 100%;
+}
+button,
+input[type="button"] {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 90%;
+}
+#sign-up input,
+#login input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 0.9px solid #c3c3c3;
+  font-size: 1em;
+  font-weight: 300;
+}
+body
+  > div
+  > div.flatpickr-innerContainer
+  > div
+  > div.flatpickr-days
+  > div
+  > span.flatpickr-day.selected {
+  background: #2d75cd;
+  border: 0;
+}
+body > div > div.flatpickr-months > div > div > select,
+body > div > div.flatpickr-months > div > div > div > input,
+select {
+  font-size: 0.85em !important;
+}
+/*#search input.active, #search input:not([type="number"]):hover, #search input:not([type="number"]):active {
 		border: 1px solid #FA9328;
 	}*/
-	.container, .checkbox-container {
-		font-weight: 300;
-		position: relative;
-		padding-left: 35px;
-		margin-bottom: 12px;
-		cursor: pointer;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-	}
-	.container input, .checkbox-container input {
-		display: inline;
-		-moz-appearance: none;
-		-webkit-appearance: none;
-		appearance: none;
-		opacity: 0;
-		cursor: pointer;
-	}
-	.checkmark {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 20px;
-		width: 20px;
-		background-color: #EEE;
-	}
-	.container .checkmark {
-		border-radius: 50%;
-	}
-	.container input:checked ~ .checkmark, .container:hover input ~ .checkmark, .checkbox-container input:checked ~ .checkmark, .checkbox-container:hover input ~ .checkmark {
-		background-color: #2D75CD;
-	}
-	.checkmark:after {
-		content: "";
-		position: absolute;
-		display: none;
-	}
-	.container input:checked ~ .checkmark:after, .container input:hover ~ .checkmark:after, .checkbox-container input:checked ~ .checkmark:after, .checkbox-container input:hover ~ .checkmark:after {
-		display: block;
-	}
-	.container .checkmark:after {
-		top: 6px;
-		left: 6px;
-		width: 8px;
-		height: 8px;
-		border-radius: 50%;
-		background: white;
-	}
-	.checkbox-container .checkmark:after {
-		left: 6.5px;
-		top: 2px;
-		width: 5px;
-		height: 10px;
-		border: solid white;
-		border-width: 0 2.8px 2.8px 0;
-		-webkit-transform: rotate(45deg);
-		-ms-transform: rotate(45deg);
-		transform: rotate(45deg);
-	}
-	.quantity {
-		display: inline-block; 
-	}	
-	.quantity label {
-		position: relative;
-		top: 5px;
-	}
-	.quantity #miles {
-		width: 35px;
-		height: 39px;
-		padding: 0 5px;
-		text-align: center;
-		background-color: transparent;
-		border: 1px solid #FA9328;
-	}
-	.quantity {
-		text-align: left;
-		position: relative;
-		white-space: nowrap;
-		vertical-align: top; 
-	}
-	.quantity input {
-		display: inline-block;
-		margin: 0;
-		vertical-align: top;
-		box-shadow: none;
-	}
-	.quantity button[type="button"] {
-		padding: 7px 10px 8px;
-		height: 41px;
-		background-color: #FFF;
-		border: 1px solid #FA9328;
-		cursor: pointer;
-	}
-	#minus {
-		border-right: 0; 
-	}
-	#plus {
-		border-left: 0; 
-		font-size: .75em;
-		padding: 1px 10px;
-		font-weight: 600;
-	}
-	.quantity button[type="button"]:hover {
-		background: #FA9328; 
-		color: #FFF;
-	}
-	.quantity input::-webkit-outer-spin-button, .quantity input::-webkit-inner-spin-button {
-		-webkit-appearance: none;
-		margin: 0; 
-	}
-	.quantity input[type=number] {
-		-moz-appearance: textfield;
-	}
-	button[type="submit"] {
-		padding: 10px 38px;		
-		font-size: 1em;
-		border: 1px solid #2D75CD;
-		border-radius: 30px;
-	}
-	button[type="submit"]:hover {
-		background: #2D75CD;
-		color: #FFF;
-	}
-	button[type="submit"] + span {
-		font-weight: 300;
-		margin-left: 15px;
-	}
-	
-	/*Login*/
-	.login-container, .signup-container {
-		background: #FFF;
-		border: 1px solid #CCC;
-		margin: 0 auto;
-	}
-	#sign-up, #login label, #password {
-		font-weight: 400;
-	}
-	.login-options > * {
-		float: right;
-	}
-	.login-options p {
-		margin-top: 15px;
-	}
+.container,
+.checkbox-container {
+  font-weight: 300;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.container input,
+.checkbox-container input {
+  display: inline;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+.container .checkmark {
+  border-radius: 50%;
+}
+.container input:checked ~ .checkmark,
+.container:hover input ~ .checkmark,
+.checkbox-container input:checked ~ .checkmark,
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #2d75cd;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container input:checked ~ .checkmark:after,
+.container input:hover ~ .checkmark:after,
+.checkbox-container input:checked ~ .checkmark:after,
+.checkbox-container input:hover ~ .checkmark:after {
+  display: block;
+}
+.container .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+.checkbox-container .checkmark:after {
+  left: 6.5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2.8px 2.8px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.quantity {
+  display: inline-block;
+}
+.quantity label {
+  position: relative;
+  top: 5px;
+}
+.quantity #miles {
+  width: 35px;
+  height: 39px;
+  padding: 0 5px;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #fa9328;
+}
+.quantity {
+  text-align: left;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: top;
+}
+.quantity input {
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  box-shadow: none;
+}
+.quantity button[type="button"] {
+  padding: 7px 10px 8px;
+  height: 41px;
+  background-color: #fff;
+  border: 1px solid #fa9328;
+  cursor: pointer;
+}
+#minus {
+  border-right: 0;
+}
+#plus {
+  border-left: 0;
+  font-size: 0.75em;
+  padding: 1px 10px;
+  font-weight: 600;
+}
+.quantity button[type="button"]:hover {
+  background: #fa9328;
+  color: #fff;
+}
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.quantity input[type="number"] {
+  -moz-appearance: textfield;
+}
+button[type="submit"] {
+  padding: 10px 38px;
+  font-size: 1em;
+  border: 1px solid #2d75cd;
+  border-radius: 30px;
+}
+button[type="submit"]:hover {
+  background: #2d75cd;
+  color: #fff;
+}
+button[type="submit"] + span {
+  font-weight: 300;
+  margin-left: 15px;
+}
+
+/*Login*/
+.login-container,
+.signup-container {
+  background: #fff;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+}
+#sign-up,
+#login label,
+#password {
+  font-weight: 400;
+}
+.login-options > * {
+  float: right;
+}
+.login-options p {
+  margin-top: 15px;
+}
 
 /*Footer*/
-  footer {
-    margin-top: 50px;
-  }
-	footer > .flex-container {
-		justify-content: space-between;
-	}
-	footer nav a {
-		margin-right: 30px;
-	}
+footer {
+  margin-top: 50px;
+}
+footer > .flex-container {
+  justify-content: space-between;
+}
+footer nav a {
+  margin-right: 30px;
+}

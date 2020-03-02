@@ -10,12 +10,14 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CreateuserComponent } from './components/createuser/createuser.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UsersComponent } from './components/users/users.component';
 
 
 const routes: Routes = [
   { path: '', component: SampleComponent},
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
+  { path: 'users', component: UsersComponent },
   { path: 'profile', component: ProfileComponent},
   { path: 'friends', component: FriendsComponent },
   { path: 'createuser', component: CreateuserComponent },

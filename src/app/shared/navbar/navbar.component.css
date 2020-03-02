@@ -4,6 +4,13 @@
   border-bottom: 3px solid var(--main-color);
 }
 
+.logo {
+  background: -webkit-linear-gradient(#2190e3, #3a55b4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
 .link-container {
   height: 100%;
   display: flex;
