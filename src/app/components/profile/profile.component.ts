@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
   constructor(private db: AngularFirestore, public fbAuth: AngularFireAuth) {}
 
   ngOnInit() {
+    
     this.fbAuth.authState.subscribe(data => {
       const document = this.db.collection('users').doc(data.uid);
       document.get().subscribe((userData => {
