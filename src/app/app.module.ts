@@ -16,6 +16,7 @@ import { SampleComponent } from './sample/sample.component';
 import { UsercardComponent } from './shared/usercard/usercard.component';
 import { HobbycardComponent } from './shared/hobbycard/hobbycard.component';
 import { FriendsComponent } from './components/friends/friends.component';
+import { AboutComponent } from './components/about/about.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -37,6 +38,7 @@ const config = {
     SampleComponent,
     UsercardComponent,
     HobbycardComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
