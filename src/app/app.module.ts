@@ -11,16 +11,19 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Importing all of the custom-made components we have developed.
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SampleComponent } from './components/sample/sample.component';
 import { UsercardComponent } from './shared/usercard/usercard.component';
 import { FriendsComponent } from './components/friends/friends.component';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { SearchComponent } from './search/search.component';
-import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
+import { SearchComponent } from './components/search/search.component';
+import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -35,13 +38,15 @@ const config = {
 
 @NgModule({
   declarations: [
+    AboutComponent,
     AppComponent,
+    ContactComponent,
     NavbarComponent,
+    NotFoundComponent,
     ProfileComponent,
     FriendsComponent,
     SampleComponent,
     UsercardComponent,
-    HobbycardComponent,
     SignupComponent,
     LoginComponent,
     FooterComponent,
