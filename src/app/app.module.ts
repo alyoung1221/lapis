@@ -25,6 +25,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CreateuserComponent } from './components/createuser/createuser.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -52,6 +55,11 @@ const config = {
     CreateuserComponent,
     LoginComponent,
     SignupComponent,
+    SignupComponent,
+    LoginComponent,
+    FooterComponent,
+    SearchComponent,
+    AdvancedSearchComponent,
   ],
   imports: [
     BrowserModule,

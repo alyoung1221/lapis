@@ -10,5 +10,16 @@
 </head>
 <body>
   <app-root></app-root>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
+  <script>
+    flatpickr('#dob', {
+      altInput: true,
+      altFormat: "F j, Y",
+      dateFormat: "Y-m-d"
+    });
+  </script>
 </body>
 </html>
