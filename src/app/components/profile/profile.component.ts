@@ -4,6 +4,8 @@ import { UsercardComponent } from 'src/app/shared/usercard/usercard.component';
 import { FriendsService } from '../../services/friends.service';
 import { Observable } from 'rxjs';
 
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -14,8 +16,10 @@ export class ProfileComponent implements OnInit {
   picture: string;
   name: string;
   age: number;
+  hobbies: string;
   friends: Array<object>;
   friendSuggestions: Array<object>;
+  
 
   constructor(private db: AngularFirestore, private data: FriendsService) { }
 
