@@ -13,6 +13,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class ProfileComponent implements OnInit {
   profile = {
+    id: '',
     firstName: '',
     lastName: '',
     picture: '',
@@ -25,20 +26,21 @@ export class ProfileComponent implements OnInit {
   constructor(private db: AngularFirestore, public fbAuth: AngularFireAuth) {}
 
   ngOnInit() {
-    
     this.fbAuth.authState.subscribe(data => {
-      const document = this.db.collection('users').doc(data.uid);
-      document.get().subscribe((userData => {
-        const user = userData.data();
-        this.profile.firstName = user.first;
-        this.profile.lastName = user.last;
-        this.profile.gender = user.gender;
-        this.profile.major = user.major;
-        this.profile.picture = user.picture;
-        this.profile.hobbies = user.hobbies;
-        this.profile.friends = user.friends;
-        this.profile.suggestions = user.suggestions;
-      }));
+      this.getProfileInfo(data.uid);
     });
+  }
+  getProfileInfo(id) {
+    const document = this.db.collection('users').doc(id);
+    document.get().subscribe((userData => {
+      const user = userData.data();
+      this.profile.id = id;
+      this.profile.firstName = user.first;
+      this.profile.lastName = user.last;
+      this.profile.gender = user.gender;
+      this.profile.major = user.major;
+      this.profile.picture = user.picture;
+      this.profile.hobbies = user.hobbies;
+    }));
   }
 }

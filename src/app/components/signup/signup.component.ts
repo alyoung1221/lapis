@@ -10,6 +10,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class SignupComponent implements OnInit {
   registered: boolean;
   userEmail: string;
+  userFirst: string;
+  userLast: string;
+  userAge: Date;
+  userGender: string;
 
   constructor(
     public fbAuth: AngularFireAuth, // Inject Firebase auth service
@@ -19,12 +23,14 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  signUp(email, password) {
+  signUp(email, password, userName, dob) {
     return this.fbAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.registered = true;
         console.log(result.user);
         this.userEmail = email;
+        this.userFirst = userName;
+        this.userAge = dob;
         this.createUserEntry();
       }).catch((error) => {
         this.registered = false;
@@ -35,11 +41,11 @@ export class SignupComponent implements OnInit {
   createUserEntry() {
     console.log(this.fbAuth.authState.subscribe(data => {
       this.db.collection('users').doc(data.uid).set({
-        first: '',
+        first: this.userFirst,
         last: '',
         email: this.userEmail,
-        age: '',
-        picture: '',
+        age: this.userAge,
+        picture: 'https://firebasestorage.googleapis.com/v0/b/hobbyhub390.appspot.com/o/sample_pictures%2Fdefault_picture.png?alt=media&token=128f0b8b-8b24-42f5-8ebb-6c4959924dc8',
         location: '',
         gender: '',
         major: '',

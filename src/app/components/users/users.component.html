@@ -1,0 +1,6 @@
+<h1>Here are the users in the database:</h1>
+<div class="all-users">
+    <div class="card-container" *ngFor="let user of users[0]; index as i; trackBy: trackByFn">
+        <app-usercard [user]=user></app-usercard>
+    </div>
+</div>
