@@ -9,12 +9,18 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['../../../template.css', './friends.component.css']
 })
 export class FriendsComponent implements OnInit {
-  friends: Array<object>;
+  
+  friends = [];
+
   constructor(private db: AngularFirestore, private data: FriendsService) { }
   
   ngOnInit() {
-    ProfileComponent.friends.getInformation();
-  }
+    this.db.collection('test-friends').valueChanges().subscribe((data)=>{
+      data.map((friend) => {
+        this.friends.push(friend);
+      })
+    })
+}
   
   
 }

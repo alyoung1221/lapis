@@ -1,3 +1,117 @@
 * {
   color: black;
 }
+.main-container {
+    
+    height: 100vh;
+    background-color: #f4f6fa;
+  }
+  
+  .section-header {
+    font-weight: 400;
+    color: var(--main-color);
+  }
+  
+  .section-container li {
+    list-style-type: none;
+  }
+  
+  .section-container a {
+    text-decoration: none;
+  }
+  
+  .userprofile-container {
+    grid-area: profile;
+    background-color: #fff;
+  }
+  
+  .user-profile {
+    margin-top: 50px;
+  }
+  
+  .picture-container {
+    margin: 0 auto;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .profile-picture {
+    position: absolute;
+    max-width: 100%;
+    
+  }
+  .profile-name {
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+  }
+  
+  .search-container {
+    text-align: center;
+  }
+  
+  .friend-search {
+    background-color: none;
+    border: none;
+    border-bottom: 1px solid #aaa;
+  }
+  
+  .friend-search:focus {
+    outline: none;
+    border: none;
+  }
+  
+  .setting-header {
+    color: var(--main-color);
+    font-size: 14px;
+    margin: 15px 0px;
+  }
+  
+  .settings-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .settings-list a {
+    color: #888;
+  }
+  
+  .userlist-container {
+    grid-area: friends;
+    flex-wrap: wrap;
+    
+  }
+  
+  .user {
+    width: 50%;
+    float: left;
+    flex-direction: row;
+  }
+  
+  .suggestion-container {
+    grid-area: suggestions;
+  }
+  
+  .right-container {
+    padding: 50px;
+  }
+  
+  @media (max-width: 800px) {
+    .main-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "profile"
+        "suggestions"
+        "friends";
+    }
+    .section-container {
+      margin: 0 auto;
+    }
+    .userlist-container {
+      margin: 0 auto;
+    }
+  }
+  
