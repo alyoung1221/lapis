@@ -15,7 +15,7 @@
       <li><a routerLink="contact">Contact</a></li>
       <li *ngIf="loggedin" ><a routerLink="profile">Profile</a></li>
       <li *ngIf="loggedin" ><a routerLink="friends">Friends</a></li>
-      <li *ngIf="!loggedin" ><a routerLink="login">Login</a></li>
+      <li *ngIf="!loggedin" ><a class="login" routerLink="login">Login</a></li>
       <li *ngIf="loggedin" ><a class="signout" (click)="signOutUser()">Signout</a></li>
     </ul>
   </div>

@@ -22,12 +22,7 @@
 
 .app-navbar a {
   text-decoration: none;
-  color: black;
   transition: all 0.2s;
-}
-
-.app-navbar a:hover {
-  color: #999;
 }
 
 .nav-right {
@@ -43,4 +38,17 @@
 .project-logo {
   width: 30px;
   height: 30px;
+}
+
+.login,
+.signout {
+  cursor: pointer;
+  background-color: var(--main-color);
+  color: white;
+  padding: 5px;
+}
+
+.login:hover,
+.signup:hover {
+  color: #ddd;
 }

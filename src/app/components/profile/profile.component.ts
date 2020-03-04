@@ -42,5 +42,16 @@ export class ProfileComponent implements OnInit {
       this.profile.picture = user.picture;
       this.profile.hobbies = user.hobbies;
     }));
+
+    // algorithm to get the friends from the database depending on the users confirmed friends.
+    const friends = this.db.collection('friends').doc(id);
+    friends.get().subscribe((friendData) => {
+      const friend = friendData.data().confirmed;
+      friend.map((uid) => {
+        this.db.collection('users').doc(uid).get().subscribe((data) => {
+          this.profile.friends.push(data.data());
+        });
+      });
+    });
   }
 }
