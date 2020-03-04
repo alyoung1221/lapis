@@ -21,6 +21,11 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SuggestionsComponent } from './components/suggestions/suggestions.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -46,6 +51,11 @@ const config = {
     ContactComponent,
     SuggestionsComponent,
     NotFoundComponent,
+    SignupComponent,
+    LoginComponent,
+    FooterComponent,
+    SearchComponent,
+    AdvancedSearchComponent,
   ],
   imports: [
     BrowserModule,
