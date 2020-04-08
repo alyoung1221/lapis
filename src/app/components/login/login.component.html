@@ -1,0 +1,47 @@
+<div class="body-container">
+  <div class="login-container">
+    <form [formGroup]="loginForm" method="get" id="login">
+      <header>
+        <h1>lapis</h1>
+      </header>
+      <label for="email">E-mail</label><br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        title="Please enter your e-mail."
+        maxlength="60"
+        formControlName="email"
+        class="form-control"
+      />
+      <br /><br />
+      <label for="password">Password</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        formControlName="password"
+      />
+      <br /><br /><br />
+      <button
+        type="submit"
+        id="submit"
+        name="submit"
+        (click)="doLogin(loginForm.value)"
+        class="btn btn-default"
+      >
+        Log In
+      </button>
+      <br />
+      <div class="login-options">
+        <a href="reset-password.html" id="password">Forgot your password?</a>
+        <p>Don't have an account? <a routerLink="/signup" id="sign-up">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="loginSuccess == true">successfully logged in!</div>
+  <div *ngIf="loginSuccess == false">
+    there was an error trying to log you in!
+  </div>
+</div>

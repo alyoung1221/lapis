@@ -7,14 +7,24 @@ import { FriendsComponent } from './components/friends/friends.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CreateuserComponent } from './components/createuser/createuser.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { UsersComponent } from './components/users/users.component';
+import { HobbyComponent } from './components/hobby/hobby.component';
 
 
 const routes: Routes = [
   { path: '', component: SampleComponent},
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
+  { path: 'hobby/:hobby', component: HobbyComponent},
+  { path: 'users', component: UsersComponent },
   { path: 'profile', component: ProfileComponent},
   { path: 'friends', component: FriendsComponent },
+  { path: 'createuser', component: CreateuserComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 

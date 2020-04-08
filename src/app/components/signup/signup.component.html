@@ -9,11 +9,12 @@
             <div class="form-container">
                 <div>
                     <label>Name</label><br>
-                    <input type="text" id="name" name="name" title="Please enter your first name." maxlength="60">
+                    <input type="text" id="name" name="name" title="Please enter your first name." maxlength="60" #userName>
                 </div>
                 <div>
                     <label>E-mail (this will be your username)</label><br>
-                    <input type="email" id="email" name="email" title="Please enter your e-mail." maxlength="60">
+                    <input type="email" id="email" name="email" title="Please enter your e-mail." maxlength="60" #userEmail
+      required>
                 </div>
             </div>
             <br><br>
@@ -32,7 +33,7 @@
                 </div>
                 <div>
                     <label for="dob">Date of Birth</label><br><br>
-                    <input type="date" id="dob" name="dob" title="Please select your date of birth.">
+                    <input type="date" id="dob" name="dob" title="Please select your date of birth." #userDOB>
                 </div>
             </div>
             <br><br>
@@ -43,11 +44,18 @@
                 </div>
                 <div>
                     <label for="password2">Confirm Password</label><br>
-                    <input type="password" id="password2" name="password2">
+                    <input type="password" id="password2" name="password2" #userPassword
+      required>
                 </div>
             </div>
             <br><br>
-            <button type="submit" id="submit" name="submit">Sign Up</button><span>Already have an account? <a routerLink="/login">Sign in</a></span>
+            <button type="submit" id="submit" name="submit" (click)="signUp(userEmail.value, userPassword.value, userName.value, userDOB.value)">Sign Up</button><span>Already have an account? <a routerLink="/login">Sign in</a></span>
         </form>
     </main>
+</div>
+<div class="message" *ngIf="registered">
+  You have been successfully registered.
+</div>
+<div class="message" *ngIf="registered == false">
+  Sorry, there was an error and you have not been successfully registered.
 </div>
