@@ -1,21 +1,21 @@
 <div class="app-navbar">
   <div class="link-container">
     <div class="nav-left">
-      <a class="logo" routerLink=""><img class="project-logo" src="/assets/images/lapis_logo.jpeg"> Lapis</a>
+      <a class="logo" routerLink="">Lapis</a>
     </div>
     <ul class="nav-right">
       <li>
         <input
           class="nav-searchbar"
           type="search"
-          placeholder="Search HobbyHub"
+          placeholder="Search Lapis"
         />
       </li>
       <li><a routerLink="about">About</a></li>
       <li><a routerLink="contact">Contact</a></li>
-      <li><a routerLink="profile">Profile</a></li>
-      <li><a routerLink="friends">Friends</a></li>
+      <li *ngIf="loggedin" ><a routerLink="profile">Profile</a></li>
+      <li *ngIf="!loggedin" ><a class="login" routerLink="login">Login</a></li>
+      <li *ngIf="loggedin" ><a class="signout" (click)="signOutUser()">Signout</a></li>
     </ul>
   </div>
 </div>
-<router-outlet></router-outlet>

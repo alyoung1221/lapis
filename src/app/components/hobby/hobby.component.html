@@ -1,0 +1,4 @@
+<h2>Here are all of the users that like {{ urlParam }}</h2>
+<div class="user-container" *ngFor="let user of userList">
+    <app-usercard [user]=user></app-usercard>
+</div>

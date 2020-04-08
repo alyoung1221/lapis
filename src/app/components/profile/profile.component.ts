@@ -1,8 +1,9 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { UsercardComponent } from 'src/app/shared/usercard/usercard.component';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { FriendsService } from '../../services/friends.service';
-import { Observable } from 'rxjs';
+import { SuggestionsService } from '../../services/suggestions.service';
+import { FriendrequestService } from 'src/app/services/friendrequest.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,52 +11,59 @@ import { Observable } from 'rxjs';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
-  picture: string;
-  name: string;
-  age: number;
-  friends: Array<object>;
-  friendSuggestions: Array<object>;
-
-  constructor(private db: AngularFirestore, private data: FriendsService) { }
+  friendsLoaded = false;
+  suggestionsLoaded = false;
+  profile = {
+    id: '',
+    firstName: '',
+    lastName: '',
+    picture: '',
+    friends: [],
+    hobbies: [],
+    suggestions: [],
+    major: '',
+    gender: '',
+    requests: {
+      sent: [],
+      received: [],
+    },
+  };
+  constructor(
+    private db: AngularFirestore,
+    public fbAuth: AngularFireAuth,
+    private friends: FriendsService,
+    private requests: FriendrequestService,
+    private suggestions: SuggestionsService) {}
 
   ngOnInit() {
-    let friend = this.data.getRandomFriends().subscribe(val => {
-      console.log(val);
-    });
-    this.getInformation();
-    // console.log(this.db.collection('test').valueChanges().subscribe(val => console.log(val)));
-  }
-
-  getInformation() {
-    this.friends = [
-      {
-        name: 'Eric Mahoney',
-        picture: '/assets/pictures/eric.jpg',
-        age: 21,
-        hobbies: [' Cooking', ' Soccer', ' Music'],
-        major: 'Information Technology'
-      },
-      {
-        name: 'Robert Downey Jr.',
-        picture: '/assets/pictures/sample1.jpg',
-        age: 54,
-        hobbies: [' Movies', ' Technology', ' Music'],
-        major: 'Theater'
-      },
-    ];
-    this.friendSuggestions = [
-      {
-        name: 'Bill Gates',
-        picture: '/assets/pictures/sample2.jpg',
-        age: 64,
-        hobbies: [' Microsoft', ' Technology', ' Reading'],
-        major: 'Computer Science'
+    this.fbAuth.authState.subscribe(data => {
+      this.getProfileInfo(data.uid);
+      this.profile.friends = this.friends.getFriends(data.uid);
+      if (this.profile.friends) {
+        this.friendsLoaded = true;
       }
-    ];
-    this.picture ? this.picture = this.picture : this.picture = '/assets/pictures/default_picture.png';
-    this.name ? this.name = this.name : this.name = 'John Smith';
-    this.age ? this.age = this.age : this.age = 21;
+      this.profile.suggestions = this.suggestions.getSuggestions(data.uid);
+      if (this.profile.suggestions) {
+        this.suggestionsLoaded = true;
+      }
+      this.profile.requests.received = this.requests.getReceivedFriendRequests(data.uid);
+      this.profile.requests.sent = this.requests.getSentFriendRequests(data.uid);
+      console.log('USER ID: ' + data.uid);
+      console.log('RECEIVED: ' + this.profile.requests.received);
+      console.log('SENT: ' + this.profile.requests.sent);
+    });
   }
-
+  getProfileInfo(id) {
+    const document = this.db.collection('users').doc(id);
+    document.get().subscribe((userData => {
+      const user = userData.data();
+      this.profile.id = id;
+      this.profile.firstName = user.first;
+      this.profile.lastName = user.last;
+      this.profile.gender = user.gender;
+      this.profile.major = user.major;
+      this.profile.picture = user.picture;
+      this.profile.hobbies = user.hobbies;
+    }));
+  }
 }
