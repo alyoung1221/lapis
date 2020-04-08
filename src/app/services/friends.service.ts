@@ -23,4 +23,8 @@ export class FriendsService {
     return friends;
   }
 
+  getIndividualAccount(id) {
+    return this.db.collection('users').doc(id);
+  }
+
 }

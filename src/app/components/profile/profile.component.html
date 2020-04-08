@@ -52,5 +52,33 @@
       </div>
       <div *ngIf="friendsLoaded == false"><p>loading...</p></div>
     </div>
+
+    <div class="section-container pendinglist-container">
+      <h2 class="section-header">Pending Requests:</h2>
+      <div>
+        <div class="userlist-container" *ngIf="profile.requests.sent.length != 0">
+          <div class="user" *ngFor="let friend of profile.requests.sent">
+            <app-usercard [user]="friend"></app-usercard>
+          </div>
+        </div>
+        <div class="userlist-container" *ngIf="profile.requests.sent.length == 0">
+          <p>Sorry, couldn't find any outgoing friend requests.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-container pendinglist-container">
+      <h2 class="section-header">Received Requests:</h2>
+      <div>
+        <div class="userlist-container" *ngIf="profile.requests.received.length != 0">
+          <div class="user" *ngFor="let friend of profile.requests.received">
+            <app-usercard [user]="friend"></app-usercard>
+          </div>
+        </div>
+        <div class="userlist-container" *ngIf="profile.requests.received.length == 0">
+          <p>Sorry, no received requests could be found.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

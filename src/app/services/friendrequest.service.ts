@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { FriendsService } from './friends.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,14 +8,37 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 export class FriendrequestService {
 
-  constructor(private db: AngularFirestore) { }
+  constructor(
+    private db: AngularFirestore,
+    private friendServ: FriendsService,
+    ) { }
 
-  getSentFriendRequests(userId) {
-    console.log('getting sent friend requests');
+  getSentFriendRequests(id) {
+    const friends = [];
+    // algorithm to get sent friend requests from the database depending on the userID.
+    const friendQuery = this.db.collection('friends').doc(id);
+    friendQuery.get().subscribe((friendData) => {
+      const friend = friendData.data().sent;
+      friend.map((uid) => {
+        friends.push(this.friendServ.getIndividualAccount(uid));
+      });
+    });
+    return friends;
   }
 
-  getReceivedFriendRequests(userId) {
-    console.log('getting received friend requests');
+  getReceivedFriendRequests(id) {
+    const friends = [];
+    // algorithm to get received friend requests from the database depending on the userID.
+    const friendQuery = this.db.collection('friends').doc(id);
+    friendQuery.get().subscribe((friendData) => {
+      const friend = friendData.data().received;
+      friend.map((uid) => {
+        this.db.collection('users').doc(uid).get().subscribe((data) => {
+          friends.push(data.data());
+        });
+      });
+    });
+    return friends;
   }
 
   sendFriendRequest(userId, targetId) {

@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FriendsService } from '../../services/friends.service';
 import { SuggestionsService } from '../../services/suggestions.service';
+import { FriendrequestService } from 'src/app/services/friendrequest.service';
 
 @Component({
   selector: 'app-profile',
@@ -21,12 +22,17 @@ export class ProfileComponent implements OnInit {
     hobbies: [],
     suggestions: [],
     major: '',
-    gender: ''
+    gender: '',
+    requests: {
+      sent: [],
+      received: [],
+    },
   };
   constructor(
     private db: AngularFirestore,
     public fbAuth: AngularFireAuth,
     private friends: FriendsService,
+    private requests: FriendrequestService,
     private suggestions: SuggestionsService) {}
 
   ngOnInit() {
@@ -40,6 +46,11 @@ export class ProfileComponent implements OnInit {
       if (this.profile.suggestions) {
         this.suggestionsLoaded = true;
       }
+      this.profile.requests.received = this.requests.getReceivedFriendRequests(data.uid);
+      this.profile.requests.sent = this.requests.getSentFriendRequests(data.uid);
+      console.log('USER ID: ' + data.uid);
+      console.log('RECEIVED: ' + this.profile.requests.received);
+      console.log('SENT: ' + this.profile.requests.sent);
     });
   }
   getProfileInfo(id) {

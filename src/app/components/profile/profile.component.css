@@ -4,7 +4,6 @@
     "profile suggestions"
     "profile friends";
   grid-template-columns: minmax(200px, 1fr) 85%;
-  height: calc(100vh - 100px);
   background-color: #f4f6fa;
 }
 
