@@ -9,5 +9,5 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   styleUrls: ['./usercard.component.css'],
 })
 export class UsercardComponent {
-  @Input() user: ProfileComponent;
+  @Input() user: any;
 }

@@ -1,10 +1,8 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { UsercardComponent } from 'src/app/shared/usercard/usercard.component';
 import { FriendsService } from '../../services/friends.service';
-import { Observable } from 'rxjs';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { SuggestionsService } from '../../services/suggestions.service';
 
 @Component({
   selector: 'app-profile',
@@ -12,6 +10,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  friendsLoaded = false;
+  suggestionsLoaded = false;
   profile = {
     id: '',
     firstName: '',
@@ -23,11 +23,23 @@ export class ProfileComponent implements OnInit {
     major: '',
     gender: ''
   };
-  constructor(private db: AngularFirestore, public fbAuth: AngularFireAuth) {}
+  constructor(
+    private db: AngularFirestore,
+    public fbAuth: AngularFireAuth,
+    private friends: FriendsService,
+    private suggestions: SuggestionsService) {}
 
   ngOnInit() {
     this.fbAuth.authState.subscribe(data => {
       this.getProfileInfo(data.uid);
+      this.profile.friends = this.friends.getFriends(data.uid);
+      if (this.profile.friends) {
+        this.friendsLoaded = true;
+      }
+      this.profile.suggestions = this.suggestions.getSuggestions(data.uid);
+      if (this.profile.suggestions) {
+        this.suggestionsLoaded = true;
+      }
     });
   }
   getProfileInfo(id) {
@@ -42,16 +54,5 @@ export class ProfileComponent implements OnInit {
       this.profile.picture = user.picture;
       this.profile.hobbies = user.hobbies;
     }));
-
-    // algorithm to get the friends from the database depending on the users confirmed friends.
-    const friends = this.db.collection('friends').doc(id);
-    friends.get().subscribe((friendData) => {
-      const friend = friendData.data().confirmed;
-      friend.map((uid) => {
-        this.db.collection('users').doc(uid).get().subscribe((data) => {
-          this.profile.friends.push(data.data());
-        });
-      });
-    });
   }
 }

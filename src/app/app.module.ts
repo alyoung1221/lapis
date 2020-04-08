@@ -29,6 +29,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { UsersComponent } from './components/users/users.component';
+import { HobbyComponent } from './components/hobby/hobby.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -60,6 +61,7 @@ const config = {
     SearchComponent,
     AdvancedSearchComponent,
     UsersComponent,
+    HobbyComponent,
   ],
   imports: [
     BrowserModule,

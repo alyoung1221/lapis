@@ -11,12 +11,14 @@ import { CreateuserComponent } from './components/createuser/createuser.componen
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UsersComponent } from './components/users/users.component';
+import { HobbyComponent } from './components/hobby/hobby.component';
 
 
 const routes: Routes = [
   { path: '', component: SampleComponent},
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
+  { path: 'hobby/:hobby', component: HobbyComponent},
   { path: 'users', component: UsersComponent },
   { path: 'profile', component: ProfileComponent},
   { path: 'friends', component: FriendsComponent },
