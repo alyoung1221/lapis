@@ -1,85 +1,45 @@
 <div class="main-container">
     <div class="section-container userprofile-container">
-      <div class="user-profile">
-        <div class="picture-container">
-          <img class="profile-picture" src="{{ profile.picture }}" />
-        </div>
-        <div class="profile-name">
-          <p>{{ profile.firstName }} {{ profile.lastName }}</p>
-        </div>
-        <div class="settings-container">
-          <div class="search-container"><input class="friend-search" placeholder="Friend search..." /></div>
-          <h3 class="setting-header">SETTINGS</h3>
-          <ul class="settings-list">
-            <li><a href="#">Account Settings</a></li>
-            <li><a href="#">Profile Customization</a></li>
-          </ul>
-          <h3 class="setting-header">FRIENDS</h3>
-          <ul class="settings-list">
-            <li><a routerLink="/friends">Friends List</a></li>
-          </ul>
-        </div>
-        </div>
+        <div class="user-profile">
+          <div class="picture-container">
+            <img class="profile-picture" src="{{ profile.picture }}" />
+          </div>
+          <div class="profile-name">
+            <p>{{ profile.firstName }} {{ profile.lastName }}</p>
+          </div>
+          <div class="settings-container">
+            <div class="search-container"><input class="friend-search" placeholder="Friend search..." /></div>
+            <h3 class="setting-header">SETTINGS</h3>
+            <ul class="settings-list">
+              <li><a href="#">Account Settings</a></li>
+              <li><a href="profile-customization/editprofile.html">Profile Customization</a></li>
+            </ul>
+            <h3 class="setting-header">FRIENDS</h3>
+            <ul class="settings-list">
+              <li><a routerLink="/friends">Friends List</a></li>
+            </ul>
+          </div>
+          </div>
     </div>
-  
+
     <div class="right-container">
-      <div class="section-container suggestion-container">
-        <h2 class="section-header">Edit your Profile Page</h2>
-        <div *ngIf="suggestionsLoaded == true">
-          <div class="userlist-container" *ngIf="profile.suggestions.length != 0">
-            <div class="user" *ngFor="let suggestion of profile.suggestions">
-              <app-usercard [user]="suggestion"></app-usercard>
+        <div class="section-container edit-profile">
+            <div class="edit-profile">
+                <h1>Edit Profile</h1>
+                <form action="../profile.component.html">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname" value=""><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" value=""><br>
+                    <label for="email">Email address:</label>
+                    <input type="text" id="email" name="email" value=""><br>
+                    <label for="hobbies">Hobbies:</label>
+                    <input type="text" id="hobbies" name="hobbies" value=""><br>
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" value=""><br>
+                    <input type="submit" value="Submit">
+                </form>
             </div>
-          </div>
-          <div class="userlist-container" *ngIf="profile.suggestions.length == 0">
-            <p>Sorry, no suggestions could be found.</p>
-          </div>
         </div>
-        <div *ngIf="suggestionsLoaded == false"><p>loading...</p></div>
-      </div>
-  
-      <div class="section-container friendlist-container">
-        <h2 class="section-header">Here are your friends:</h2>
-        <div *ngIf="friendsLoaded == true">
-          <div class="userlist-container" *ngIf="profile.friends.length != 0">
-            <div class="user" *ngFor="let friend of profile.friends">
-              <app-usercard [user]="friend"></app-usercard>
-            </div>
-          </div>
-          <div class="userlist-container" *ngIf="profile.friends.length == 0">
-            <p>Sorry, no friends could be found.</p>
-          </div>
-        </div>
-        <div *ngIf="friendsLoaded == false"><p>loading...</p></div>
-      </div>
-  
-      <div class="section-container pendinglist-container">
-        <h2 class="section-header">Pending Requests:</h2>
-        <div>
-          <div class="userlist-container" *ngIf="profile.requests.sent.length != 0">
-            <div class="user" *ngFor="let friend of profile.requests.sent">
-              <app-usercard [user]="friend"></app-usercard>
-            </div>
-          </div>
-          <div class="userlist-container" *ngIf="profile.requests.sent.length == 0">
-            <p>Sorry, couldn't find any outgoing friend requests.</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="section-container pendinglist-container">
-        <h2 class="section-header">Received Requests:</h2>
-        <div>
-          <div class="userlist-container" *ngIf="profile.requests.received.length != 0">
-            <div class="user" *ngFor="let friend of profile.requests.received">
-              <app-usercard [user]="friend"></app-usercard>
-            </div>
-          </div>
-          <div class="userlist-container" *ngIf="profile.requests.received.length == 0">
-            <p>Sorry, no received requests could be found.</p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  
+</div>
