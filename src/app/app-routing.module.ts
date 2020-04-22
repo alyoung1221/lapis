@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UsersComponent } from './components/users/users.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'hobby/:hobby', component: HobbyComponent},
   { path: 'users', component: UsersComponent },
   { path: 'profile', component: ProfileComponent},
+  { path: 'profile/:id', component: UserProfileComponent},
   { path: 'friends', component: FriendsComponent },
   { path: 'createuser', component: CreateuserComponent },
   { path: 'login', component: LoginComponent },

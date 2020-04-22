@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   friendsLoaded = false;
   suggestionsLoaded = false;
   profile = {
-    id: '',
+    userID: '',
     firstName: '',
     lastName: '',
     picture: '',
@@ -57,7 +57,7 @@ export class ProfileComponent implements OnInit {
     const document = this.db.collection('users').doc(id);
     document.get().subscribe((userData => {
       const user = userData.data();
-      this.profile.id = id;
+      this.profile.userID = id;
       this.profile.firstName = user.first;
       this.profile.lastName = user.last;
       this.profile.gender = user.gender;

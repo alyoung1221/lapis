@@ -1,0 +1,11 @@
+<div *ngIf="profileFound" class="profile-container">
+    <p class="picture-container"><img src="{{ picture }}"></p>
+    <p>first name: <span *ngIf="firstName">{{ firstName }}</span> <span *ngIf="!firstName">No first name available</span></p>
+    <p>last name: <span *ngIf="lastName">{{ gender }}</span> <span *ngIf="!lastName">No last name available</span></p>
+    <p>gender: <span *ngIf="gender">{{ gender }}</span><span *ngIf="!gender">No gender available</span></p>
+    <p>hobbies: <span *ngIf="hobbies">{{ hobbies }}</span><span *ngIf="!hobbies">No hobbies available</span></p>
+</div>
+
+<div *ngIf="!profileFound">
+    <p>no profile could be found</p>
+</div>
