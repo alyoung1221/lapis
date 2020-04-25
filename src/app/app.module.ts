@@ -1,6 +1,10 @@
+// Importing all of the modules from Angular
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Importing all of the Firestore Modules required to get data from our database.
 import { AngularFireModule } from '@angular/fire';
@@ -9,7 +13,6 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Importing all of the custom-made components we have developed.
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AboutComponent} from './components/about/about.component';
@@ -17,13 +20,16 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SampleComponent } from './components/sample/sample.component';
 import { UsercardComponent } from './shared/usercard/usercard.component';
 import { FriendsComponent } from './components/friends/friends.component';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CreateuserComponent } from './components/createuser/createuser.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { ContactComponent} from './components/contact/contact.component';
-import { SearchComponent } from './search/search.component';
-import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
-import { NotFoundComponent} from './components/not-found/not-found.component';
+import { SearchComponent } from './components/search/search.component';
+import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
+import { UsersComponent } from './components/users/users.component';
+import { HobbyComponent } from './components/hobby/hobby.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -45,22 +51,31 @@ const config = {
     FriendsComponent,
     SampleComponent,
     UsercardComponent,
-    SignupComponent,
+    FriendsComponent,
+    AboutComponent,
+    ContactComponent,
+    NotFoundComponent,
+    CreateuserComponent,
     LoginComponent,
+    SignupComponent,
     FooterComponent,
     ContactComponent,
     SearchComponent,
     AdvancedSearchComponent,
-    NotFoundComponent
+    UsersComponent,
+    HobbyComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

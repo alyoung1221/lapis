@@ -1,0 +1,8 @@
+.main-container {
+  height: calc(100vh - 200px);
+}
+.all-users {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
