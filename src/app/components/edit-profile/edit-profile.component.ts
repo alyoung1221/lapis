@@ -1,17 +1,15 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-//import { UsercardComponent } from 'src/app/shared/usercard/usercard.component';
-import { FriendsService } from '../../../services/friends.service';
-//import { Observable } from 'rxjs';
-
-
+import { UsercardComponent } from 'src/app/shared/usercard/usercard.component';
+import { FriendsService } from '../../services/friends.service';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
 
   picture: string;
   name: string;
@@ -19,14 +17,13 @@ export class ProfileComponent implements OnInit {
   hobbies: string;
   friends: Array<object>;
   friendSuggestions: Array<object>;
-  
 
   constructor(private db: AngularFirestore, private data: FriendsService) { }
 
   ngOnInit() {
-    let friend = this.data.getRandomFriends().subscribe(val => {
-      console.log(val);
-    });
+    //let friend = this.data.getRandomFriends().subscribe(val => {
+      //console.log(val);
+    //});
     this.getInformation();
     // console.log(this.db.collection('test').valueChanges().subscribe(val => console.log(val)));
   }
@@ -82,8 +79,6 @@ export class ProfileComponent implements OnInit {
         hobbies: [' ', ' ', ' '],
         major: 'Information Technology'
       },
-      
-      
     ];
 
     this.friendSuggestions = [
