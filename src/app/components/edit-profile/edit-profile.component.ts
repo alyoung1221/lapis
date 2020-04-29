@@ -21,9 +21,9 @@ export class EditProfileComponent implements OnInit {
   constructor(private db: AngularFirestore, private data: FriendsService) { }
 
   ngOnInit() {
-    //let friend = this.data.getRandomFriends().subscribe(val => {
-      //console.log(val);
-    //});
+    /* let friend = this.data.getRandomFriends().subscribe(val => {
+    console.log(val);
+    }); */
     this.getInformation();
     // console.log(this.db.collection('test').valueChanges().subscribe(val => console.log(val)));
   }
