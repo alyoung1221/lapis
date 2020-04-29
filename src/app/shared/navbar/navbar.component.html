@@ -1,7 +1,8 @@
 <div class="app-navbar">
   <div class="link-container">
     <div class="nav-left">
-      <a class="logo" routerLink="">Lapis</a>
+      <a *ngIf="!loggedin" class="logo" routerLink="">Lapis</a>
+      <a *ngIf="loggedin" class="logo" routerLink="profile">Lapis</a>
     </div>
     <ul class="nav-right">
       <li>

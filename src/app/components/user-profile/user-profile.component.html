@@ -1,11 +1,20 @@
+<!-- if found profile -->
 <div *ngIf="profileFound" class="profile-container">
     <p class="picture-container"><img src="{{ picture }}"></p>
     <p>first name: <span *ngIf="firstName">{{ firstName }}</span> <span *ngIf="!firstName">No first name available</span></p>
     <p>last name: <span *ngIf="lastName">{{ gender }}</span> <span *ngIf="!lastName">No last name available</span></p>
     <p>gender: <span *ngIf="gender">{{ gender }}</span><span *ngIf="!gender">No gender available</span></p>
     <p>hobbies: <span *ngIf="hobbies">{{ hobbies }}</span><span *ngIf="!hobbies">No hobbies available</span></p>
+    
+    <!-- friend request container -->
+    <div class="friend-status" [ngSwitch]="friendStatus">
+        <div class="btn add-friend-btn" *ngSwitchCase="'none'">add friend</div>
+        <div class="btn cancel-request-btn" *ngSwitchCase="'requested'">cancel friend request</div>
+        <div class="btn deny-pending-btn" *ngSwitchCase="'pending'"><p>deny request</p></div>
+    </div>
 </div>
 
+<!-- no profile found -->
 <div *ngIf="!profileFound">
     <p>no profile could be found</p>
 </div>
