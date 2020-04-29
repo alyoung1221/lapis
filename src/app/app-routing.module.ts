@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UsersComponent } from './components/users/users.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'createuser', component: CreateuserComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'profile/editprofile', component: EditProfileComponent },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 
