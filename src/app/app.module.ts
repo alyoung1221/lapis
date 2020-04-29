@@ -29,8 +29,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { UsersComponent } from './components/users/users.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
-import { EditProfileComponent } from './components/profile/profile-customization/edit-profile/edit-profile.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
