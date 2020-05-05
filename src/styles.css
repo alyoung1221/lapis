@@ -402,7 +402,6 @@ button[type="submit"] + span {
   background-color: #f4f6fa;
 }
 
-
 /*User Profile*/
 #friend-search::-webkit-search-cancel-button {
   height: 14px;
@@ -416,19 +415,9 @@ button[type="submit"] + span {
   flex: 75%; 
   padding: 20px 0 20px 40px;
 }
-aside {
-  flex: 20%; 
-  margin-top: 30px; 
-  text-align: center;
-}
 aside a {
   display: block;
   padding: 15px;
-}
-aside a:hover {
-  background-color: #ecf3fc;
-  border-left: 6px solid #26619C;
-  color: #26619C;
 }
 aside h3 {
   font-weight: 500;

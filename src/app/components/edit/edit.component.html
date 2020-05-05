@@ -1,8 +1,15 @@
 <div class="main-container">
-  <div class="section-container userprofile-container">
+  <form method="post" id="edit" name="edit" class="flex-container">
+  <aside class="section-container userprofile-container">
     <div class="user-profile">
-      <div class="picture-container">
-        <img class="profile-picture" src="{{ profile.picture }}" />
+      <div class="upload">
+        <label for="img" title="Change Image">
+          <span class="text-box">
+            Change
+          </span>
+          <img src="{{profile.picture}}" class="profile">
+        </label>
+        <input type="file" name="img" id="img">
       </div>
       <div class="profile-name">
         <p>{{ profile.firstName }} {{ profile.lastName }}</p>
@@ -20,10 +27,9 @@
         </ul>
       </div>
       </div>
-  </div>
+    </aside>
+  <section class="right-container user">
 
-  <div class="right-container user">
-    <form method="post" id="edit" name="edit">
       <div class="flex-container">
         <div>
           <label for="fname">First Name*</label>
@@ -120,5 +126,6 @@
       <textarea id="bio" name="bio" placeholder="Write a short description of yourself here..." required></textarea>
       <br><br><br>
       <button type="submit" id="update" name="update">Update</button>
-    </form>
-</div>
+    </section>   
+ </form>
+ </div>
