@@ -30,6 +30,8 @@ import { SearchComponent } from './components/search/search.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { UsersComponent } from './components/users/users.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
+import { UserComponent } from './components/user/user.component';
+import { EditComponent } from './components/edit/edit.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -64,6 +66,8 @@ const config = {
     AdvancedSearchComponent,
     UsersComponent,
     HobbyComponent,
+    UserComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
