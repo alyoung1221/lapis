@@ -15,11 +15,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 // Importing all of the custom-made components we have developed.
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { AboutComponent} from './components/about/about.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SampleComponent } from './components/sample/sample.component';
 import { UsercardComponent } from './shared/usercard/usercard.component';
 import { FriendsComponent } from './components/friends/friends.component';
-import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CreateuserComponent } from './components/createuser/createuser.component';
@@ -30,6 +30,8 @@ import { SearchComponent } from './components/search/search.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { UsersComponent } from './components/users/users.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
+import { UserComponent } from './components/user/user.component';
+import { EditComponent } from './components/edit/edit.component';
 
 const config = {
     apiKey: 'AIzaSyBzxJlV7YQTlKixOuWrifWUaC2mwbCdMM8',
@@ -46,6 +48,7 @@ const config = {
   declarations: [
     AppComponent,
     NavbarComponent,
+    AboutComponent,
     ProfileComponent,
     FriendsComponent,
     SampleComponent,
@@ -58,10 +61,13 @@ const config = {
     LoginComponent,
     SignupComponent,
     FooterComponent,
+    ContactComponent,
     SearchComponent,
     AdvancedSearchComponent,
     UsersComponent,
     HobbyComponent,
+    UserComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
