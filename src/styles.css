@@ -3,7 +3,7 @@
 /*
 * This is a global CSS file that will be applied to the entire application
 */
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500|Raleway:300,400,500&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500|Material+Icons&display=swap');
 
 :root {
   --main-color: #26619C;
@@ -89,6 +89,9 @@ h2 {
 h2 span {
   font-style: italic;
   font-size: 0.8em;
+}
+.material-icons, .fas {
+  vertical-align: top;
 }
 
 /*Header*/
@@ -425,18 +428,26 @@ aside h3 {
 section h3 {
   text-align: left;
 }
+.profile {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+.profile img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
 .bio {
-  margin-left: 40px; 
   line-height: 2; 
-  width: 80%;
 }
 .bio .flex-container {
   justify-content: space-between; 
   width: 200px; 
-  margin-top: 10px;
+  margin-top: 20px;
 }
 #interests {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 h3, h4 {
   font-weight: 400;

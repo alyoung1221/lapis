@@ -1,3 +1,42 @@
-.picture-container > img {
-    width: 100px;
+#interests {
+    margin-top: 30px;
+}
+h2 {
+    text-align: left;
+    font-weight: 500;
+}
+h3, h4 {
+    font-weight: 400;
+}
+.user-profile {
+    max-width: 80%;
+    margin-left: 80px;
+}
+#interests ul {
+    list-style: none;
+    margin-top: 15px;
+}
+#interests ul li {
+    border: 1px solid #CAD6E6;
+    border-radius: 16px;
+    padding: 4.5px 14px 4.5px 3px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    text-align: center;
+    display: flex;
+    cursor: pointer;
+    transition: .2s;
+}
+#interests ul li:hover {
+    transform: scale(1.1);
+}
+#interests ul li:before, .options label:before {
+    content: '\f111';
+    font-family: 'Font Awesome 5 Free';
+    position: relative;
+    top: 5px;
+    left: 8px;
+    font-size: .7em;
+    margin-right: 32px;
+    transform: scale(.95, 1.15);
 }

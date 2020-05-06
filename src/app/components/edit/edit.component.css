@@ -306,8 +306,7 @@ aside {
 		content: '\f111';
 		font-family: 'Font Awesome 5 Free';
 		position: relative;
-		top: 5px;
-		left: 8px;
+		top: 4px;
 		font-size: .7em;
 		margin-right: 32px;
 		transform: scale(.95, 1.15);

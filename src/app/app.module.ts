@@ -83,7 +83,7 @@ const config = {
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
