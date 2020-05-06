@@ -150,10 +150,9 @@ aside {
 	textarea {
 		background: transparent;
 		border: 1px solid #CAD6E6; 
-		padding: 5px 8px;
-		width: 500px; 
-		height: 160px;
-		font-size: .95em;
+		padding: 10px 0 0 8px;
+		width: 430px; 
+		height: 100px;
 	}
 
 /*Edit User*/
@@ -331,20 +330,20 @@ aside {
 	}
 
 /*Edit User*/
-  #edit section > * {
-    font-family: Poppins; 
-    font-size: .9em;
-  }
-  #edit label {
-    margin-bottom: 10px;
-    font-size: initial;
-  }
-  #edit section input {
-	border-bottom: .9px solid #CCC;
-	width: 240px;
-}
+	#edit section > * {
+		font-family: Poppins; 
+		font-size: .9em;
+	}
+  	#edit label {
+  	  margin-bottom: 10px;
+   	  font-size: initial;
+ 	 }
+ 	 #edit section input {
+		border-bottom: .9px solid #CCC;
+		width: 240px;
+	}
 	#edit .ui.selection.dropdown {
-    font-weight: 400;
+    	font-weight: 400;
 		min-width: 195px;
 		background: transparent;
 	}
@@ -354,13 +353,13 @@ aside {
 	#edit .input input[type="radio"]:checked ~ .checkmark, #edit .input:hover input[type="radio"] ~ .checkmark {
 		border-color: #B3C4DB;
 		background: #B3C4DB;
-  }	
-  #edit input:focus, #edit textarea:focus {
-    border-color: #B3C4DB;
-  }
+  	}	
+	#edit input:focus, #edit textarea:focus {
+		border-color: #B3C4DB;
+	}
 	#bio {
-    resize: none;
-  }
+    	resize: none;
+  	}
 	#edit button {
 		display: block;
 		text-align: center;
