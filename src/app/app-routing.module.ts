@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SampleComponent } from './components/sample/sample.component';
 import { FriendsComponent } from './components/friends/friends.component';
+import { SearchComponent } from './components/search/search.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'profile', component: ProfileComponent},
   { path: 'friends', component: FriendsComponent },
+  { path: 'search', component: SearchComponent },
   { path: 'createuser', component: CreateuserComponent },
   { path: 'edit', component: EditComponent },
   { path: 'login', component: LoginComponent },
