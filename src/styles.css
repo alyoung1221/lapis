@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500|Raleway:300,400,500&display=swap");
 
 :root {
-  --main-color: #26619c;
+  --main-color: #26619C;
 }
 
 * {
@@ -24,6 +24,15 @@ html {
 html,
 body {
   font-weight: 300;
+  height: 100%;
+}
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
 }
 html,
 body,
@@ -59,8 +68,7 @@ body {
 }
 body,
 .form-container,
-.flex-container,
-.body-container {
+.flex-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -85,7 +93,6 @@ h2 span {
 
 /*Header*/
 header {
-  font-weight: 600;
   line-height: 1;
   width: 25%;
 }
@@ -98,23 +105,35 @@ header h1 {
   text-align: left;
 }
 
-/*Main*/
 /*Search*/
-#searchbar {
-  margin-left: 50px;
-  text-align: center;
-}
+/*Search*/
 #search {
   font-size: 16px;
-  border: 1px solid #ddd;
-  margin-bottom: 50px;
-  height: 38px;
+  border: 1px solid #DDD;
+  height: 36px;
   text-align: center;
-  width: 50vw;
+  width: 300px;
 }
 #search:focus {
-  border: 1px solid #a9a9a9;
+  border: 1px solid #CCC;
 }
+input[type="radio"], input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  background: url(/assets/images/reset.PNG) no-repeat right center;
+  position: relative;
+  right: 5px;  
+  height: 15px;
+  width: 15px;
+  background-size: 15px;
+  cursor: pointer;
+}
+
 /*Form*/
 label {
   font-weight: 400;
@@ -217,7 +236,8 @@ select {
 }
 /*#search input.active, #search input:not([type="number"]):hover, #search input:not([type="number"]):active {
 		border: 1px solid #FA9328;
-	}*/
+  }*/
+  
 .container,
 .checkbox-container {
   font-weight: 300;
@@ -243,9 +263,9 @@ select {
   position: absolute;
   top: 0;
   left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee;
+  height: 18px;
+  width: 18px;
+  border: 1px solid #96C8DA;
 }
 .container .checkmark {
   border-radius: 50%;
@@ -268,8 +288,8 @@ select {
   display: block;
 }
 .container .checkmark:after {
-  top: 6px;
-  left: 6px;
+  top: 5px;
+  left: 5px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -341,13 +361,13 @@ select {
 .quantity input[type="number"] {
   -moz-appearance: textfield;
 }
-button[type="submit"] {
+#sign-up button[type="submit"] {
   padding: 10px 38px;
   font-size: 1em;
   border: 1px solid #2d75cd;
   border-radius: 30px;
 }
-button[type="submit"]:hover {
+#sign-up button[type="submit"]:hover {
   background: #2d75cd;
   color: #fff;
 }
@@ -373,4 +393,109 @@ button[type="submit"] + span {
 }
 .login-options p {
   margin-top: 15px;
+}
+
+/*Main*/
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f4f6fa;
+}
+
+/*User Profile*/
+#friend-search::-webkit-search-cancel-button {
+  height: 14px;
+  width: 14px;
+  background-size: 14px;
+  right: 7px;
+}
+.user {
+  background: #F4F6FA;
+  color: var(--main-color);
+  flex: 75%; 
+  padding: 20px 0 20px 40px;
+}
+aside a {
+  display: block;
+  padding: 15px;
+}
+aside h3 {
+  font-weight: 500;
+}
+section h3 {
+  text-align: left;
+}
+.bio {
+  margin-left: 40px; 
+  line-height: 2; 
+  width: 80%;
+}
+.bio .flex-container {
+  justify-content: space-between; 
+  width: 200px; 
+  margin-top: 10px;
+}
+#interests {
+  margin-top: 30px;
+}
+h3, h4 {
+  font-weight: 400;
+}
+#interests ul {
+  list-style: none;
+  margin-top: 15px;
+}
+#interests ul li {
+  border: 1px solid #CAD6E6;
+  border-radius: 16px;
+  padding: 4.5px 0;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  min-width: 150px;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  transition: .2s;
+}
+#interests ul li:hover {
+  transform: scale(1.1);
+}
+#shared li:before {
+  font-weight: 900;
+}
+#description {
+  font-style: italic;
+}
+#friend-search {
+  border: 1px solid #26619C;
+  border-radius: 15px;
+  padding: 5px 0;
+  text-indent: 10px;
+  width: 180px;
+}
+.tabs {
+  margin-top: 20px;
+}
+.tabs h3 {
+  font-size: 1.05em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #26619C;
+}
+.error {
+  color: red;
+  border-color: red !important;
+}
+
+/*Footer*/
+footer {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+footer > .flex-container {
+  justify-content: space-between;
+}
+footer nav a {
+  margin-right: 30px;
 }

@@ -1,0 +1,385 @@
+.section-header {
+  font-weight: 400;
+  color: var(--main-color);
+  text-align: left;
+}
+
+.section-container {
+  padding: 50px 0px;
+}
+
+.section-container li {
+  list-style-type: none;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.section-container li:hover {
+  background-color: #ecf3fc;
+  border-left: 6px solid var(--main-color);
+}
+
+.section-container li:hover a {
+	display: inline-block;
+	color: var(--main-color);
+	width: 100%;
+	height: 100%;
+}
+
+.section-container a {
+  color: #888;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+aside {
+  flex: 20%;
+  background-color: #fff;
+  text-align: center;
+}
+.profile {
+	border-radius: 50%;
+	width: auto;
+	height: 100px;
+}
+.upload > input {
+	display: none;
+}
+.upload label {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+.text-box {
+	display: block;
+	position: absolute;    
+	height: 100%;
+	text-align: center;    
+	width: 100%;
+}
+.text-box:before {
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.text-box span {
+	display: inline-block;
+}
+.upload img {
+	display: block;
+}
+.profile-name {
+  color: var(--main-color);
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.search-container {
+  text-align: center;
+}
+
+.friend-search {
+  margin: 20px 0px;
+  font-size: 15px;
+  padding: 10px;
+  height: 35px;
+  background-color: none;
+  border-radius: 25px;
+  border: 1px solid var(--main-color);
+}
+
+.friend-search:focus {
+  outline: none;
+}
+
+.setting-header {
+  color: var(--main-color);
+  font-size: 1.05em;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 15px 10px;
+}
+
+.settings-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.userlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: friends;
+}
+
+.suggestion-container {
+  grid-area: suggestions;
+}
+
+.right-container {
+  padding: 50px;
+  flex: 70%;
+}
+
+@media (max-width: 800px) {
+  .section-container {
+    margin: 0 auto;
+  }
+  .userlist-container {
+    margin: 0 auto;
+  }
+}
+	
+/*Form*/
+  input, button, .dropdown {
+    font-family: Poppins;
+    background: transparent;
+    border: 0;
+    outline: 0;	
+  }
+	label {
+		display: block;
+		font-weight: 400;
+		margin-top: 30px;
+	}
+	button, input[type="button"] {
+		background-color: transparent;
+		border: 0;
+		outline: 0;	
+		font-size: 95%;
+		cursor: pointer;
+	}
+	textarea {
+		background: transparent;
+		border: 1px solid #CAD6E6; 
+		padding: 5px 8px;
+		width: 500px; 
+		height: 160px;
+		font-size: .95em;
+	}
+
+/*Edit User*/
+	.options [type="checkbox"]:checked + label, .options input:hover:not(:disabled) + label {
+		border: 1px solid #B3C4DB;
+	}
+	.options input:checked + label:before, .options input:hover + label:before {
+		font-weight: 900;
+	}
+	#search input[type="text"], #search input[type="button"] {
+		border: 1px solid #CCC;
+		border-radius: 5px;
+		padding: 10px 15px;
+	}
+	.options label, .input {
+		font-weight: 300
+	}
+	.options {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.options input + label {
+		border: 1px solid #CAD6E6;
+		border-radius: 18px;
+		padding: 4.5px 15px;
+		margin: 20px 20px 10px 0;
+		min-width: 160px;
+		display: flex;
+		cursor: pointer;
+	}
+	.options label:before {
+		font-size: .7em;
+		transform: scale(.95, 1.5);
+	}
+	.input {
+		display: block;
+		position: relative;
+		padding-left: 35px;
+		margin-bottom: 12px;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.checkmark {
+		height: 16.5px;
+		width: 17px;
+		border: 1px solid #96C8DA;
+	}
+	.radio .checkmark {
+		border-radius: 50%;
+	}
+	.input input[type="radio"]:checked ~ .checkmark, .input:hover input[type="radio"] ~ .checkmark {
+		background-color: #96C8DA;
+	}
+	.checkmark:after {
+		content: "";
+		position: absolute;
+		display: none;
+	}
+	.input input:checked ~ .checkmark:after, .input input:hover ~ .checkmark:after {
+		display: block;
+	}
+	.radio .checkmark:after {
+		top: 4.2px;
+		left: 4.5px;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: white;
+	}
+	.checkbox .checkmark {
+		width: 15px;
+		height: 15px;
+	}
+	.checkbox .checkmark:after {
+		font-weight: 300;
+		left: 4px;
+		top: 0;
+		width: 4px;
+		height: 8.5px;
+		border: solid #96C8DA;
+		border-width: 0 2.8px 2.8px 0;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+/*User Profile*/
+	#friend-search::-webkit-search-cancel-button {
+		height: 14px;
+		width: 14px;
+		background-size: 14px;
+		right: 7px;
+	}
+	.user {
+		background: #F4F6FA;
+		color: var(--main-color);
+		flex: 75%; 
+		padding: 20px 0 20px 40px;
+	}
+	aside h3 {
+		font-weight: 500;
+	}
+	section h3 {
+		text-align: left;
+	}
+	.bio {
+		margin-left: 40px; 
+		line-height: 2; 
+		width: 80%;
+	}
+	.bio .flex-container {
+		justify-content: space-between; 
+		width: 200px; 
+		margin-top: 10px;
+	}
+	#interests {
+		margin-top: 30px;
+	}
+	h3, h4 {
+		font-weight: 400;
+	}
+	#interests ul {
+		list-style: none;
+		margin-top: 15px;
+	}
+	#interests ul li {
+		border: 1px solid #CAD6E6;
+		border-radius: 16px;
+		padding: 4.5px 0;
+		margin-bottom: 20px;
+		margin-right: 20px;
+		min-width: 150px;
+		text-align: center;
+		display: flex;
+		cursor: pointer;
+		transition: .2s;
+	}
+	#interests ul li:hover {
+		transform: scale(1.1);
+	}
+	#interests ul li:before, .options label:before {
+		content: '\f111';
+		font-family: 'Font Awesome 5 Free';
+		position: relative;
+		top: 5px;
+		left: 8px;
+		font-size: .7em;
+		margin-right: 32px;
+		transform: scale(.95, 1.15);
+	}
+	#shared li:before {
+		font-weight: 900;
+	}
+	#description {
+		font-style: italic;
+	}
+	#friend-search {
+		border: 1px solid #26619C;
+		border-radius: 15px;
+		padding: 5px 0;
+		text-indent: 10px;
+		width: 180px;
+	}
+	.tabs {
+		margin-top: 20px;
+	}
+	.tabs h3 {
+		font-size: 1.05em;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+		color: #26619C;
+	}
+
+/*Edit User*/
+  #edit section > * {
+    font-family: Poppins; 
+    font-size: .9em;
+  }
+  #edit label {
+    margin-bottom: 10px;
+    font-size: initial;
+  }
+  #edit section input {
+	border-bottom: .9px solid #CCC;
+	width: 240px;
+}
+	#edit .ui.selection.dropdown {
+    font-weight: 400;
+		min-width: 195px;
+		background: transparent;
+	}
+	#edit .radio, #edit .checkmark, #edit .ui.selection.dropdown, .ui.selection.active.dropdown .menu {
+		border-color: #CAD6E6;
+	}
+	#edit .input input[type="radio"]:checked ~ .checkmark, #edit .input:hover input[type="radio"] ~ .checkmark {
+		border-color: #B3C4DB;
+		background: #B3C4DB;
+  }	
+  #edit input:focus, #edit textarea:focus {
+    border-color: #B3C4DB;
+  }
+	#bio {
+    resize: none;
+  }
+	#edit button {
+		display: block;
+		text-align: center;
+		cursor: pointer;
+		color: #26619C;
+	}
+	#edit button[type="submit"] {
+		padding: 12px 30px;
+		border: 1px solid #CAD6E6;
+	}
+	#edit button[type="submit"] {
+		width: 120px;
+	}
+	#edit button[type="submit"]:hover {
+		background: #CAD6E6;
+		color: #FFF !important;
+	}
