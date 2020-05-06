@@ -1,45 +1,29 @@
-.app-navbar {
+/*Header*/
+header {
+  padding: 30px 0 18px 0;
   width: 100%;
-  height: 100px;
-  border-bottom: 3px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
 }
-
-.logo {
-  background: -webkit-linear-gradient(#2190e3, #3a55b4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 600;
+header img {
+  vertical-align: top;
+  margin-top: -15px;
+  width: 150px;
 }
-
-.link-container {
-  height: 100%;
-  display: flex;
+nav {
   justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  margin: 0 auto;
 }
-
-.app-navbar a {
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
-.nav-right {
-  float: right;
-  display: flex;
-}
-
-.nav-right li {
-  list-style-type: none;
+nav .flex-container form, nav li:not(:last-of-type) {
   margin-right: 50px;
 }
-
-.project-logo {
-  width: 30px;
-  height: 30px;
+nav li:last-of-type {
+  margin-right: 28px;
 }
-
+nav ul {
+  list-style: none;
+}
+nav a {
+  font-weight: 400;
+}
 .login,
 .signout {
   cursor: pointer;
@@ -47,7 +31,6 @@
   color: white;
   padding: 5px;
 }
-
 .login:hover,
 .signup:hover {
   color: #ddd;
