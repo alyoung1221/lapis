@@ -486,16 +486,3 @@ h3, h4 {
   color: red;
   border-color: red !important;
 }
-
-/*Footer*/
-footer {
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-footer > .flex-container {
-  justify-content: space-between;
-}
-footer nav a {
-  margin-right: 30px;
-}

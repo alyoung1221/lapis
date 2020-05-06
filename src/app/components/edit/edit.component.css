@@ -8,22 +8,17 @@
   padding: 50px 0px;
 }
 
-.section-container li {
+.section-container a {
   list-style-type: none;
-  padding: 10px 0;
+  padding: 17px 0;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
-.section-container li:hover {
-  background-color: #ecf3fc;
-  border-left: 6px solid var(--main-color);
-}
-
-.section-container li:hover a {
-	display: inline-block;
+ .section-container a:hover {
+	background-color: #ecf3fc;
+	border-left: 6px solid var(--main-color);
 	color: var(--main-color);
-	width: 100%;
-	height: 100%;
 }
 
 .section-container a {
