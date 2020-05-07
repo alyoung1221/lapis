@@ -330,24 +330,19 @@ aside {
 	}
 
 /*Edit User*/
-	#edit section > * {
+	#edit section > *:not(label) {
 		font-family: Poppins; 
 		font-size: .9em;
 	}
-  	#edit label {
+  	label {
   	  margin-bottom: 10px;
    	  font-size: initial;
- 	 }
- 	 #edit section input {
+ 	}
+ 	#edit section input {
 		border-bottom: .9px solid #CCC;
 		width: 240px;
 	}
-	#edit .ui.selection.dropdown {
-    	font-weight: 400;
-		min-width: 195px;
-		background: transparent;
-	}
-	#edit .radio, #edit .checkmark, #edit .ui.selection.dropdown, .ui.selection.active.dropdown .menu {
+	#edit .radio, #edit .checkmark {
 		border-color: #CAD6E6;
 	}
 	#edit .input input[type="radio"]:checked ~ .checkmark, #edit .input:hover input[type="radio"] ~ .checkmark {
