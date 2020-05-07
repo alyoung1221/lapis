@@ -7,14 +7,17 @@
 
 :root {
   --main-color: #26619C;
+  --select-width: 195px;
 }
 
 * {
-  /*font-family: "Nunito", sans-serif;*/
+  font-family: Poppins;
   margin: 0;
   padding: 0;
 }
-
+*:focus {
+  outline: 0;
+}
 html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -23,6 +26,7 @@ html {
 }
 html,
 body {
+  font-family: Poppins;
   font-weight: 300;
   height: 100%;
 }
@@ -30,22 +34,8 @@ html {
   height: 100%;
 }
 body {
-  display: flex;
   flex-direction: column;
-  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
-}
-html,
-body,
-input,
-button {
-  font-family: Poppins;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
-*:focus {
-  outline: 0;
+  height: 100vh;
 }
 a {
   text-decoration: none;
@@ -58,17 +48,13 @@ form a,
 footer a {
   font-weight: 400;
 }
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   text-align: center;
 }
 body {
   flex-direction: column;
 }
-body,
-.form-container,
-.flex-container {
+body, .form-container, .flex-container, .main-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -91,21 +77,6 @@ h2 span {
   font-size: 0.8em;
 }
 
-/*Header*/
-header {
-  line-height: 1;
-  width: 25%;
-}
-header h1 {
-  background: -webkit-linear-gradient(#2190e3, #3a55b4);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 2.7em;
-  text-align: left;
-}
-
-/*Search*/
 /*Search*/
 #search {
   font-size: 16px;
@@ -116,10 +87,6 @@ header h1 {
 }
 #search:focus {
   border: 1px solid #CCC;
-}
-input[type="radio"], input[type="checkbox"] {
-  position: absolute;
-  left: -9999px;
 }
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -138,9 +105,9 @@ input[type="search"]::-webkit-search-cancel-button {
 label {
   font-weight: 400;
 }
-.hidden {
-  position: absolute;
-  left: -9999px;
+.error {
+  color: red;
+  border-color: red !important;
 }
 button,
 input[type="button"] {
@@ -149,33 +116,169 @@ input[type="button"] {
   outline: 0;
   font-size: 90%;
 }
-#searchbar > div {
-  display: inline-block;
-  position: relative;
-  top: 3px;
-  left: -125px;
+div > div.flatpickr-innerContainer > div > div.flatpickr-days > div > span.flatpickr-day.selected {
+  background: #2d75cd;
+  border: 0;
 }
-#searchbar > div input[type="radio"] {
-  position: absolute;
-  left: -9999px;
+div > div.flatpickr-months > div > div > select,div > div.flatpickr-months > div > div > div > input, select {
+  font-size: 0.85em !important;
 }
-#searchbar > div > [type="radio"] + label,
-[type="radio"]:not(:checked) + label {
-  color: #6caddf;
-  font-size: 1.5em;
-  z-index: 1;
-  margin-left: 10px;
+input, button, .dropdown {
+  font-family: Poppins;
+  background: transparent;
+  border: 0;
+  outline: 0;	
 }
-#searchbar > div > [type="radio"]:checked + label,
-[type="radio"]:hover:not(:disabled) + label {
-  color: #2190e3;
+label {
+  display: block;
+  font-weight: 400;
+  margin-top: 30px;
 }
-#search input[type="text"],
-#search input[type="button"] {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px 15px;
+button, input[type="button"] {
+  background-color: transparent;
+  border: 0;
+  outline: 0;	
+  font-size: 95%;
+  cursor: pointer;
 }
+textarea {
+  background: transparent;
+  border: 1px solid #CAD6E6; 
+  padding: 5px 8px;
+  width: 500px; 
+  height: 160px;
+  font-size: .95em;
+  resize: none;
+}
+.ui.selection.dropdown {
+  min-width: var(--select-width);
+  background: transparent;
+}
+
+/*Radio/Checkbox*/
+  input[type="radio"], input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+  }
+  .options label, .input {
+		font-weight: 300
+	}
+	.options {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.options input + label {
+		border: 1px solid var(--input);
+		border-radius: 18px;
+		padding: 4.5px 15px;
+		margin: 20px 20px 10px 0;
+		min-width: 160px;
+		display: flex;
+		cursor: pointer;
+	}
+  .options [type="checkbox"]:checked + label, .options input:hover:not(:disabled) + label {
+    border: 1px solid #B3C4DB;
+  }
+  .options input:checked + label:before, .options input:hover + label:before {
+    font-weight: 900;
+  }
+  #search input[type="text"], #search input[type="button"] {
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    padding: 10px 15px;
+  }
+  #interests ul li:before, .options label:before {
+		content: '\f111';
+		font-family: 'Font Awesome 5 Free';
+		position: relative;
+		top: 5px;
+		left: 8px;
+		font-size: .7em;
+		margin-right: 32px;
+		transform: scale(.95, 1.15);
+	}
+  .input {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .input input[type="radio"]:checked ~ .checkmark, .input:hover input[type="radio"] ~ .checkmark {
+    background-color: var(--checked);
+    border-color: var(--checked);
+  }
+  .input input:checked ~ .checkmark:after, .input input:hover ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 19px;
+    border: 1px solid var(--input);
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  .radio .checkmark {
+    border-radius: 50%;
+  }
+  .radio .checkmark:after {
+    border-radius: 50%;
+    background: white;
+    top: 5px;
+    left: 5.5px;
+    width: 8px;
+    height: 8px;
+  }
+  .checkbox .checkmark:after {
+    width: 5px;
+    height: 10px;
+    top: 1px;
+    left: 6px;
+    border: solid #96C8DA;
+    border-width: 0 2.8px 2.8px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  /*Image Upload*/
+  .upload > input {
+		display: none;
+	}
+	.upload img {
+		display: block;
+	  }
+	.upload label {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+	}
+	.text-box {
+		display: block;
+		position: absolute;    
+	  	height: 100%;
+		text-align: center;    
+		width: 100%;
+	}
+	.text-box:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+    .text-box span {
+	  	display: inline-block;
+	}
 
 /*Login/Sign-Up*/
 #download {
@@ -184,16 +287,13 @@ input[type="button"] {
 #download .flex-container {
   justify-content: center;
 }
-.signup,
-.login {
+.signup, .login {
   background-color: #fafafa;
 }
-#sign-up a,
-a#sign-up {
+#sign-up a, a#sign-up {
   border-bottom: 0.75px solid #2d75cd;
 }
-#sign-up a:hover,
-a#sign-up:hover {
+#sign-up a:hover, a#sign-up:hover {
   color: #000;
   border-bottom: 0.75px solid #2d75cd;
 }
@@ -204,162 +304,26 @@ a#sign-up:hover {
 .form-container input {
   width: 100%;
 }
-button,
-input[type="button"] {
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  font-size: 90%;
-}
-#sign-up input,
-#login input {
+#sign-up input, #login input {
   background-color: transparent;
   border: 0;
   border-bottom: 0.9px solid #c3c3c3;
   font-size: 1em;
   font-weight: 300;
 }
-body
-  > div
-  > div.flatpickr-innerContainer
-  > div
-  > div.flatpickr-days
-  > div
-  > span.flatpickr-day.selected {
-  background: #2d75cd;
-  border: 0;
+.login-container, .signup-container {
+  background: #fff;
+  border: 1px solid #ccc;
+  margin: 0 auto;
 }
-body > div > div.flatpickr-months > div > div > select,
-body > div > div.flatpickr-months > div > div > div > input,
-select {
-  font-size: 0.85em !important;
+#sign-up, #login label, #password {
+  font-weight: 400;
 }
-/*#search input.active, #search input:not([type="number"]):hover, #search input:not([type="number"]):active {
-		border: 1px solid #FA9328;
-  }*/
-  
-.container,
-.checkbox-container {
-  font-weight: 300;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.login-options > * {
+  float: right;
 }
-.container input,
-.checkbox-container input {
-  display: inline;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  opacity: 0;
-  cursor: pointer;
-}
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 18px;
-  width: 18px;
-  border: 1px solid #96C8DA;
-}
-.container .checkmark {
-  border-radius: 50%;
-}
-.container input:checked ~ .checkmark,
-.container:hover input ~ .checkmark,
-.checkbox-container input:checked ~ .checkmark,
-.checkbox-container:hover input ~ .checkmark {
-  background-color: #2d75cd;
-}
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-.container input:checked ~ .checkmark:after,
-.container input:hover ~ .checkmark:after,
-.checkbox-container input:checked ~ .checkmark:after,
-.checkbox-container input:hover ~ .checkmark:after {
-  display: block;
-}
-.container .checkmark:after {
-  top: 5px;
-  left: 5px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-}
-.checkbox-container .checkmark:after {
-  left: 6.5px;
-  top: 2px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2.8px 2.8px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.quantity {
-  display: inline-block;
-}
-.quantity label {
-  position: relative;
-  top: 5px;
-}
-.quantity #miles {
-  width: 35px;
-  height: 39px;
-  padding: 0 5px;
-  text-align: center;
-  background-color: transparent;
-  border: 1px solid #fa9328;
-}
-.quantity {
-  text-align: left;
-  position: relative;
-  white-space: nowrap;
-  vertical-align: top;
-}
-.quantity input {
-  display: inline-block;
-  margin: 0;
-  vertical-align: top;
-  box-shadow: none;
-}
-.quantity button[type="button"] {
-  padding: 7px 10px 8px;
-  height: 41px;
-  background-color: #fff;
-  border: 1px solid #fa9328;
-  cursor: pointer;
-}
-#minus {
-  border-right: 0;
-}
-#plus {
-  border-left: 0;
-  font-size: 0.75em;
-  padding: 1px 10px;
-  font-weight: 600;
-}
-.quantity button[type="button"]:hover {
-  background: #fa9328;
-  color: #fff;
-}
-.quantity input::-webkit-outer-spin-button,
-.quantity input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.quantity input[type="number"] {
-  -moz-appearance: textfield;
+.login-options p {
+  margin-top: 15px;
 }
 #sign-up button[type="submit"] {
   padding: 10px 38px;
@@ -376,48 +340,16 @@ button[type="submit"] + span {
   margin-left: 15px;
 }
 
-/*Login*/
-.login-container,
-.signup-container {
-  background: #fff;
-  border: 1px solid #ccc;
-  margin: 0 auto;
-}
-#sign-up,
-#login label,
-#password {
-  font-weight: 400;
-}
-.login-options > * {
-  float: right;
-}
-.login-options p {
-  margin-top: 15px;
-}
-
 /*Main*/
 .main-container {
-  display: flex;
-  flex-wrap: wrap;
   background-color: #f4f6fa;
 }
 
-/*User Profile*/
-#friend-search::-webkit-search-cancel-button {
-  height: 14px;
-  width: 14px;
-  background-size: 14px;
-  right: 7px;
-}
-.user {
-  background: #F4F6FA;
-  color: var(--main-color);
-  flex: 75%; 
-  padding: 20px 0 20px 40px;
-}
-aside a {
-  display: block;
-  padding: 15px;
+/*User Profile*/	  
+aside {
+  flex: 20%;
+  background-color: #fff;
+  text-align: center;
 }
 aside h3 {
   font-weight: 500;
@@ -425,66 +357,111 @@ aside h3 {
 section h3 {
   text-align: left;
 }
-.bio {
-  margin-left: 40px; 
-  line-height: 2; 
-  width: 80%;
+.user {
+  background: #F4F6FA;
+  color: var(--main-color);
+  flex: 75%; 
+  padding: 20px 0 20px 40px;
 }
-.bio .flex-container {
-  justify-content: space-between; 
-  width: 200px; 
-  margin-top: 10px;
-}
-#interests {
-  margin-top: 30px;
-}
-h3, h4 {
+.section-header {
   font-weight: 400;
+  color: var(--main-color);
+  text-align: left;
 }
-#interests ul {
-  list-style: none;
-  margin-top: 15px;
+.section-container {
+  padding: 50px 0px;
 }
-#interests ul li {
-  border: 1px solid #CAD6E6;
-  border-radius: 16px;
-  padding: 4.5px 0;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  min-width: 150px;
-  text-align: center;
-  display: flex;
+.section-container li {
+  list-style-type: none;
+  padding: 10px 0;
   cursor: pointer;
-  transition: .2s;
 }
-#interests ul li:hover {
-  transform: scale(1.1);
+.section-container li:hover {
+  background-color: #ecf3fc;
+  border-left: 6px solid var(--main-color);
+}  
+.section-container li:hover a {
+  display: inline-block;
+  color: var(--main-color);
+  width: 100%;
+  height: 100%;
 }
-#shared li:before {
-  font-weight: 900;
+.section-container a {
+  color: #888;
+  cursor: pointer;
+  font-weight: 400;
+  text-decoration: none;
 }
-#description {
-  font-style: italic;
+.setting-header {
+  color: var(--main-color);
+  font-size: 1.05em;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 15px 10px;
+}
+.settings-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+} 
+.userlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: friends;
+}
+.suggestion-container {
+  grid-area: suggestions;
+}
+.right-container {
+  padding: 50px;
+  flex: 70%;
+}
+.profile-name {
+  color: var(--main-color);
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.profile {
+  width: 110px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+}
+.search-container {
+  text-align: center;
+}	  
+.friend-search {
+  margin: 20px 0px;
+  font-size: 15px;
+  padding: 10px;
+  height: 35px;
+  background-color: none;
+  border-radius: 25px;
+  border: 1px solid var(--main-color);
 }
 #friend-search {
-  border: 1px solid #26619C;
+  border: 1px solid var(--main-color);
   border-radius: 15px;
   padding: 5px 0;
   text-indent: 10px;
   width: 180px;
 }
-.tabs {
-  margin-top: 20px;
+#friend-search::-webkit-search-cancel-button {
+  height: 14px;
+  width: 14px;
+  background-size: 14px;
+  right: 7px;
 }
-.tabs h3 {
-  font-size: 1.05em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color: #26619C;
-}
-.error {
-  color: red;
-  border-color: red !important;
+  
+@media (max-width: 800px) {
+  .section-container {
+    margin: 0 auto;
+  }
+  .userlist-container {
+    margin: 0 auto;
+  }
 }
 
 /*Footer*/
