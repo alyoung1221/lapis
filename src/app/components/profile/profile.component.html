@@ -1,9 +1,10 @@
 <div class="main-container">
   <aside class="section-container userprofile-container">
     <div class="user-profile">
-        <img src="{{profile.picture}}" class="profile">
-        <div class="profile-name">
-          <p>{{ profile.firstName }} {{ profile.lastName }}</p>
+        <div>
+          <img src="{{profile.picture}}" class="profile">
+          <a routerLink="/edit" class="material-icons edit" title="Edit">edit</a>
+          <p class="profile-name">{{ profile.firstName }} {{ profile.lastName }}</p>
         </div>
         <div class="settings-container">
           <div class="search-container"><input type="search" class="friend-search" placeholder="Friend search..." /></div>

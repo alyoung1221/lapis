@@ -62,15 +62,15 @@ aside {
 .text-box span {
 	display: inline-block;
 }
-.upload img {
-	display: block;
-}
 .profile-name {
   color: var(--main-color);
   text-align: center;
   font-weight: 600;
   font-size: 20px;
   margin-top: 20px;
+}
+.edit {
+	vertical-align: bottom;
 }
 .search-container {
   text-align: center;
