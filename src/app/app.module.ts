@@ -31,7 +31,6 @@ import { AdvancedSearchComponent } from './components/advanced-search/advanced-s
 import { UsersComponent } from './components/users/users.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { UserComponent } from './components/user/user.component';
 import { EditComponent } from './components/edit/edit.component';
 
 const config = {
@@ -68,7 +67,6 @@ const config = {
     UsersComponent,
     HobbyComponent,
     UserProfileComponent,
-    UserComponent,
     EditComponent,
   ],
   imports: [
