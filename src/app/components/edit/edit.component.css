@@ -4,35 +4,39 @@
 }
 
 /*Edit User*/
-	#edit section > *:not(label) {
+	section > *:not(label) {
 		font-size: .9em;
 		border-color: var(--input);
 	}
-	#edit label {
+	label {
 		margin-bottom: 10px;
 		font-size: initial;
 	}
-	#edit section input {
+	section input {
 		border-bottom: .9px solid #CCC;
 		width: 240px;
 	}
-	#edit section > *:not(label):focus, #edit section input:focus {
+	section > *:not(label):focus, section input:focus {
 		border-color: var(--checked);
 	}
-	#edit button {
+	textarea {
+		width: 430px;
+		height: 100px;
+	}
+	button {
 		display: block;
 		text-align: center;
 		cursor: pointer;
 		color: var(--main-color);
 	}
-	#edit button[type="submit"] {
+	button[type="submit"] {
 		padding: 12px 30px;
 		border: 1px solid var(--input);
 	}
-	#edit button[type="submit"] {
+	button[type="submit"] {
 		width: 120px;
 	}
-	#edit button[type="submit"]:hover {
+	button[type="submit"]:hover {
 		border-color: var(--checked);
 		background: var(--checked);
 		color: #FFF !important;
