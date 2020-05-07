@@ -170,7 +170,7 @@ textarea {
 		display: flex;
 		flex-wrap: wrap;
 	}
-	.options input + label {
+	.options input + label, #interests ul li {
 		border: 1px solid var(--input);
 		border-radius: 18px;
 		padding: 4.5px 15px;
