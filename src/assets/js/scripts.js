@@ -1,6 +1,132 @@
 $(function() {
 	$("#date").html(new Date().getFullYear()); 
+	
+	/*Sign Up*/
+	$("#dob").flatpickr({
+		altInput: true,
+		altFormat: "F j, Y",
+		dateFormat: "Y-m-d",
+		maxDate: "today"
+	});
 
+if ($(".tab").length > 0) {
+	var currentTab = 0; // Current tab is set to be the first tab (0)
+	showTab(currentTab); // Display the current tab
+}
+
+function showTab(n) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").style.display = "none";
+	document.getElementById("submit").style.display = "block";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(n)
+}
+
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("tab");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[n].className += " active";
+}
+$("#prevBtn").click(function() {
+	nextPrev(-1)
+});
+$("#nextBtn").click(function() {
+	nextPrev(1)
+});
+
+	jQuery.validator.setDefaults({
+		onfocusout: function(element) {
+			// "eager" validation
+			this.element(element);  
+		}
+	});
+	$("#register").validate({
+	  rules: {
+		fname: "required",
+		lname: "required",
+		email: {
+			required: true,
+			email: true
+		},
+		gender: "required", 
+		state: "required",
+		dob: "required", 
+		password: {
+			required: true,
+			equalTo: "#password2"
+		},
+		password2: {
+			equalTo: "#password"
+		},
+	  },
+	  messages: {
+		bio: {
+			required: "Please enter your bio.",
+		},
+		password: {
+			required: "Please enter your password.",
+			equalTo: "The passwords do not match."
+		},
+		password2: {
+			required: "Please confirm your password.",
+			equalTo: "The passwords do not match."
+		}
+	  }
+	});
 	$("[type='radio']").each(function(e) {
 		$(this).click(function(e) {
 			if (e.ctrlKey) {
@@ -32,6 +158,9 @@ $(function() {
 					if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
 						loadMore();
 					}
+					if ($("[name='interests[]']:checked").length < 10) {
+						selectedInterests();
+					}
 				});
 			});
 		}
@@ -44,9 +173,18 @@ $(function() {
 			if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
 				loadMore();
 			}
+			if ($("[name='interests[]']:checked").length < 10) {
+				selectedInterests();
+			}
 		});
 	});
 
+	function selectedInterests() {
+		var interests = $("[name='interests[]']:checked").map(function() { return this.value; }).get().join(", ");
+		$("[name='interests']").val(interests);
+		console.log($("[name='interests']").val());
+	};
+	
 	function validateCheckbox(input) {	
 		if ($("[name='interests[]']:checked").length > 10) {
 			alert("Please select up to 10 interests.");
@@ -94,11 +232,11 @@ $(function() {
 			},
 			state: "required",
 			gender: "required"
-		}, 
-		highlight: function(input) {
-			$(input).addClass("error");
 		},
-		errorPlacement: function(error, element){}
+		errorPlacement: function(error, element){},
+		highlight: function (element, errorClass) {
+			$(element).removeClass("error").addClass("has-error");
+		}
 	});
 	
 	$("#edit").submit(function() {
@@ -114,6 +252,7 @@ $(function() {
 		if ($("#state").val() != "") {
 			$("#state").parent().removeClass("error");
 		}
+		console.log($("#state").val());
 	});
 	$("[name='gender']").on("input", function() {
 		if ($("[name='gender']:checked").length > 0) {

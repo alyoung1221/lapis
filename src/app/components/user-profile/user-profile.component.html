@@ -1,0 +1,50 @@
+<!-- if found profile -->
+<section *ngIf="profileFound" class="user">
+    <div class="flex-container">
+        <div>
+            <img src="{{ picture }}" class="profile">
+        </div>
+        <div class="user-profile">
+            <div class="bio">
+                <h2>{{ firstName }} {{ lastName }}</h2>
+                <p id="description">Sharing things I'm learning through my foundation work and other interests.</p>
+                <div class="flex-container">
+                    <p><span class="material-icons" style="font-size: 2.2em; vertical-align: middle;">location_on</span>{{ location == "" ? "N/A" : location }}</p>
+                    <p><span class="fas fa-birthday-cake" style="font-size: 1.7em; vertical-align: bottom;"></span>&nbsp;&nbsp;{{ age == null ? "N/A" : age }}</p>
+                </div>
+            </div>
+                <div id="interests" *ngIf="hobbies">
+                    <div id="shared">
+                        <h4>Shared Interests</h4>
+                        <ul class="flex-container">
+                            <li *ngFor="let hobby of hobbies" title="{{ hobby }}" (click)="goToHobby(hobby)">
+                                {{ hobby }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="other">
+                        <h4>Other Interests</h4>
+                        <ul class="flex-container">
+                            <li *ngFor="let hobby of hobbies" title="{{ hobby }}" (click)="goToHobby(hobby)">
+                                {{ hobby }}
+                            </li>
+                        </ul>				
+                    </div>				
+                </div>
+                <div id="interests" *ngIf="!hobbies">
+                    <h4>No interests found</h4>
+                </div>
+        </div>
+        
+        <!-- friend request container -->
+        <div class="friend-status" [ngSwitch]="friendStatus">
+            <div class="btn add-friend-btn" *ngSwitchCase="'none'">add friend</div>
+            <div class="btn cancel-request-btn" *ngSwitchCase="'requested'">cancel friend request</div>
+            <div class="btn deny-pending-btn" *ngSwitchCase="'pending'"><p>deny request</p></div>
+        </div>
+    </div>
+</section>
+<!-- no profile found -->
+<section *ngIf="!profileFound" class="user">
+    <p>No profile was found</p>
+</section>

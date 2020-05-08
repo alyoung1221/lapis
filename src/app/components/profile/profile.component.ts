@@ -1,4 +1,5 @@
 import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
+import { AppComponent } from '../../app.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FriendsService } from '../../services/friends.service';
@@ -14,7 +15,7 @@ export class ProfileComponent implements OnInit {
   friendsLoaded = false;
   suggestionsLoaded = false;
   profile = {
-    id: '',
+    userID: '',
     firstName: '',
     lastName: '',
     picture: '',
@@ -33,9 +34,11 @@ export class ProfileComponent implements OnInit {
     public fbAuth: AngularFireAuth,
     private friends: FriendsService,
     private requests: FriendrequestService,
-    private suggestions: SuggestionsService) {}
+    private suggestions: SuggestionsService,
+    public app: AppComponent) {}
 
   ngOnInit() {
+    this.app.setTitle("Profile");
     this.fbAuth.authState.subscribe(data => {
       this.getProfileInfo(data.uid);
       this.profile.friends = this.friends.getFriends(data.uid);
@@ -57,7 +60,7 @@ export class ProfileComponent implements OnInit {
     const document = this.db.collection('users').doc(id);
     document.get().subscribe((userData => {
       const user = userData.data();
-      this.profile.id = id;
+      this.profile.userID = id;
       this.profile.firstName = user.first;
       this.profile.lastName = user.last;
       this.profile.gender = user.gender;

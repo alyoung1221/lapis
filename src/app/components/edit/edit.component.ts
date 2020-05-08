@@ -1,4 +1,5 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
+import { AppComponent } from '../../app.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
@@ -27,9 +28,11 @@ export class EditComponent implements OnInit {
   };
   constructor(
     private db: AngularFirestore,
-    public fbAuth: AngularFireAuth) {}
+    public fbAuth: AngularFireAuth,
+    public app: AppComponent) {}
 
   ngOnInit() {
+    this.app.setTitle("Edit Profile");
     this.fbAuth.authState.subscribe(data => {
       this.getProfileInfo(data.uid);
       console.log('USER ID: ' + data.uid);
