@@ -62,7 +62,7 @@ $(function() {
 			$("#users").css("margin-left", "0");
 		}
 		else {
-			searchUsers();
+			$("main").load("/search", searchUsers);
 		}
 	});
 		
@@ -122,7 +122,9 @@ $(function() {
 		}
 	});
 
-	$("#bio").restrictLength($("#maxLength"));
+	if ($("#bio").length > 0) {
+		$("#bio").restrictLength($("#maxLength"));
+	}
 
 	function rangeSlider() {
 		$("#slider-range").slider({
@@ -142,6 +144,7 @@ $(function() {
 	}
 			
 	function searchUsers(type, e) {
+		console.log("Called");
 		$("#users").css("margin-left", "80px");
 		$("tbody").empty();
 		$("#filters").show();
@@ -224,12 +227,12 @@ $(function() {
 	function createUsers() {
 		var users = new Array();
 		
-		users.push(new User("Elle Brookes", "F", 20, "images/female.jpg", "cooking, reading", "VA"));
-		users.push(new User("Samantha Jones", "F", 21, "images/female.jpg", "cooking, reading", "WA"));
-		users.push(new User("Lani Greene", "F", 23, "images/female.jpg", "baking, reading, zip lining", "MI"));
-		users.push(new User("David James", "M", 30, "images/male.jpg", "volleyball, zip lining", "NY"));
-		users.push(new User("Paul Tran", "M", 25, "images/male.jpg", "volleyball, skiing", "FL"));
-		users.push(new User("Ben Jones", "M", 22, "images/male.jpg", "skiing, zip lining", "NC"));
+		users.push(new User("Elle Brookes", "F", 20, "/assets/images/female.jpg", "cooking, reading", "VA"));
+		users.push(new User("Samantha Jones", "F", 21, "/assets/images/female.jpg", "cooking, reading", "WA"));
+		users.push(new User("Lani Greene", "F", 23, "/assets/images/female.jpg", "baking, reading, zip lining", "MI"));
+		users.push(new User("David James", "M", 30, "/assets/images/male.jpg", "volleyball, zip lining", "NY"));
+		users.push(new User("Paul Tran", "M", 25, "/assets/images/male.jpg", "volleyball, skiing", "FL"));
+		users.push(new User("Ben Jones", "M", 22, "/assets/images/male.jpg", "skiing, zip lining", "NC"));
 
 		return users;
 	}

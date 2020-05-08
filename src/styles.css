@@ -370,7 +370,7 @@ section h3 {
 .section-container {
   padding: 50px 0px;
 }
-.section-container a {
+.section-container a:not(.edit) {
   display: inline-block;
   width: 100%;
   height: 100%;
@@ -381,7 +381,7 @@ section h3 {
   text-decoration: none;
   cursor: pointer;
 }
-.section-container a:hover {
+.section-container a:not(.edit):hover {
   color: var(--main-color);
   background-color: #ecf3fc;
   border-left: 6px solid var(--main-color);

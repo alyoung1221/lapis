@@ -7,7 +7,7 @@
           <span class="text-box">
             Change
           </span>
-          <img src="{{profile.picture}}" class="profile">
+          <img src="{{ profile.picture }}" class="profile">
         </label>
         <input type="file" name="img" id="img">
       </div>
@@ -17,19 +17,18 @@
       <div class="settings-container">
         <div class="search-container"><input type="search" class="friend-search" placeholder="Friend search..." /></div>
         <h3 class="setting-header">Settings</h3>
-        <ul class="settings-list">
-          <li><a href="#">Account Settings</a></li>
-          <li><a href="#">Profile Customization</a></li>
-        </ul>
+        <div class="settings-list">
+          <a href="#">Account Settings</a>
+          <a href="#">Profile Customization</a>
+        </div>
         <h3 class="setting-header">Friends</h3>
-        <ul class="settings-list">
-          <li><a routerLink="/friends">Friends List</a></li>
-        </ul>
+        <div class="settings-list">
+          <a routerLink="/friends">Friends List</a>
+        </div>
       </div>
       </div>
     </aside>
   <section class="right-container user">
-
       <div class="flex-container">
         <div>
           <label for="fname">First Name*</label>
@@ -121,7 +120,7 @@
         <input type="checkbox" name="interests[]" id="Z" value="Zip Lining">	
         <label for="Z" title="Zip Lining">Zip Lining</label>
       </div>
-      <label for="bio">Bio*&nbsp;<span class="indicator">(<span id="maxLength">600</span> characters)</span></label>
+      <label for="bio">Bio*&nbsp;<span class="indicator">(<span id="maxLength">200</span> characters)</span></label>
       <br>
       <textarea id="bio" name="bio" placeholder="Write a short description of yourself here..." required></textarea>
       <br><br><br>
