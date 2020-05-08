@@ -1,14 +1,11 @@
+
 /*Footer*/
 footer {
-  flex-shrink: 0;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  width: 92%;
+  margin: 80px auto 50px auto;
 }
 footer > .flex-container {
   justify-content: space-between;
-  width: 90%;
-  margin: 0 auto;
 }
 footer nav a {
   margin-right: 30px;
