@@ -43,7 +43,7 @@ export class UserProfileComponent implements OnInit {
     const document = this.db.collection('users').doc(id);
     document.get().subscribe((userData => {
       const user = userData.data();
-      this.profile.hobbies = user.hobbies == undefined ? user.hobbies : user.hobbies.split(", ").sort();
+      this.profile.hobbies = user.hobbies.length > 0 ? user.hobbies.split(", ").sort() : user.hobbies;
     }));
   }
 
@@ -61,7 +61,7 @@ export class UserProfileComponent implements OnInit {
         this.location = user.location;
         this.picture = user.picture;
         this.bio = user.bio;
-        this.hobbies = user.hobbies == undefined ? user.hobbies : user.hobbies.split(", ").sort();
+        this.hobbies = user.hobbies.length > 0 ? user.hobbies.split(", ").sort() : user.hobbies;
         this.app.setTitle(this.firstName + " " + this.lastName);
       } else {
         this.profileFound = false;
@@ -86,7 +86,6 @@ export class UserProfileComponent implements OnInit {
         }        
       }
     }
-    console.log(hobbies);
     return hobbies;
 }
   getAge(dateString) {

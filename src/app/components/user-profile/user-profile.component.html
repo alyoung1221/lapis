@@ -14,7 +14,7 @@
                     <p><span class="fas fa-birthday-cake" style="font-size: 1.7em; vertical-align: bottom;"></span>&nbsp;&nbsp;{{ age == null ? "N/A" : age }}</p>
                 </div>
             </div>
-            <div id="interests" *ngIf="hobbies">
+            <div id="interests" *ngIf="hobbies.length > 0">
                 <div id="shared">
                     <h4>Shared Interests</h4>
                     <ul class="flex-container" *ngIf="filterHobbies('similar').length > 0">
@@ -33,7 +33,7 @@
                     </ul>		
                 </div>				
             </div>
-            <div id="interests" *ngIf="!hobbies">
+            <div id="interests" *ngIf="hobbies.length == 0">
                 <br>
                 <h4>No interests found</h4>
             </div>   
