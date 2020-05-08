@@ -3,7 +3,7 @@
 /*
 * This is a global CSS file that will be applied to the entire application
 */
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500|Raleway:300,400,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500|Material+Icons&display=swap");
 
 :root {
   --main-color: #26619C;
