@@ -1,23 +1,23 @@
 <div class="main-container">
   <aside class="section-container userprofile-container">
     <div class="user-profile">
-        <img src="{{profile.picture}}" class="profile">
-        <a routerLink="/edit" class="material-icons edit">edit</a>
-        <div class="profile-name">
-          <p>{{ profile.firstName }} {{ profile.lastName }}</p>
+      <img src="{{profile.picture}}" class="profile">
+      <a routerLink="/edit" class="material-icons edit">edit</a>
+      <div class="profile-name">
+        <p>{{ profile.firstName }} {{ profile.lastName }}</p>
+      </div>
+      <div class="settings-container">
+        <div class="search-container"><input type="search" class="friend-search" placeholder="Friend search..." /></div>
+        <h3 class="setting-header">Settings</h3>
+        <div class="settings-list">
+          <a href="#">Account Settings</a>
+          <a href="#">Profile Customization</a>
         </div>
-        <div class="settings-container">
-          <div class="search-container"><input type="search" class="friend-search" placeholder="Friend search..." /></div>
-          <h3 class="setting-header">Settings</h3>
-          <ul class="settings-list">
-            <li><a href="#">Account Settings</a></li>
-            <li><a routerLink="/edit">Profile Customization</a></li>
-          </ul>
-          <h3 class="setting-header">Friends</h3>
-          <ul class="settings-list">
-            <li><a routerLink="/friends">Friends List</a></li>
-          </ul>
+        <h3 class="setting-header">Friends</h3>
+        <div class="settings-list">
+          <a routerLink="/friends">Friends List</a>
         </div>
+      </div>
       </div>
     </aside>
     <section class="right-container user">
