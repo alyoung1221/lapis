@@ -3,7 +3,7 @@
 /*
 * This is a global CSS file that will be applied to the entire application
 */
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500|Raleway:300,400,500&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500|Material+Icons&display=swap');
 
 :root {
   --main-color: #26619C;
@@ -75,6 +75,9 @@ h2 {
 h2 span {
   font-style: italic;
   font-size: 0.8em;
+}
+.material-icons, .fas {
+  vertical-align: top;
 }
 
 /*Search*/
@@ -346,7 +349,7 @@ button[type="submit"] + span {
 
 /*User Profile*/	  
 aside {
-  flex: 20%;
+  flex: 1;
   background-color: #fff;
   text-align: center;
 }
@@ -359,7 +362,6 @@ section h3 {
 .user {
   background: #F4F6FA;
   color: var(--main-color);
-  flex: 75%; 
   padding: 20px 0 20px 40px;
 }
 .section-header {
@@ -408,12 +410,9 @@ section h3 {
   flex-wrap: wrap;
   grid-area: friends;
 }
-.suggestion-container {
-  grid-area: suggestions;
-}
 .right-container {
+  flex: 3; 
   padding: 50px;
-  flex: 70%;
 }
 .profile-name {
   color: var(--main-color);
