@@ -347,7 +347,7 @@ button[type="submit"] + span {
 
 /*User Profile*/	  
 aside {
-  flex: 20%;
+  flex: 1;
   background-color: #fff;
   text-align: center;
 }
@@ -360,7 +360,6 @@ section h3 {
 .user {
   background: #F4F6FA;
   color: var(--main-color);
-  flex: 75%; 
   padding: 20px 0 20px 40px;
 }
 .section-header {
@@ -409,7 +408,7 @@ section h3 {
 }
 .right-container {
   padding: 50px;
-  flex: 70%;
+  flex: 3;
 }
 .profile-name {
   color: var(--main-color);
