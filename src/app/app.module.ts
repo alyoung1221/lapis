@@ -1,6 +1,6 @@
 // Importing all of the modules from Angular
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -81,7 +81,7 @@ const config = {
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [AppComponent],
+  providers: [AppComponent, Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

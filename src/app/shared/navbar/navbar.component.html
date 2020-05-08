@@ -1,6 +1,7 @@
 <header class="app-navbar">
   <nav class="flex-container">
-    <a href="index.html"><img src="/assets/images/logo.png" alt="lapiz"></a>				
+    <a routerLink="/login" *ngIf="!loggedin"><img src="/assets/images/logo.png" alt="lapiz"></a>	
+    <a routerLink="/users" *ngIf="loggedin"><img src="/assets/images/logo.png" alt="lapiz"></a>				
     <div class="flex-container">
       <form method="post" id="searchbar">
         <input type="search" name="search" id="search" placeholder="Search..." required>
