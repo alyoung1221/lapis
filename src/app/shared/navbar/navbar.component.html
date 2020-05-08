@@ -1,22 +1,18 @@
-<div class="app-navbar">
-  <div class="link-container">
-    <div class="nav-left">
-      <a *ngIf="!loggedin" class="logo" routerLink="">Lapis</a>
-      <a *ngIf="loggedin" class="logo" routerLink="profile">Lapis</a>
+<header class="app-navbar">
+  <nav class="flex-container">
+    <a routerLink="/login" *ngIf="!loggedin"><img src="/assets/images/logo.png" alt="lapiz"></a>	
+    <a routerLink="/users" *ngIf="loggedin"><img src="/assets/images/logo.png" alt="lapiz"></a>				
+    <div class="flex-container">
+      <form method="post" id="searchbar">
+        <input type="search" name="search" id="search" placeholder="Search..." required>
+      </form>
+      <ul class="flex-container">
+        <li><a routerLink="about">About</a></li>
+        <li><a routerLink="contact">Contact</a></li>
+        <li *ngIf="loggedin"><a routerLink="profile">Profile</a></li>
+        <li *ngIf="!loggedin"><a class="login" routerLink="login">Login</a></li>
+        <li *ngIf="loggedin"><a class="signout" (click)="signOutUser()">Signout</a></li>
+      </ul>
     </div>
-    <ul class="nav-right">
-      <li>
-        <input
-          class="nav-searchbar"
-          type="search"
-          placeholder="Search Lapis"
-        />
-      </li>
-      <li><a routerLink="about">About</a></li>
-      <li><a routerLink="contact">Contact</a></li>
-      <li *ngIf="loggedin" ><a routerLink="profile">Profile</a></li>
-      <li *ngIf="!loggedin" ><a class="login" routerLink="login">Login</a></li>
-      <li *ngIf="loggedin" ><a class="signout" (click)="signOutUser()">Signout</a></li>
-    </ul>
-  </div>
-</div>
+  </nav>
+</header>

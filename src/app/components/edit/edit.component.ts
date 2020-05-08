@@ -6,8 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
   friendsLoaded = false;
