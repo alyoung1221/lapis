@@ -1,12 +1,14 @@
 :host {
-	--input: #CAD6E6;
 	--checked: #B3C4DB;
 }
 
 /*Edit User*/
 	section > *:not(label) {
 		font-size: .9em;
-		border-color: var(--input);
+		border-color: var(--input-border);
+	}
+	.right-container {
+		padding-bottom: 50px;
 	}
 	label {
 		margin-bottom: 10px;
@@ -15,6 +17,7 @@
 	section input {
 		border-bottom: .9px solid #CCC;
 		width: 240px;
+		font-weight: 400;
 	}
 	section > *:not(label):focus, section input:focus {
 		border-color: var(--checked);
@@ -31,7 +34,7 @@
 	}
 	button[type="submit"] {
 		padding: 12px 30px;
-		border: 1px solid var(--input);
+		border: 1px solid var(--input-border);
 	}
 	button[type="submit"] {
 		width: 120px;

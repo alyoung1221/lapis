@@ -15,6 +15,7 @@ export class EditComponent implements OnInit {
     id: '',
     firstName: '',
     lastName: '',
+    bio: '',
     picture: '',
     friends: [],
     hobbies: [],
@@ -45,10 +46,11 @@ export class EditComponent implements OnInit {
       this.profile.id = id;
       this.profile.firstName = user.first;
       this.profile.lastName = user.last;
+      this.profile.bio = user.bio;
       this.profile.gender = user.gender;
       this.profile.major = user.major;
       this.profile.picture = user.picture;
-      this.profile.hobbies = user.hobbies;
+      this.profile.hobbies = user.hobbies == undefined ? user.hobbies : user.hobbies.split(", ");
     }));
   }
 }
