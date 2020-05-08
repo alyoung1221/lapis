@@ -347,7 +347,7 @@ button[type="submit"] + span {
 
 /*User Profile*/	  
 aside {
-  flex: 20%;
+  flex: 1;
   background-color: #fff;
   text-align: center;
 }
@@ -360,7 +360,6 @@ section h3 {
 .user {
   background: #F4F6FA;
   color: var(--main-color);
-  flex: 75%; 
   padding: 20px 0 20px 40px;
 }
 .section-header {
@@ -371,24 +370,22 @@ section h3 {
 .section-container {
   padding: 50px 0px;
 }
-.section-container li {
+.section-container a {
   display: inline-block;
-  color: var(--main-color);
   width: 100%;
   height: 100%;
-  padding: 10px 0;
-  cursor: pointer;
-}
-.section-container a:hover {
-  background-color: #ecf3fc;
-  border-left: 6px solid var(--main-color);
-}  
-.section-container a {
+  padding: 20px 0;
   color: #888;
   cursor: pointer;
   font-weight: 400;
   text-decoration: none;
+  cursor: pointer;
 }
+.section-container a:hover {
+  color: var(--main-color);
+  background-color: #ecf3fc;
+  border-left: 6px solid var(--main-color);
+}  
 .setting-header {
   color: var(--main-color);
   font-size: 1.05em;
@@ -411,7 +408,7 @@ section h3 {
 }
 .right-container {
   padding: 50px;
-  flex: 70%;
+  flex: 3;
 }
 .profile-name {
   color: var(--main-color);
