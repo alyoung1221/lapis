@@ -1,21 +1,15 @@
 :host {
   --input: #96C8DA;
   --checked: #96C8DA;
+  --select-width: 210px;
 }
 /*Login/Sign-Up*/
-#download {
-  text-align: center;
-}
-#download .flex-container {
-  justify-content: center;
-}
 .signup, .login {
   background-color: #fafafa;
 }
 #sign-up a, a#sign-up {
   border-bottom: 0.75px solid var(--input);
 }
-
 .login-container, .signup-container {
   background: #fff;
   border: 1px solid #ccc;
