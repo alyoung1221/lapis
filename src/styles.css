@@ -178,7 +178,7 @@ textarea {
 		cursor: pointer;
 	}
   .options [type="checkbox"]:checked + label, .options input:hover:not(:disabled) + label {
-    border: 1px solid #B3C4DB;
+    border: 1px solid var(--checked);
   }
   .options input:checked + label:before, .options input:hover + label:before {
     font-weight: 900;
@@ -210,7 +210,7 @@ textarea {
   }
   .input input[type="radio"]:checked ~ .checkmark, .input:hover input[type="radio"] ~ .checkmark {
     background-color: var(--checked);
-    border-color: var(--checked);
+    border-color: var(--checked) !important;
   }
   .input input:checked ~ .checkmark:after, .input input:hover ~ .checkmark:after {
     display: block;
