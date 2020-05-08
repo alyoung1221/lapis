@@ -30,6 +30,7 @@ import { SearchComponent } from './components/search/search.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { UsersComponent } from './components/users/users.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { EditComponent } from './components/edit/edit.component';
 
 const config = {
@@ -65,6 +66,7 @@ const config = {
     AdvancedSearchComponent,
     UsersComponent,
     HobbyComponent,
+    UserProfileComponent,
     EditComponent,
   ],
   imports: [
@@ -79,7 +81,7 @@ const config = {
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
