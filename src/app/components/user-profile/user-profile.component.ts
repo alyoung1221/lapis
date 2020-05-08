@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AppComponent } from '../../app.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Identifiers } from '@angular/compiler';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -11,7 +11,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private db: AngularFirestore, public app: AppComponent) { }
+  constructor(private route: ActivatedRoute, private router: Router, private db: AngularFirestore, public app: AppComponent) { }
   profileParameter: string;
   profileFound: boolean;
   firstName: string;
@@ -42,7 +42,7 @@ export class UserProfileComponent implements OnInit {
         this.age = Date.parse(user.age) ? this.getAge(user.age) : user.age;
         this.location = user.location;
         this.picture = user.picture;
-        this.hobbies = user.hobbies == undefined ? user.hobbies : user.hobbies.split(",");
+        this.hobbies = user.hobbies == undefined ? user.hobbies : user.hobbies.split(", ");
       } else {
         this.profileFound = false;
       }
@@ -59,5 +59,9 @@ export class UserProfileComponent implements OnInit {
         age--;
     }
     return age;
+  }
+  @Input() hobby: any;
+  goToHobby(hobby) {
+    this.router.navigateByUrl('/hobby/' + hobby);
   }
 }

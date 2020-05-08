@@ -17,7 +17,7 @@
                     <div id="shared">
                         <h4>Shared Interests</h4>
                         <ul class="flex-container">
-                            <li *ngFor="let hobby of hobbies" title="{{ hobby }}">
+                            <li *ngFor="let hobby of hobbies" title="{{ hobby }}" (click)="goToHobby(hobby)">
                                 {{ hobby }}
                             </li>
                         </ul>
@@ -25,7 +25,7 @@
                     <div id="other">
                         <h4>Other Interests</h4>
                         <ul class="flex-container">
-                            <li *ngFor="let hobby of hobbies" title="{{ hobby }}">
+                            <li *ngFor="let hobby of hobbies" title="{{ hobby }}" (click)="goToHobby(hobby)">
                                 {{ hobby }}
                             </li>
                         </ul>				
