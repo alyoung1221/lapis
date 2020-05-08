@@ -1,6 +1,49 @@
 $(function() {
 	$("#date").html(new Date().getFullYear()); 
-
+	
+	/*Sign Up*/
+	$("#dob").flatpickr({
+		altInput: true,
+		altFormat: "F j, Y",
+		dateFormat: "Y-m-d",
+		maxDate: "today"
+	});
+	jQuery.validator.setDefaults({
+		onfocusout: function(element) {
+			// "eager" validation
+			this.element(element);  
+		}
+	});
+	$("#sign-up").validate({
+	  rules: {
+		fname: "required",
+		lname: "required",
+		email: {
+			required: true,
+			email: true
+		},
+		gender: "required", 
+		state: "required",
+		dob: "required", 
+		password: {
+			required: true,
+			equalTo: "#password2"
+		},
+		password2: {
+			equalTo: "#password"
+		},
+	  },
+	  messages: {
+		password: {
+			required: "Please enter your password.",
+			equalTo: "The passwords do not match."
+		},
+		password2: {
+			required: "Please confirm your password.",
+			equalTo: "The passwords do not match."
+		}
+	  }
+	});
 	$("[type='radio']").each(function(e) {
 		$(this).click(function(e) {
 			if (e.ctrlKey) {
@@ -32,6 +75,9 @@ $(function() {
 					if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
 						loadMore();
 					}
+					if ($("[name='interests[]']:checked").length < 10) {
+						selectedInterests();
+					}
 				});
 			});
 		}
@@ -44,9 +90,18 @@ $(function() {
 			if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
 				loadMore();
 			}
+			if ($("[name='interests[]']:checked").length < 10) {
+				selectedInterests();
+			}
 		});
 	});
 
+	function selectedInterests() {
+		var interests = $("[name='interests[]']:checked").map(function() { return this.value; }).get().join(", ");
+		$("[name='interests']").val(interests);
+		console.log($("[name='interests']").val());
+	};
+	
 	function validateCheckbox(input) {	
 		if ($("[name='interests[]']:checked").length > 10) {
 			alert("Please select up to 10 interests.");
@@ -94,11 +149,11 @@ $(function() {
 			},
 			state: "required",
 			gender: "required"
-		}, 
-		highlight: function(input) {
-			$(input).addClass("error");
 		},
-		errorPlacement: function(error, element){}
+		errorPlacement: function(error, element){},
+		highlight: function (element, errorClass) {
+			$(element).removeClass("error").addClass("has-error");
+		}
 	});
 	
 	$("#edit").submit(function() {
@@ -114,6 +169,7 @@ $(function() {
 		if ($("#state").val() != "") {
 			$("#state").parent().removeClass("error");
 		}
+		console.log($("#state").val());
 	});
 	$("[name='gender']").on("input", function() {
 		if ($("[name='gender']:checked").length > 0) {
