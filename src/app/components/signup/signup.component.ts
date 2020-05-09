@@ -11,12 +11,9 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   registered: boolean;
   userEmail: string;
-  userFirst: string;
-  userLast: string;
+  userName: string;
   userAge: Date;
   userGender: string;
-  userLocation: string;
-  userInterests: string;
 
   constructor(
     public fbAuth: AngularFireAuth, // Inject Firebase auth service.
@@ -27,17 +24,14 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  signUp(email, password, first, last, dob, state, interests) {
+  signUp(email, password, name, dob) {
     return this.fbAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.registered = true;
         console.log(result.user);
         this.userEmail = email;
-        this.userFirst = first;
-        this.userLast = last;
+        this.userName = name;
         this.userAge = dob;
-        this.userLocation = state;
-        this.userInterests = interests;
         this.createUserEntry();
         this.router.navigateByUrl('/profile');
       }).catch((error) => {
@@ -49,15 +43,15 @@ export class SignupComponent implements OnInit {
   createUserEntry() {
     console.log(this.fbAuth.authState.subscribe(data => {
       this.db.collection('users').doc(data.uid).set({
-        first: this.userFirst,
-        last: this.userLast,
+        id: data.uid,
+        name: this.userName,
         email: this.userEmail,
         age: this.userAge,
         picture: 'https://firebasestorage.googleapis.com/v0/b/hobbyhub390.appspot.com/o/sample_pictures%2Fdefault_picture.png?alt=media&token=6dfc7fc7-7a5f-41dc-be90-94137adb0ef7',
-        location: this.userLocation,
+        location: '',
         gender: '',
         major: '',
-        hobbies: this.userInterests,
+        hobbies: '',
         friends: [],
       });
       this.db.collection('friends').doc(data.uid).set({

@@ -132,7 +132,7 @@ div > div.flatpickr-months > div > div > select,div > div.flatpickr-months > div
 .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month { 
   font-size: .9em;
 }
-.form-control {
+.form-container input {
   margin-top: 15px;
 }
 input, button, .dropdown {
