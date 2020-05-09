@@ -44,6 +44,7 @@ export class UserProfileComponent implements OnInit {
     document.get().subscribe((userData => {
       const user = userData.data();
       this.profile.hobbies = user.hobbies.length > 0 ? user.hobbies.split(", ").sort() : user.hobbies;
+      console.log(this.profile.hobbies);
     }));
   }
 
@@ -62,6 +63,7 @@ export class UserProfileComponent implements OnInit {
         this.picture = user.picture;
         this.bio = user.bio;
         this.hobbies = user.hobbies.length > 0 ? user.hobbies.split(", ").sort() : user.hobbies;
+        console.log(this.hobbies);
         this.app.setTitle(this.firstName + " " + this.lastName);
       } else {
         this.profileFound = false;
@@ -74,14 +76,14 @@ export class UserProfileComponent implements OnInit {
     var userHobbies = this.profile.hobbies;
     var hobbies = []; 
 
-    for (var i = 0 ; i < Math.max(profileHobbies.length, userHobbies.length); i++) {
+    for (var i = 0; i < Math.max(profileHobbies.length, userHobbies.length); i++) {
       if (type == "similar") {
-        if (profileHobbies[i] == userHobbies[i]) {
-          hobbies.push(userHobbies[i]);
-        }
+        if (userHobbies.join(" ").includes(profileHobbies[i])) {
+          hobbies.push(profileHobbies[i]);
+        } 
       }
       else {
-        if (profileHobbies[i] != userHobbies[i]) {
+        if (!userHobbies.join(" ").includes(profileHobbies[i])) {
           hobbies.push(profileHobbies[i]);
         }        
       }
