@@ -40,6 +40,7 @@ export class UserProfileComponent implements OnInit {
     });
   }
   getUserInfo(id) {
+    console.log(id);
     const document = this.db.collection('users').doc(id);
     document.get().subscribe((userData => {
       const user = userData.data();
@@ -78,16 +79,20 @@ export class UserProfileComponent implements OnInit {
 
     for (var i = 0; i < Math.max(profileHobbies.length, userHobbies.length); i++) {
       if (type == "similar") {
-        if (userHobbies.join(" ").includes(profileHobbies[i])) {
+        if (userHobbies.includes(profileHobbies[i])) {
           hobbies.push(profileHobbies[i]);
         } 
       }
       else {
-        if (!userHobbies.join(" ").includes(profileHobbies[i])) {
+        if (!userHobbies.includes(profileHobbies[i])) {
           hobbies.push(profileHobbies[i]);
         }        
       }
     }
+    hobbies = hobbies.filter(function (el) { 
+        return el; 
+    }); 
+    console.log(hobbies);
     return hobbies;
 }
   getAge(dateString) {
