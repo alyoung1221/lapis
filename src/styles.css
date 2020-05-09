@@ -7,7 +7,7 @@
 
 :root {
   --main-color: #26619C;
-  --input-border: #CAD6E6;
+  --input-border: #96C8DA;
   --input-circle: #26619C;
   --checked: #96C8DA;
   --select-width: 195px;
@@ -311,8 +311,8 @@ textarea {
     font-size: 1em;
     border: 1px solid var(--input-border);
   }
-  button:hover {
-    background: var(--input-border);
+  button:hover, .button:focus {
+    background: var(--checked);
     color: #fff;
   }
   
