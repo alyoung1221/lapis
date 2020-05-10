@@ -114,10 +114,26 @@
       <br>
       <label for="interests">Interests (select up to 10)</label>
       <div class="options">
-        <div *ngFor="let hobby of profile.hobbies">
-          <input type="checkbox" name="interests[]" id="{{ hobby }}" value="{{ hobby }}" checked>	
-          <label for="{{ hobby }}" title="{{ hobby }}">{{ hobby }}</label>
-        </div>       					
+        <ng-container *ngIf="profile.hobbies.length > 0">
+          <div *ngFor="let hobby of profile.hobbies">
+            <input type="checkbox" name="interests[]" id="{{ hobby }}" value="{{ hobby }}" checked>	
+            <label for="{{ hobby }}" title="{{ hobby }}">{{ hobby }}</label>
+          </div>  
+        </ng-container> 
+        <ng-container *ngIf="profile.hobbies.length == 0">
+          <input type="checkbox" name="interests[]" id="B" value="Baking">	
+          <label for="B" title="Baking">Baking</label>					
+          <input type="checkbox" name="interests[]" id="CK" value="Cooking">
+          <label for="CK" title="Cooking">Cooking</label>	
+          <input type="checkbox" name="interests[]" id="R" value="Reading">		
+          <label for="R" title="Reading">Reading</label>			
+          <input type="checkbox" name="interests[]" id="S" value="Skiing">
+          <label for="S" title="Skiing">Skiing</label>	
+          <input type="checkbox" name="interests[]" id="V" value="Volleyball">	
+          <label for="V" title="Volleyball">Volleyball</label>	
+          <input type="checkbox" name="interests[]" id="Z" value="Zip Lining">	
+          <label for="Z" title="Zip Lining">Zip Lining</label>
+        </ng-container>    					
       </div>
       <br>
       <label for="bio">Bio*&nbsp;<span class="indicator">(<span id="maxLength">200</span> characters)</span></label>

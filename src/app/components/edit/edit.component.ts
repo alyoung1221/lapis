@@ -50,7 +50,8 @@ export class EditComponent implements OnInit {
       this.profile.gender = user.gender;
       this.profile.major = user.major;
       this.profile.picture = user.picture;
-      this.profile.hobbies = user.hobbies == undefined ? user.hobbies : user.hobbies.split(", ");
+      this.profile.hobbies = user.hobbies.length > 0 ? user.hobbies.split(", ").sort() : user.hobbies;
+      console.log(this.profile.hobbies.length);
     }));
   }
 }
