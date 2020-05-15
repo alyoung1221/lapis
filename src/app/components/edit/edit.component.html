@@ -15,7 +15,9 @@
         <p>{{ profile.firstName }} {{ profile.lastName }}</p>
       </div>
       <div class="settings-container">
-        <div class="search-container"><input type="search" class="friend-search" placeholder="Friend search..." /></div>
+        <div class="search-container">
+          <input type="search" id="friend-search" placeholder="Friend search..." />
+        </div>
         <h3 class="setting-header">Settings</h3>
         <div class="settings-list">
           <a href="#">Account Settings</a>
@@ -32,31 +34,33 @@
       <div class="form-container">
         <div>
           <label for="fname">First Name*</label>
-          <input type="text" name="fname" id="fname" value="{{ profile.firstName }}" required>
+          <input type="text" name="fname" id="fname" [(ngModel)]="profile.firstName" #userFirst required>
         </div>
         <div>
           <label for="lname">Last Name*</label>
-          <input type="text" name="lname" id="lname" value="{{ profile.lastName }}" required>
+          <input type="text" name="lname" id="lname" [(ngModel)]="profile.lastName" #userLast required>
         </div>
       </div>
       <div class="form-container">
         <div>
           <label for="gender">Gender*</label><br>
-          <label class="input-wrapper radio" style="display: inline;">Female
-            <input type="radio" name="gender" value="F" required>
+          <input type="hidden" value="{{ profile.gender }}">
+          <label class="input-wrapper radio" style="display: inline;" tabindex="0">Female
+            <input type="radio" name="gender" value="F" [(ngModel)]="profile.gender" #userGender required>
             <span class="checkmark"></span>
           </label>
           &nbsp;
-          <label class="input-wrapper radio" style="display: inline;">Male
-            <input type="radio" name="gender" value="M" required>
+          <label class="input-wrapper radio" style="display: inline;" tabindex="0">Male
+            <input type="radio" name="gender" value="M" [(ngModel)]="profile.gender" #userGender required>
             <span class="checkmark"></span>
           </label>
         </div>
         <div>
+          <input type="hidden" name="location" id="location" value="{{ profile.location }}">
           <label for="state">State*</label>
           <br>
-          <select name="state" id="state" class="ui search dropdown">
-            <option value="">State</option>
+          <select name="state" id="state" [(ngModel)]="profile.location" #userLocation>
+            <option value="" disabled>State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -115,32 +119,33 @@
       <label for="interests">Interests (select up to 10)</label>
       <div class="options">
         <ng-container *ngIf="profile.hobbies.length > 0">
-          <div *ngFor="let hobby of profile.hobbies">
+          <ng-container *ngFor="let hobby of profile.hobbies.split(', ')">
             <input type="checkbox" name="interests[]" id="{{ hobby }}" value="{{ hobby }}" checked>	
             <label for="{{ hobby }}" title="{{ hobby }}">{{ hobby }}</label>
-          </div>  
+          </ng-container>  
         </ng-container> 
         <ng-container *ngIf="profile.hobbies.length == 0">
-          <input type="checkbox" name="interests[]" id="B" value="Baking">	
+          <input type="checkbox" name="interests[]" id="B" value="Baking">		
           <label for="B" title="Baking">Baking</label>					
-          <input type="checkbox" name="interests[]" id="CK" value="Cooking">
+          <input type="checkbox" name="interests[]" id="CK" value="Cooking">	
           <label for="CK" title="Cooking">Cooking</label>	
           <input type="checkbox" name="interests[]" id="R" value="Reading">		
           <label for="R" title="Reading">Reading</label>			
-          <input type="checkbox" name="interests[]" id="S" value="Skiing">
+          <input type="checkbox" name="interests[]" id="S" value="Skiing">	
           <label for="S" title="Skiing">Skiing</label>	
-          <input type="checkbox" name="interests[]" id="V" value="Volleyball">	
+          <input type="checkbox" name="interests[]" id="V" value="Volleyball">		
           <label for="V" title="Volleyball">Volleyball</label>	
-          <input type="checkbox" name="interests[]" id="Z" value="Zip Lining">	
+          <input type="checkbox" name="interests[]" id="Z" value="Zip Lining">		
           <label for="Z" title="Zip Lining">Zip Lining</label>
-        </ng-container>    					
+        </ng-container>   					
       </div>
+      <input type="hidden" name="interests" [(ngModel)]="profile.hobbies" #userInterests> 
       <br>
-      <label for="bio">Bio*&nbsp;<span class="indicator">(<span id="maxLength">200</span> characters)</span></label>
+      <label for="bio">Bio*&nbsp;<span class="indicator">(<span id="maxLength" *ngIf="!profile.bio">200</span> <span id="maxLength" *ngIf="profile.bio">{{ 200 - profile.bio.length}}</span> characters)</span></label>
       <br>
-      <textarea id="bio" name="bio" value="{{ profile.bio }}" placeholder="Write a short description of yourself here..." required></textarea>
+      <textarea id="bio" name="bio" [(ngModel)]="profile.bio" placeholder="Write a short description of yourself here..." #userBio required></textarea>
       <br><br><br>
-      <button type="submit" id="update" name="update">Update</button>
+      <button type="submit" id="update" name="update" (click)="updateUser(userFirst.value, userLast.value, userLocation.value, userGender.value, userInterests.value, userBio.value)">Update</button>
     </section>   
  </form>
  </div>

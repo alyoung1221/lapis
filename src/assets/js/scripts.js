@@ -137,6 +137,7 @@ $("#nextBtn").click(function() {
 	$(".dropdown").dropdown();
 
 	function loadMore() {
+		alert("called");
 		var interests = getInterests();	
 		var numInterests = $("[name='interests[]']").length;
 		
