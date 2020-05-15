@@ -137,7 +137,6 @@ $("#nextBtn").click(function() {
 	$(".dropdown").dropdown();
 
 	function loadMore() {
-		alert("called");
 		var interests = getInterests();	
 		var numInterests = $("[name='interests[]']").length;
 		
@@ -169,6 +168,7 @@ $("#nextBtn").click(function() {
 
 	$("[name='interests[]']").each(function(index) {
 		$(this).change(function() {
+			alert("called");
 			validateCheckbox($(this));
 
 			if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
@@ -226,34 +226,19 @@ $("#nextBtn").click(function() {
 
 	$("#edit").validate({
 		rules: {
-			name: "required",
-			email: {
-				required: true,
-				email: true
-			},
+			fname: "required",
+			lname: "required",
 			state: "required",
 			gender: "required"
 		},
 		errorPlacement: function(error, element){},
-		highlight: function (element, errorClass) {
-			$(element).removeClass("error").addClass("has-error");
-		}
 	});
 	
 	$("#edit").submit(function() {
-		if ($("#state").val() == "") {
-			$("#state").parent().addClass("error");
-		}
 		if ($("[name='gender']:checked").length < 1) {
 			$("[name='gender']").parent().addClass("error");
 			$("[name='gender']").next().addClass("error");
 		}
-	});
-	$("#state").change(function() {
-		if ($("#state").val() != "") {
-			$("#state").parent().removeClass("error");
-		}
-		console.log($("#state").val());
 	});
 	$("[name='gender']").on("input", function() {
 		if ($("[name='gender']:checked").length > 0) {
