@@ -1,0 +1,37 @@
+:host {
+    --input: #CAD6E6;
+}
+h2 {
+    text-align: left;
+    font-weight: 500;
+}
+h3, h4 {
+    font-weight: 400;
+}
+.user {
+    padding-top: 40px;
+}
+.user-profile {
+    max-width: 80%;
+    margin-left: 80px;
+}
+.bio p {
+    margin-top: 30px;
+}
+.bio .flex-container p {
+    margin-right: 30px;
+}
+#interests div {
+    margin-top: 24px;
+}
+#interests ul {
+    font-size: .97em;
+    list-style: none;
+    margin-top: 10px;
+}
+#interests ul li {
+    transition: .2s;
+}
+#interests ul li:hover {
+    transform: scale(1.1);
+}

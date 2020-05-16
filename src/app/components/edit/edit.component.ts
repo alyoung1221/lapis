@@ -1,12 +1,12 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
+import { AppComponent } from '../../app.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
   friendsLoaded = false;
@@ -28,9 +28,11 @@ export class EditComponent implements OnInit {
   };
   constructor(
     private db: AngularFirestore,
-    public fbAuth: AngularFireAuth) {}
+    public fbAuth: AngularFireAuth,
+    public app: AppComponent) {}
 
   ngOnInit() {
+    this.app.setTitle("Edit Profile");
     this.fbAuth.authState.subscribe(data => {
       this.getProfileInfo(data.uid);
       console.log('USER ID: ' + data.uid);

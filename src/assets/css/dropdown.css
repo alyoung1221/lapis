@@ -356,7 +356,7 @@ i.icon.delete:before {
   outline: 0;
   -webkit-transform: rotateZ(0deg);
           transform: rotateZ(0deg);
-  background: #FFFFFF;
+  background: transparent;
   display: inline-block;
   padding: 9.5px 2.1em 9.5px 1em;
   color: rgba(0, 0, 0, 0.87);
@@ -367,6 +367,12 @@ i.icon.delete:before {
   transition: width 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: box-shadow 0.1s ease, width 0.1s ease;
   transition: box-shadow 0.1s ease, width 0.1s ease, -webkit-box-shadow 0.1s ease;
+  min-width: 195px;
+  font-weight: 400;
+  font-size: .95em;
+}
+#edit .ui.selection.dropdown, #edit .ui.selection.active.dropdown .menu {
+  border-color: #CAD6E6;
 }
 .ui.selection.dropdown.visible,
 .ui.selection.dropdown.active {
@@ -945,7 +951,7 @@ i.icon {
 .ui.dropdown.error > .text,
 .ui.dropdown.error > .default.text {
   color: #9F3A38;
-}*/
+}
 .ui.selection.dropdown.error {
   background: #FFF6F6;
 }
@@ -958,17 +964,17 @@ i.icon {
 }
 .ui.multiple.selection.error.dropdown > .label {
   border-color: #E0B4B4;
-}
+}*/
 
-/* Item Hover */
+/* Item Hover 
 .ui.dropdown.error > .menu > .item:hover {
   background-color: #FFF2F2;
-}
+}*/
 
-/* Item Active */
+/* Item Active 
 .ui.dropdown.error > .menu .active.item {
   background-color: #FDCFCF;
-}
+}*/
 
 /*--------------------
         Clear

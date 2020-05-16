@@ -1,6 +1,36 @@
-.body-container {
-  height: calc(100vh - 200px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+:host {
+  --input: #96C8DA;
+  --checked: #96C8DA;
+  --select-width: 210px;
+}
+/*Login/Sign-Up*/
+.signup, .login {
+  background-color: #fafafa;
+}
+#sign-up a, a#sign-up {
+  border-bottom: 0.75px solid var(--input);
+}
+.login-container, .signup-container {
+  background: #fff;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+}
+#sign-up, #login label, #password {
+  font-weight: 400;
+}
+.login-options > * {
+  float: right;
+}
+.login-options p {
+  margin-top: 15px;
+}
+button[type="submit"] {
+  border-radius: 30px;
+}
+button[type="submit"] + span {
+  font-weight: 300;
+  margin-left: 15px;
+}
+.message {
+  margin-top: 30px;
 }
