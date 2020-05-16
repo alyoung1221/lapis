@@ -8,10 +8,22 @@ $(function() {
 		dateFormat: "Y-m-d",
 		maxDate: "today"
 	});
+	$("#dob + input").attr("name", "dob");
 	jQuery.validator.setDefaults({
 		onfocusout: function(element) {
-			// "eager" validation
 			this.element(element);  
+		},
+		oninput: function(element) {
+			this.element(element);  
+		},
+		errorPlacement: function(error, element) {
+			console.log(error.text());
+			if (error.text().includes("match")) {
+				error.insertAfter(element);
+			}
+			else {
+				return false;
+			}
 		}
 	});
 	$("#sign-up").validate({
@@ -23,7 +35,6 @@ $(function() {
 			email: true
 		},
 		gender: "required", 
-		state: "required",
 		dob: "required", 
 		password: {
 			required: true,
@@ -34,13 +45,8 @@ $(function() {
 		},
 	  },
 	  messages: {
-		password: {
-			required: "Please enter your password.",
-			equalTo: "The passwords do not match."
-		},
 		password2: {
-			required: "Please confirm your password.",
-			equalTo: "The passwords do not match."
+			equalTo: "The password does not match."
 		}
 	  }
 	});
@@ -160,11 +166,15 @@ $(function() {
 		if ($("#state").val() == "") {
 			$("#state").parent().addClass("error");
 		}
+	});
+
+	$("form").submit(function() {
 		if ($("[name='gender']:checked").length < 1) {
 			$("[name='gender']").parent().addClass("error");
 			$("[name='gender']").next().addClass("error");
 		}
 	});
+
 	$("#state").change(function() {
 		if ($("#state").val() != "") {
 			$("#state").parent().removeClass("error");

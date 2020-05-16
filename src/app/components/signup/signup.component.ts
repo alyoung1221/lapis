@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   registered: boolean;
   userEmail: string;
-  userName: string;
+  userFirst: string;
+  userLast: string;
   userAge: Date;
   userGender: string;
 
@@ -24,13 +25,16 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  signUp(email, password, name, dob) {
-    return this.fbAuth.auth.createUserWithEmailAndPassword(email, password)
+  signUp(email, password, fname, lname, gender, dob) {
+    if (email != "" && password != "" && fname != "" && lname != "" && gender != "" && dob != "") {
+      return this.fbAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.registered = true;
         console.log(result.user);
         this.userEmail = email;
-        this.userName = name;
+        this.userFirst = fname;
+        this.userLast = lname;
+		    this.userGender = gender;
         this.userAge = dob;
         this.createUserEntry();
         this.router.navigateByUrl('/profile');
@@ -38,21 +42,23 @@ export class SignupComponent implements OnInit {
         this.registered = false;
         console.log(error.message);
       });
+    }
   }
 
   createUserEntry() {
     console.log(this.fbAuth.authState.subscribe(data => {
       this.db.collection('users').doc(data.uid).set({
         id: data.uid,
-        name: this.userName,
         email: this.userEmail,
+        first: this.userFirst,
+        last: this.userLast,
+        gender: this.userGender,
         age: this.userAge,
         picture: 'https://firebasestorage.googleapis.com/v0/b/hobbyhub390.appspot.com/o/sample_pictures%2Fdefault_picture.png?alt=media&token=6dfc7fc7-7a5f-41dc-be90-94137adb0ef7',
         location: '',
-        gender: '',
         major: '',
         hobbies: '',
-        friends: [],
+        friends: []
       });
       this.db.collection('friends').doc(data.uid).set({
         sent: [],

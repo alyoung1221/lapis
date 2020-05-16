@@ -4,44 +4,52 @@
     <form method="post" id="sign-up">
         <div class="form-container">
             <div>
-                <label>Name</label>
-                <input type="text" id="name" name="name" title="Please enter your first name." maxlength="60" #userName>
-             </div>            
+                <label>First Name</label>
+                <input type="text" id="fname" name="fname" title="Please enter your first name." maxlength="60" #userFirst required>
+             </div>   
              <div>
+                <label>Last Name</label>
+                <input type="text" id="lname" name="lname" title="Please enter your last name." maxlength="60" #userLast required>
+             </div>           
+        </div>
+        <div class="form-container">
+            <div>
                 <label>E-mail (this will be your username)</label>
                 <input type="email" id="email" name="email" title="Please enter your e-mail." maxlength="60" #userEmail required>
             </div>
+			<div>
+			  <label for="gender">Gender*</label><br>
+			  <label class="input-wrapper radio" tabindex="0">Female
+				<input type="radio" name="gender" value="F" #userGender required>
+				<span class="checkmark"></span>
+			  </label>
+			  &nbsp;
+			  <label class="input-wrapper radio" tabindex="0">Male
+				<input type="radio" name="gender" value="M" #userGender required>
+				<span class="checkmark"></span>
+			  </label>
+			</div>
         </div>
         <div class="form-container">
             <div>
                 <label for="dob">Date of Birth</label>
-                <input type="date" id="dob" name="dob" title="Please select your date of birth." #userDOB>
+                <input type="date" id="dob" name="dob" title="Please select your date of birth." #userDOB required>
             </div>
             <div>
-                <label>Gender</label><br>
-                <label class="radio input-wrapper">Female
-                    <input type="radio" name="gender" value="F">
-                    <span class="checkmark"></span>
-                </label>
-                &nbsp;&nbsp;&nbsp;
-                <label class="radio input-wrapper">Male
-                    <input type="radio" name="gender" value="M">
-                    <span class="checkmark"></span>
-                </label>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
             </div>
         </div>
         <div class="form-container">
             <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
             </div>
             <div>
                 <label for="password2">Confirm Password</label>
-                 <input type="password" id="password2" name="password2" #userPassword required>
+                <input type="password" id="password2" name="password2" #userPassword required>
             </div>
         </div>
         <br><br>
-        <button type="submit" id="submit" name="submit" (click)="signUp(userEmail.value, userPassword.value, userName.value, userDOB.value)">Sign Up</button><span>Already have an account? <a routerLink="/login">Sign in</a></span>
+        <button type="submit" id="submit" name="submit" (click)="signUp(userEmail.value, userPassword.value, userFirst.value, userLast.value, userGender.value, userDOB.value)">Sign Up</button><span>Already have an account? <a routerLink="/login">Sign in</a></span>
     </form>
     <div class="message">
         <p *ngIf="registered">You have been successfully registered.</p>
