@@ -6,6 +6,7 @@ import { FriendsService } from '../../services/friends.service';
 import { SuggestionsService } from '../../services/suggestions.service';
 import { FriendrequestService } from 'src/app/services/friendrequest.service';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-profile',

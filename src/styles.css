@@ -348,18 +348,18 @@ section h3 {
 .section-container {
   padding: 50px 0px;
 }
-.section-container a:not(.edit) {
+.section-container a:not(.edit), .section-container button {
   display: inline-block;
   width: 100%;
   height: 100%;
   padding: 20px 0;
+  border: 0;
   color: #888;
   cursor: pointer;
   font-weight: 400;
   text-decoration: none;
-  cursor: pointer;
 }
-.section-container a:not(.edit):hover {
+.section-container a:not(.edit):hover, .section-container button:hover {
   color: var(--main-color);
   background-color: #ecf3fc;
   border-left: 6px solid var(--main-color);
