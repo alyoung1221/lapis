@@ -44,7 +44,6 @@
       <div class="form-container">
         <div>
           <label for="gender">Gender*</label><br>
-          <input type="hidden" value="{{ profile.gender }}">
           <label class="input-wrapper radio" style="display: inline;" tabindex="0">Female
             <input type="radio" name="gender" value="F" [(ngModel)]="profile.gender" #userGender required>
             <span class="checkmark"></span>

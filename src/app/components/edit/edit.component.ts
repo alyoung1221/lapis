@@ -47,8 +47,7 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this.app.setTitle("Edit Profile");
     this.fbAuth.authState.subscribe(data => {
-      console.log(data.uid);
-      if (data.uid == null || data.uid == "") {
+      if (data == null) {
         this.router.navigateByUrl("/login");
       }
       else {
@@ -76,11 +75,11 @@ export class EditComponent implements OnInit {
   }
 
   updateUser(first, last, state, gender, interests, bio) {
-    if (first != "" && last != "" && state != "" && gender != "" && interests != "" && bio != "") {
+    if (first != "" && last != "" && state != "" && gender != "" && state != "" && interests != "" && bio != "") {
         this.userFirst = first; 
         this.userLast = last;
-        this.userLocation = state;
         this.userGender = gender;
+        this.userLocation = state;
         this.userInterests = interests;
         this.userBio = bio;
         console.log(gender);
