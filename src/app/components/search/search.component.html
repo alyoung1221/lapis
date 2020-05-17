@@ -94,7 +94,10 @@
         <button type="button" id="reset">Reset</button>	
     </form>
     <table id="users">
-        <tbody class="flex-container">			
+        <tbody class="flex-container">		
+            <tr *ngFor="let user of users[0]">
+                <td>{{ user.first }}</td>
+            </tr>
         </tbody>
     </table>
     <div id="results"></div>
