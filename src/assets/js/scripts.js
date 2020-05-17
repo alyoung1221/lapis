@@ -229,7 +229,8 @@ $("#nextBtn").click(function() {
 			fname: "required",
 			lname: "required",
 			state: "required",
-			gender: "required"
+			gender: "required",
+			bio: "required"
 		},
 		errorPlacement: function(error, element){},
 	});
@@ -240,6 +241,7 @@ $("#nextBtn").click(function() {
 			$("[name='gender']").next().addClass("error");
 		}
 	});
+	
 	$("[name='gender']").on("input", function() {
 		if ($("[name='gender']:checked").length > 0) {
 			$("[name='gender']").parent().removeClass("error");
