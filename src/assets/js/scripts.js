@@ -192,7 +192,7 @@ $("#nextBtn").click(function() {
 		}
 	}
 
-	$("#search").on("input", function() {
+	/*$("#search").on("input", function() {
 		if ($("#search").val() == "") {
 			$("#reset").click();
 			$("#filters").hide();
@@ -202,7 +202,7 @@ $("#nextBtn").click(function() {
 		else {
 			$("main").load("/search", searchUsers);
 		}
-	});
+	});*/
 		
 	$("#searchbar").submit(function(e) {
 		window.location.href = "/search?s=" + $("#search").val();
