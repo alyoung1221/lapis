@@ -205,7 +205,7 @@ $("#nextBtn").click(function() {
 	});
 		
 	$("#searchbar").submit(function(e) {
-		e.preventDefault();
+		window.location.href = "/search?s=" + $("#search").val();
 	});
 
 	$("#filter").click(function(e) {
