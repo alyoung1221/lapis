@@ -57,7 +57,7 @@ export class SignupComponent implements OnInit {
         picture: 'https://firebasestorage.googleapis.com/v0/b/hobbyhub390.appspot.com/o/sample_pictures%2Fdefault_picture.png?alt=media&token=6dfc7fc7-7a5f-41dc-be90-94137adb0ef7',
         location: '',
         major: '',
-        hobbies: [],
+        hobbies: '',
         friends: []
       });
       this.db.collection('friends').doc(data.uid).set({

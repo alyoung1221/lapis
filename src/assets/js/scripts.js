@@ -170,7 +170,6 @@ $(function() {
 
 	$("form").submit(function() {
 		if ($("[name='gender']:checked").length < 1) {
-			$("[name='gender']").parent().addClass("error");
 			$("[name='gender']").next().addClass("error");
 		}
 	});
@@ -179,11 +178,10 @@ $(function() {
 		if ($("#state").val() != "") {
 			$("#state").parent().removeClass("error");
 		}
-		console.log($("#state").val());
 	});
+	
 	$("[name='gender']").on("input", function() {
 		if ($("[name='gender']:checked").length > 0) {
-			$("[name='gender']").parent().removeClass("error");
 			$("[name='gender']").next().removeClass("error");
 		}
 	});

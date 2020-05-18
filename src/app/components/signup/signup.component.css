@@ -3,27 +3,8 @@
   --checked: #96C8DA;
   --select-width: 210px;
 }
-
-/*Login/Sign-Up*/
-.signup, .login {
-  background-color: #fafafa;
-}
-#sign-up a, a#sign-up {
-  border-bottom: 0.75px solid var(--input);
-}
-.login-container, .signup-container {
-  background: #fff;
-  border: 1px solid #ccc;
-  margin: 0 auto;
-}
-#sign-up, #login label, #password {
-  font-weight: 400;
-}
-.login-options > * {
-  float: right;
-}
-.login-options p {
-  margin-top: 15px;
+main {
+  padding: 40px 40px 0 40px;
 }
 button[type="submit"] {
   border-radius: 30px;
