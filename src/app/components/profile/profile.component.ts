@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { FriendsService } from '../../services/friends.service';
 import { SuggestionsService } from '../../services/suggestions.service';
 import { FriendrequestService } from 'src/app/services/friendrequest.service';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-profile',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
   loggedin: boolean;
-  constructor(public fbAuth: AngularFireAuth, private router: Router) { }
+  search: string;
+  constructor(public fbAuth: AngularFireAuth, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // checks if the user is logged in and returns the status to the navbar to display different links depending on the state.
@@ -24,6 +24,9 @@ export class NavbarComponent implements OnInit {
         console.log('no one logged in');
         this.loggedin = false;
       }
+    });
+    this.route.queryParams.subscribe(params => {
+      this.search = params['s'];
     });
   }
 
