@@ -1,41 +1,31 @@
 <main class="flex-container">
     <form method="post" id="filters">
-        <label for="gender">Gender</label><br><br>
-        <label class="input radio">Female
+        <label for="gender">Gender</label><br>
+        <label class="input-wrapper radio">Female
             <input type="radio" name="gender" value="F" required>
             <span class="checkmark"></span>
         </label>
-        <label class="input radio">Male
+        <br>
+        <label class="input-wrapper radio">Male
             <input type="radio" name="gender" value="M" required>
             <span class="checkmark"></span>
         </label>
-        <label class="input radio">Any
+        <br>
+        <label class="input-wrapper radio">Any
             <input type="radio" name="gender" value="MF" required>
             <span class="checkmark"></span>
         </label>
         <div id="ageContainer">
             <label for="age">Age</label>: <input type="text" id="age" readonly>
-            <input type="hidden" name="min">
-            <input type="hidden" name="max">
+            <input type="hidden" id="min" name="min">
+            <input type="hidden" id="max" name="max">
             <br>
             <div id="slider-range"></div>
         </div>
-        <br>
-        <label for="interests">Interests</label>
-        <br><br>
-        <select name="interests" id="interests" class="ui search dropdown" multiple>
-            <option value="">Interests</option>
-            <option value="baking">Baking</option>
-            <option value="cooking">Cooking</option>
-            <option value="reading">Reading</option>
-            <option value="skiing">Skiing</option>
-            <option value="volleyball">Volleyball</option>
-            <option value="zip lining">Ziplining</option>
-        </select>
         <br><br>
         <label for="states">State</label>
         <br><br>
-        <select name="states" id="states" class="ui search dropdown" multiple>
+        <select name="states" id="states" class="ui search dropdown" #states multiple>
             <option value="">State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
@@ -90,13 +80,19 @@
             <option value="WY">Wyoming</option>
         </select>
         <br><br><br>
-        <button type="button" id="filter" name="filter">Filter</button>		
-        <button type="button" id="reset">Reset</button>	
+        <button type="button" id="filter" name="filter" (click)="advancedSearch()">Filter</button>		
+        <button type="button" id="reset" (click)="searchUsers()">Reset</button>	
     </form>
     <table id="users">
         <tbody class="flex-container">		
-            <tr *ngFor="let user of users[0]">
-                <td>{{ user.first }}</td>
+            <tr *ngFor="let user of users">
+                <td>
+                    <img src="{{ user.picture }}" class="profile">
+                </td>
+                <td>
+                    {{ user.first }} {{ user.last }}
+                    <br>{{ formatAge(user.age) }}<ng-container *ngIf="user.location">, {{ user.location }}</ng-container>
+                </td>
             </tr>
         </tbody>
     </table>

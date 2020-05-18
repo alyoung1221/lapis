@@ -1,18 +1,28 @@
+:root {
+    --input-border: #96C8DA;
+    --checked: #96C8DA;
+    --select-width: 200px;
+}
+main {
+    padding: 30px 22px 0 22px;
+}
 #filters > * {
-    font-size: .97em !important;
+    font-size: .97em;
 }
 #ageContainer {
     margin-top: 20px;
 }
+#ageContainer label {
+    display: inline;
+}
 #slider-range {
     height: 1px;
-    width: 270px;
+    width: 240px;
     margin-top: 20px;
     border: 0;
     border-bottom: 1px solid #DDD;
 }
 #age, #age:hover {
-    border: 0 !important;
     padding: 10px 0 !important;
     font-size: 100%;
     font-weight: 300;
@@ -32,16 +42,9 @@
 #slider-range > span:nth-child(2):hover, #slider-range > span:nth-child(3):hover, #slider-range > span:nth-child(2):active, #slider-range > span:nth-child(3):active {
     background-color: #96C8DA;
 }
-.ui.selection.dropdown {
-    border-color: #A9D9EB !important;
-    min-width: 230px !important;
-}
 #filters button {
     border: 1px solid #A9D9EB;
-    width: 120px;
-    padding: 12px 30px;
     margin-right: 30px;
-    cursor: pointer;
 }
 #filters button:hover {
     background: #A9D9EB;
@@ -51,11 +54,6 @@
 #results h3 {
     font-weight: 500;
     font-size: 1.4em;
-}
-.profile {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
 }
 table {
     flex: 50%;
@@ -67,6 +65,6 @@ tr {
     margin-right: 50px;
     min-width: 280px;
 }
-td img {
+.profile {
     margin-right: 40px;
 }
