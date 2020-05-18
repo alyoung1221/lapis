@@ -1,10 +1,10 @@
-:root {
+:host {
     --input-border: #96C8DA;
     --checked: #96C8DA;
     --select-width: 200px;
 }
 main {
-    padding: 30px 22px 0 22px;
+    padding: 40px 40px 0 40px;
 }
 #filters > * {
     font-size: .97em;
@@ -22,26 +22,14 @@ main {
     border: 0;
     border-bottom: 1px solid #DDD;
 }
+#slider-range > div {
+    background: transparent;
+}
 #age, #age:hover {
     padding: 10px 0 !important;
     font-size: 100%;
     font-weight: 300;
 }	
-#slider-range > div {
-    background: transparent;
-}
-#slider-range > span:nth-child(2), #slider-range > span:nth-child(3) {
-    top: -9px;
-    height: 20px;
-    width: 20px;
-    border: 0;
-    background-color: #A9D9EB;
-    border-radius: 50%;
-    cursor: pointer;
-}
-#slider-range > span:nth-child(2):hover, #slider-range > span:nth-child(3):hover, #slider-range > span:nth-child(2):active, #slider-range > span:nth-child(3):active {
-    background-color: #96C8DA;
-}
 #filters button {
     border: 1px solid #A9D9EB;
     margin-right: 30px;
@@ -50,21 +38,21 @@ main {
     background: #A9D9EB;
     color: #FFF;
 }
+
 /*Results*/
-#results h3 {
-    font-weight: 500;
-    font-size: 1.4em;
-}
-table {
-    flex: 50%;
-    min-width: 100px;
-}
-tr {
-    display: block;
-    margin-bottom: 40px;
-    margin-right: 50px;
-    min-width: 280px;
-}
-.profile {
-    margin-right: 40px;
-}
+    #results h3 {
+        font-weight: 500;
+        font-size: 1.4em;
+    }
+    table {
+        flex: 50%;
+    }
+    tr {
+        display: block;
+        margin-bottom: 40px;
+        margin-right: 50px;
+        min-width: 280px;
+    }
+    .profile {
+        margin-right: 40px;
+    }

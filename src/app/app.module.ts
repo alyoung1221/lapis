@@ -27,7 +27,6 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
-import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { UsersComponent } from './components/users/users.component';
 import { HobbyComponent } from './components/hobby/hobby.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
@@ -63,7 +62,6 @@ const config = {
     FooterComponent,
     ContactComponent,
     SearchComponent,
-    AdvancedSearchComponent,
     UsersComponent,
     HobbyComponent,
     UserProfileComponent,

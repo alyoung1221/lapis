@@ -259,13 +259,14 @@ $("#nextBtn").click(function() {
 	}
 
 	rangeSlider();
+
 	function rangeSlider() {
 		$("#slider-range").slider({
 			range: true,
 			min: 18,
 			max: 70,
 			values: [25, 45],
-			slide: function(event, ui) {
+			slide: function(ui) {
 				$("#age").val(ui.values[0] + " - " + ui.values[1]);
 				$("input[name='min']").val(ui.values[0]);
 				$("input[name='max']").val(ui.values[1]);				
