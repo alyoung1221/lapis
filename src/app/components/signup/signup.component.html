@@ -1,6 +1,4 @@
-<main>
-    <h2>Sign In <span>or</span> Sign Up</h2>
-    <br><br>
+<section>
     <form method="post" id="sign-up">
         <div class="form-container">
             <div>
@@ -30,7 +28,7 @@
 			  </label>
 			</div>
         </div>
-        <div class="form-container">
+        <div class="form-container" style="margin-top: 20px;">
             <div>
                 <label for="dob">Date of Birth*</label>
                 <input type="date" id="dob" name="dob" title="Please select your date of birth." #userDOB required>
@@ -48,11 +46,39 @@
                 <input type="password" id="password2" name="password2" #userPassword required>
             </div>
         </div>
+        <div class="form-container">
+            <h2>Customize Profile</h2>
+            <div>
+                <label for="bio">Bio*&nbsp;<span class="indicator">(<span id="maxLength">200</span> characters)</span></label>
+                <br>
+                <textarea id="bio" name="bio" placeholder="Write a short description of yourself here..." required #userBio></textarea>                        
+            </div>
+            <div>
+                <label for="interests">Select interests (up to 10)</label>
+                <div class="options">
+                    <input type="checkbox" name="interests[]" id="B" value="Baking">	
+                    <label for="B" title="Baking">Baking</label>					
+                    <input type="checkbox" name="interests[]" id="CK" value="Cooking">
+                    <label for="CK" title="Cooking">Cooking</label>	
+                    <input type="checkbox" name="interests[]" id="R" value="Reading">		
+                    <label for="R" title="Reading">Reading</label>			
+                    <input type="checkbox" name="interests[]" id="S" value="Skiing">
+                    <label for="S" title="Skiing">Skiing</label>	
+                    <input type="checkbox" name="interests[]" id="V" value="Volleyball">	
+                    <label for="V" title="Volleyball">Volleyball</label>	
+                    <input type="checkbox" name="interests[]" id="Z" value="Zip Lining">	
+                    <label for="Z" title="Zip Lining">Zip Lining</label>
+                </div>    
+                <input type="hidden" name="interests" #userInterests>            
+            </div>
+        </div>
         <br><br>
-        <button type="submit" id="submit" name="submit" (click)="signUp(userEmail.value, userPassword.value, userFirst.value, userLast.value, userGender.value, userDOB.value)">Sign Up</button><span>Already have an account? <a routerLink="/login">Sign in</a></span>
+        <button type="submit" id="next" name="next">Next</button>
+        <button type="submit" id="submit" name="submit" (click)="signUp(userEmail.value, userPassword.value, userFirst.value, userLast.value, userGender.value, userDOB.value, userBio.value, userInterests.value)">Sign Up</button>
+        <p id="sign-up">Already have an account? <a routerLink="/login">Sign in</a></p>
     </form>
     <div class="message">
         <p *ngIf="registered">You have been successfully registered.</p>
         <p *ngIf="registered == false">Sorry, there was an error and you have not been successfully registered.</p>
     </div>
-</main>
+</section>

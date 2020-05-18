@@ -3,10 +3,17 @@
   --checked: #96C8DA;
   --select-width: 210px;
 }
-main {
-  padding: 40px 40px 0 40px;
+section {
+  padding: 20px 40px 0 40px;
 }
-button[type="submit"] {
+.form-container:last-of-type {
+  display: none;
+}
+button {
+  min-width: 150px;
+}
+#submit {
+  display: none;
   border-radius: 30px;
 }
 button[type="submit"] + span {

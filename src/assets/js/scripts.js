@@ -50,6 +50,16 @@ $(function() {
 		}
 	  }
 	});
+	
+	$("#next").click(function() {
+		if ($("#sign-up").valid()) {
+			$(".form-container:not(:last-of-type)").css("display", "none");
+			$(".form-container:last-of-type").css("display", "block");
+			$("#next").css("display", "none");
+			$("#submit").css("display", "inline-block");
+		}
+	});
+
 	$("[type='radio']").each(function(e) {
 		$(this).click(function(e) {
 			if (e.ctrlKey) {
@@ -57,6 +67,7 @@ $(function() {
 			}
 		});
 	});
+
 	$(".dropdown").dropdown();
 
 	function loadMore() {

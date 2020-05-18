@@ -12,9 +12,11 @@ export class SignupComponent implements OnInit {
   registered: boolean;
   userEmail: string;
   userFirst: string;
-  userLast: string;
-  userAge: Date;
+  userLast: string;  
   userGender: string;
+  userAge: Date;
+  userBio: string;
+  userHobbies: string;
 
   constructor(
     public fbAuth: AngularFireAuth, // Inject Firebase auth service.
@@ -25,7 +27,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  signUp(email, password, fname, lname, gender, dob) {
+  signUp(email, password, fname, lname, gender, dob, bio, hobbies) {
     if (email != "" && password != "" && fname != "" && lname != "" && gender != "" && dob != "") {
       return this.fbAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -36,6 +38,8 @@ export class SignupComponent implements OnInit {
         this.userLast = lname;
 		    this.userGender = gender;
         this.userAge = dob;
+        this.userBio = bio;
+        this.userHobbies = hobbies;
         this.createUserEntry();
         this.router.navigateByUrl('/profile');
       }).catch((error) => {
@@ -57,7 +61,8 @@ export class SignupComponent implements OnInit {
         picture: 'https://firebasestorage.googleapis.com/v0/b/hobbyhub390.appspot.com/o/sample_pictures%2Fdefault_picture.png?alt=media&token=6dfc7fc7-7a5f-41dc-be90-94137adb0ef7',
         location: '',
         major: '',
-        hobbies: '',
+        bio: this.userBio,
+        hobbies: this.userHobbies,
         friends: []
       });
       this.db.collection('friends').doc(data.uid).set({
@@ -70,5 +75,4 @@ export class SignupComponent implements OnInit {
       });
     }));
   }
-
 }
