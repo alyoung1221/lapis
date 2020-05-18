@@ -175,6 +175,7 @@ textarea {
 }
 .ui.selection.dropdown {
   min-width: var(--select-width);
+  max-width: 270px;
   background: transparent;
 }
 
@@ -323,6 +324,7 @@ textarea {
 #main {
   padding: 40px 22px 0 22px;
 }
+
 /*User Profile*/	  
 aside {
   flex: 1;
@@ -426,7 +428,21 @@ section h3 {
   background-size: 14px;
   right: 7px;
 }
-  
+
+/*Range Slider*/
+  #slider-range > span:nth-child(2), #slider-range > span:nth-child(3) {
+    top: -8.5px;
+    height: 20px;
+    width: 20px;
+    border: 0;
+    background-color: #A9D9EB;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  #slider-range > span:nth-child(2):hover, #slider-range > span:nth-child(3):hover, #slider-range > span:nth-child(2):active, #slider-range > span:nth-child(3):active {
+    background-color: #96C8DA;
+  }
+
 @media (max-width: 800px) {
   .section-container {
     margin: 0 auto;
