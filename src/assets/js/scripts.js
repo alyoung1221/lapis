@@ -192,7 +192,7 @@ $("#nextBtn").click(function() {
 		}
 	}
 
-	$("#search").on("input", function() {
+	/*$("#search").on("input", function() {
 		if ($("#search").val() == "") {
 			$("#reset").click();
 			$("#filters").hide();
@@ -203,24 +203,17 @@ $("#nextBtn").click(function() {
 			$("main").load("/search", searchUsers);
 		}
 	});
-		
-	$("#searchbar").submit(function(e) {
-		e.preventDefault();
-	});
 
 	$("#filter").click(function(e) {
 		searchUsers("filters");
-	});
+	});*/
 
 	$("#reset").click(function() {
 		$("[name='gender']:checked").prop("checked", false);
-		$("[name='interests[]']:checked").each(function() {
-			$(this).prop("checked", false);
-		});
-		$("#slider-range" ).slider("destroy");
+		$("[name='interests[]']:checked").prop("checked", false);
+		$("#slider-range").slider("destroy");
 		rangeSlider();
 		$(".dropdown").dropdown("restore defaults");
-		searchUsers();
 	});
 
 	$("#edit").validate({
@@ -265,6 +258,7 @@ $("#nextBtn").click(function() {
 		$("#bio").restrictLength($("#maxLength"));
 	}
 
+	rangeSlider();
 	function rangeSlider() {
 		$("#slider-range").slider({
 			range: true,
@@ -282,7 +276,7 @@ $("#nextBtn").click(function() {
 		$("input[name='max']").val($("#slider-range").slider("values", 1));	
 	}
 			
-	function searchUsers(type, e) {
+	function searchUsers() {
 		console.log("Called");
 		$("#users").css("margin-left", "80px");
 		$("tbody").empty();

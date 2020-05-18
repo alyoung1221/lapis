@@ -3,8 +3,9 @@
     <a routerLink="/login" *ngIf="!loggedin"><img src="/assets/images/logo.png" alt="lapiz"></a>	
     <a routerLink="/users" *ngIf="loggedin"><img src="/assets/images/logo.png" alt="lapiz"></a>				
     <div class="flex-container">
-      <form method="post" id="searchbar">
-        <input type="search" name="search" id="search" placeholder="Search..." required>
+      <form method="get" action="/search" id="searchbar" ngNoForm>
+        <input type="search" name="s" id="search" placeholder="Search..." *ngIf="!search">
+        <input type="search" name="s" id="search" placeholder="Search..." value=" {{ search }}" *ngIf="search" required>
       </form>
       <ul class="flex-container">
         <li><a routerLink="about">About</a></li>
