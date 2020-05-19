@@ -69,7 +69,9 @@ export class EditComponent implements OnInit {
       this.profile.major = user.major;
       this.profile.picture = user.picture;
       this.profile.hobbies = user.hobbies;
-      $('#state').dropdown('set selected', this.profile.location);
+      if (this.profile.location != "") {
+        $('#state').dropdown('set selected', this.profile.location);
+      }
       this.loadInterests(this.profile.hobbies.split(", ").length);
     }));
   }

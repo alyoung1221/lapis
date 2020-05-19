@@ -141,13 +141,22 @@ $(function() {
 			state: "required",
 			gender: "required",
 			bio: "required"
-		},
-		errorPlacement: function(error, element){},
+		}
 	});
 	
 	$("form").submit(function() {
 		if ($("[name='gender']:checked").length < 1) {
 			$("[name='gender']").next().addClass("error");
+		}
+		if ($("#state option:selected").val() == "") {
+			$("body, html").animate({
+				scrollTop: $("#state").offset().top
+			});
+			$("#state").next("div").focus();
+			$("#state").parent().addClass("error");
+		}
+		else {
+			$("#state").parent().removeClass("error");
 		}
 	});
 
