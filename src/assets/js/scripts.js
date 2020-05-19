@@ -165,7 +165,7 @@ $(function() {
 		errorPlacement: function(error, element){},
 	});
 	
-	$("#edit").submit(function() {
+	$("form").submit(function() {
 		if ($("[name='gender']:checked").length < 1) {
 			$("[name='gender']").next().addClass("error");
 		}
