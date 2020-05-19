@@ -1,5 +1,5 @@
 <div class="main-container">
-    <h2>Here are all of the users that like {{ urlParam }}</h2>
+    <h2>{{ urlParam }}</h2>
     <div class="flex-container">
         <div class="card-container" *ngFor="let user of userList">
             <app-usercard [user]=user></app-usercard>
