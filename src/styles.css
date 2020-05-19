@@ -390,7 +390,6 @@ section h3 {
   grid-area: suggestions;
 }
 .right-container {
-  padding: 50px;
   flex: 3;
 }
 .profile-name {
