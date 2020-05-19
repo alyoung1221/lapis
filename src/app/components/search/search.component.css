@@ -3,8 +3,11 @@
     --checked: #96C8DA;
     --select-width: 200px;
 }
-main {
-    padding: 40px 40px 0 40px;
+#main {
+    padding: 50px 50px 0 40px;
+}
+h2 {
+    margin-bottom: 70px;
 }
 #filters > * {
     font-size: .97em;
@@ -40,10 +43,6 @@ main {
 }
 
 /*Results*/
-    #results h3 {
-        font-weight: 500;
-        font-size: 1.4em;
-    }
     table {
         flex: 50%;
     }
