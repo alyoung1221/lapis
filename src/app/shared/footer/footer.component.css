@@ -1,8 +1,7 @@
 
 /*Footer*/
 footer {
-  width: 92%;
-  margin: 80px auto 50px auto;
+  padding: 80px 40px 50px 40px;
 }
 footer > .flex-container {
   justify-content: space-between;

@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +14,15 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   loginSuccess: boolean;
-  constructor(fb: AngularFireAuth, private router: Router) { }
+  constructor(public fb: AngularFireAuth, private router: Router, public app: AppComponent) { }
 
   ngOnInit() {
+    this.app.setTitle("Login");
+    /*this.fb.authState.subscribe(data => {
+      if (data) {
+        this.router.navigateByUrl("/profile");
+      }
+    });*/
     this.loginForm = new FormGroup({
       email: new FormControl(null),
       password: new FormControl(null),
