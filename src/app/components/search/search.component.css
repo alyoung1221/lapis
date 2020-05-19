@@ -43,15 +43,9 @@ h2 {
 }
 
 /*Results*/
-    table {
-        flex: 50%;
+    .card-container {
+        margin-bottom: 85px;
     }
-    tr {
-        display: block;
-        margin-bottom: 40px;
-        margin-right: 50px;
-        min-width: 280px;
-    }
-    .profile {
-        margin-right: 40px;
+    .all-users {
+        margin-left: 40px;
     }
