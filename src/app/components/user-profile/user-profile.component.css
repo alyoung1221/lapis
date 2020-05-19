@@ -11,9 +11,8 @@ h3, h4 {
 .user {
     padding-top: 40px;
 }
-.user-profile {
-    max-width: 80%;
-    margin-left: 80px;
+.user > .flex-container > div:first-of-type {
+    margin-right: 100px;
 }
 .bio p {
     margin-top: 30px;
