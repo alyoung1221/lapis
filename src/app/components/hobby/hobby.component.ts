@@ -17,15 +17,10 @@ export class HobbyComponent implements OnInit {
     ) {}
 
   ngOnInit() {
-    this.urlParam = this.route.snapshot.params.hobby;
+    this.urlParam = this.route.snapshot.params.hobby.toLowerCase();
     this.getUserList(this.urlParam);
   }
   getUserList(urlParam) {
-    this.hobbies.getHobbies(urlParam).subscribe((data) => {
-      // data.data().users.map((user) => {
-
-      // });
-    });
+    this.userList = this.hobbies.getHobbies(urlParam);
   }
-
 }
