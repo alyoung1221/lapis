@@ -85,18 +85,10 @@
             <button type="button" id="filter" name="filter" (click)="advancedSearch()">Filter</button>		
             <button type="button" id="reset" (click)="searchUsers()">Reset</button>	
         </form>
-        <table id="users">
-            <tbody class="flex-container">		
-                <tr *ngFor="let user of users">
-                    <td>
-                        <img src="{{ user.picture }}" class="profile">
-                    </td>
-                    <td>
-                        {{ user.first }} {{ user.last }}
-                        <br>{{ formatAge(user.age) }}<ng-container *ngIf="user.location">, {{ user.location }}</ng-container>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="all-users">
+            <div class="card-container" *ngFor="let user of users; index as i">
+                <app-usercard [user]=user></app-usercard>
+            </div>
+        </div>
     </div>
 </section>
