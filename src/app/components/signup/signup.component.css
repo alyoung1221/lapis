@@ -11,10 +11,10 @@ section {
 }
 button {
   min-width: 150px;
+  padding: 13px 38px;
 }
 #submit {
   display: none;
-  border-radius: 30px;
 }
 button[type="submit"] + span {
   font-weight: 300;

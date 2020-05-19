@@ -8,7 +8,9 @@ $(function() {
 		dateFormat: "Y-m-d",
 		maxDate: "today"
 	});
+
 	$("#dob + input").attr("name", "dob");
+
 	jQuery.validator.setDefaults({
 		onfocusout: function(element) {
 			this.element(element);  
@@ -26,6 +28,7 @@ $(function() {
 			}
 		}
 	});
+	
 	$("#sign-up").validate({
 	  rules: {
 		fname: "required",
