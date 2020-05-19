@@ -29,10 +29,10 @@
       >
         Log In
       </button>
+      <div class="message">
+        <p *ngIf="loginSuccess == true">Successfully logged in</p>
+        <p *ngIf="loginSuccess == false">There was an error trying to log you in.</p>
+      </div>
       <p id="sign-up">Don't have an account? <a routerLink="/signup">Sign up</a></p>
     </form>
-  </div>
-  <div *ngIf="loginSuccess == true">Successfully logged in</div>
-  <div *ngIf="loginSuccess == false">
-    There was an error trying to log you in.
   </div>

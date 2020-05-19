@@ -211,11 +211,6 @@ textarea {
   .options input:checked + label:before, .options input:hover + label:before, #shared li:before, label.checked:before {
     font-weight: 900;
   }
-  #search input[type="text"], #search input[type="button"] {
-    border: 1px solid #CCC;
-    border-radius: 5px;
-    padding: 10px 15px;
-  }
   #interests ul li:before, .options label:before {
 		content: '\f111';
 		font-family: 'Font Awesome 5 Free';
@@ -327,6 +322,17 @@ textarea {
 }
 #main {
   padding: 40px 22px 0 22px;
+}
+
+/*Login/Sign-up*/
+#sign-up {
+	margin-top: 40px;
+}
+#sign-up a, #login a {
+	border-bottom: .75px solid var(--main-color);
+}
+.message {
+  margin-top: 50px;
 }
 
 /*User Profile*/	  

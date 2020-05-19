@@ -19,7 +19,6 @@ $(function() {
 			this.element(element);  
 		},
 		errorPlacement: function(error, element) {
-			console.log(error.text());
 			if (error.text().includes("match")) {
 				error.insertAfter(element);
 			}
@@ -57,7 +56,7 @@ $(function() {
 	$("#next").click(function() {
 		if ($("#sign-up").valid()) {
 			$(".form-container:not(:last-of-type)").css("display", "none");
-			$(".form-container:last-of-type").css("display", "block");
+			$("#last").css("display", "block");
 			$("#next").css("display", "none");
 			$("#submit").css("display", "inline-block");
 		}
@@ -105,7 +104,6 @@ $(function() {
 
 	$("[name='interests[]']").each(function(index) {
 		$(this).change(function() {
-			alert("called");
 			validateCheckbox($(this));
 
 			if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
@@ -120,7 +118,6 @@ $(function() {
 	function selectedInterests() {
 		var interests = $("[name='interests[]']:checked").map(function() { return this.value; }).get().join(", ");
 		$("[name='interests']").val(interests);
-		console.log($("[name='interests']").val());
 	};
 	
 	function validateCheckbox(input) {	
@@ -130,25 +127,8 @@ $(function() {
 		}
 	}
 
-	/*$("#search").on("input", function() {
-		if ($("#search").val() == "") {
-			$("#reset").click();
-			$("#filters").hide();
-			populateTable(createUsers());
-			$("#users").css("margin-left", "0");
-		}
-		else {
-			$("main").load("/search", searchUsers);
-		}
-	});
-
-	$("#filter").click(function(e) {
-		searchUsers("filters");
-	});*/
-
 	$("#reset").click(function() {
 		$("[name='gender']:checked").prop("checked", false);
-		$("[name='interests[]']:checked").prop("checked", false);
 		$("#slider-range").slider("destroy");
 		rangeSlider();
 		$(".dropdown").dropdown("restore defaults");
@@ -205,118 +185,6 @@ $(function() {
 	}
 
 	rangeSlider();
-			
-	function searchUsers() {
-		console.log("Called");
-		$("#users").css("margin-left", "80px");
-		$("tbody").empty();
-		$("#filters").show();
-		
-		var searchTerm = $("#search").val().toLowerCase();
-		var users = createUsers();
-		var selectedUsers = new Array(); 
-			
-		if (type == "filters") {
-			var interestMatch = false;
-			var statesMatch = false;
-				
-			for (var i = 0; i < users.length; i++) {	
-				var states = "";
-				var interests = "";			
-					
-				if ($("#interests option:selected").length > 0) {
-					$("#interests option:selected").each(function() {
-						if (users[i].getInterests().includes($(this).val())) {
-							interestMatch = true;
-						}
-					});
-				}
-				else {
-					interestMatch = true;
-				}
-					
-				if ($("#states option:selected").length > 0) {
-					$("#states option:selected").each(function() {
-						states += $(this).val();
-					});
-				}
-				else {
-					statesMatch = true;
-				}
-				
-				if (users[i].toString().toLowerCase().includes(searchTerm) && $("input[name='gender']:checked").val().includes(users[i].getGender()) && interestMatch && (users[i].getAge() >= $("input[name='min']").val() && users[i].getAge() < $("input[name='max']").val()) && (states.includes(users[i].getState()) || statesMatch)) {
-					selectedUsers.push(users[i]); 
-				}
-			}
-		}
-		else {
-			for (var i = 0; i < users.length; i++) {
-				if (users[i].toString().toLowerCase().includes(searchTerm)) {
-					selectedUsers.push(users[i]);
-				}
-			}
-		}
-
-		if (selectedUsers.length > 0) {		
-			populateTable(selectedUsers);
-		}
-		sessionStorage.removeItem("search");
-	}
-
-	function populateTable(selectedUsers) {
-		$("tbody").empty();
-		for (var i = 0; i < selectedUsers.length; i++) {
-			var tr = document.createElement("tr");
-			tr.innerHTML = "\n";
-						
-			for (var y = 0; y < 2; y++) {
-				var td = document.createElement("td");
-						
-				if (y == 0) {
-					td.innerHTML = "\n<img src='" + selectedUsers[i].getProfile() + "' class='profile'>\n"; 
-				}
-				else {
-					td.innerHTML = "\n" + selectedUsers[i].getUser() + "\n<br>" + selectedUsers[i].getAge() + ", " + selectedUsers[i].getState(); 
-				}
-				tr.append(td);
-			}
-					
-			tr.append(document.createElement("td"));
-			tr.append(document.createElement("td"));
-			$("tbody").append(tr);
-		}
-	}
-
-	function createUsers() {
-		var users = new Array();
-		
-		users.push(new User("Elle Brookes", "F", 20, "/assets/images/female.jpg", "cooking, reading", "VA"));
-		users.push(new User("Samantha Jones", "F", 21, "/assets/images/female.jpg", "cooking, reading", "WA"));
-		users.push(new User("Lani Greene", "F", 23, "/assets/images/female.jpg", "baking, reading, zip lining", "MI"));
-		users.push(new User("David James", "M", 30, "/assets/images/male.jpg", "volleyball, zip lining", "NY"));
-		users.push(new User("Paul Tran", "M", 25, "/assets/images/male.jpg", "volleyball, skiing", "FL"));
-		users.push(new User("Ben Jones", "M", 22, "/assets/images/male.jpg", "skiing, zip lining", "NC"));
-
-		return users;
-	}
-
-	function User(name, gender, age, profile, interests, state) {
-		this.name = name;	
-		this.gender = gender;
-		this.age = age;	
-		this.profile = profile;
-		this.interests = interests;
-		this.state = state;
-		this.getUser = function() {return this.name;};  
-		this.getGender = function() {return this.gender;};  
-		this.getAge = function() {return this.age;};  
-		this.getProfile = function() {return this.profile;}; 	
-		this.getInterests = function() {return this.interests;};  
-		this.getState = function() {return this.state;};  
-		this.toString = function() {
-			return this.name + " " + this.gender + " " + this.interests + " " + this.state;
-		}
-	}
 
 	function getInterests() {
 		var interests = [];

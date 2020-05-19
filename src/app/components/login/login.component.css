@@ -9,9 +9,3 @@
 	font-weight: 300;
 	width: 280px;
 }
-#sign-up {
-	margin-top: 40px;
-}
-#sign-up a {
-	border-bottom: .75px solid var(--main-color);
-}

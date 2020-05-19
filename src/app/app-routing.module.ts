@@ -18,7 +18,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 
 
 const routes: Routes = [
-  { path: '', component: SampleComponent},
+  { path: '', component: SignupComponent},
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'hobby/:hobby', component: HobbyComponent},

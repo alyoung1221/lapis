@@ -6,7 +6,7 @@
 section {
   padding: 20px 40px 0 40px;
 }
-.form-container:last-of-type {
+#last {
   display: none;
 }
 button {
@@ -19,7 +19,4 @@ button {
 button[type="submit"] + span {
   font-weight: 300;
   margin-left: 15px;
-}
-.message {
-  margin-top: 30px;
 }
