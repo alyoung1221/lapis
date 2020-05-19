@@ -187,15 +187,13 @@ $(function() {
 		$("#bio").restrictLength($("#maxLength"));
 	}
 
-	rangeSlider();
-
 	function rangeSlider() {
 		$("#slider-range").slider({
 			range: true,
 			min: 18,
 			max: 70,
 			values: [25, 45],
-			slide: function(ui) {
+			slide: function(event, ui) {
 				$("#age").val(ui.values[0] + " - " + ui.values[1]);
 				$("input[name='min']").val(ui.values[0]);
 				$("input[name='max']").val(ui.values[1]);				
@@ -205,6 +203,8 @@ $(function() {
 		$("input[name='min']").val($("#slider-range").slider("values", 0));
 		$("input[name='max']").val($("#slider-range").slider("values", 1));	
 	}
+
+	rangeSlider();
 			
 	function searchUsers() {
 		console.log("Called");
