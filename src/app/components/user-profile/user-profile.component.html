@@ -18,7 +18,7 @@
                 <div id="shared">
                     <h4>Shared Interests</h4>
                     <ul class="flex-container" *ngIf="filterHobbies('similar').length > 0">
-                        <li *ngFor="let hobby of filterHobbies('similar')" title="{{ hobby }}" (click)="goToHobby(hobby.toLowerCase())">
+                        <li *ngFor="let hobby of filterHobbies('similar')" title="{{ hobby }}" (click)="goToHobby(hobby)">
                             {{ hobby }}
                          </li>
                     </ul>
@@ -27,7 +27,7 @@
                 <div id="other" *ngIf="filterHobbies('different').length > 0">
                     <h4>Other Interests</h4>
                     <ul class="flex-container">
-                        <li *ngFor="let hobby of filterHobbies('different')" title="{{ hobby }}" (click)="goToHobby(hobby.toLowerCase())">
+                        <li *ngFor="let hobby of filterHobbies('different')" title="{{ hobby }}" (click)="goToHobby(hobby)">
                             {{ hobby }}
                         </li>
                     </ul>		
