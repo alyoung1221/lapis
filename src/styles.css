@@ -197,10 +197,10 @@ textarea {
 		display: flex;
     cursor: pointer;
 	}
-  .options [type="checkbox"]:checked + label, .options input:hover:not(:disabled) + label {
-    border: 1px solid var(--checked);
+  .options [type="checkbox"]:checked + label, .options input:hover:not(:disabled) + label, label.checked {
+    border: 1px solid var(--checked) !important;
   }
-  .options input:checked + label:before, .options input:hover + label:before, #shared li:before {
+  .options input:checked + label:before, .options input:hover + label:before, #shared li:before, label.checked:before {
     font-weight: 900;
   }
   #search input[type="text"], #search input[type="button"] {

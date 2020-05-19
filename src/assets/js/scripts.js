@@ -134,7 +134,6 @@ $("#nextBtn").click(function() {
 			}
 		});
 	});
-	$(".dropdown").dropdown();
 
 	function loadMore() {
 		var interests = getInterests();	
