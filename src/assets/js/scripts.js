@@ -105,6 +105,7 @@ $(function() {
 
 	$("[name='interests[]']").each(function(index) {
 		$(this).change(function() {
+			alert("called");
 			validateCheckbox($(this));
 
 			if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
@@ -155,27 +156,16 @@ $(function() {
 
 	$("#edit").validate({
 		rules: {
-			name: "required",
-			email: {
-				required: true,
-				email: true
-			},
+			fname: "required",
+			lname: "required",
 			state: "required",
-			gender: "required"
+			gender: "required",
+			bio: "required"
 		},
 		errorPlacement: function(error, element){},
-		highlight: function (element, errorClass) {
-			$(element).removeClass("error").addClass("has-error");
-		}
 	});
 	
 	$("#edit").submit(function() {
-		if ($("#state").val() == "") {
-			$("#state").parent().addClass("error");
-		}
-	});
-
-	$("form").submit(function() {
 		if ($("[name='gender']:checked").length < 1) {
 			$("[name='gender']").next().addClass("error");
 		}
