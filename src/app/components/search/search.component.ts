@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-search',
@@ -11,14 +12,15 @@ export class SearchComponent implements OnInit {
   search: string;
   users = [];
 
-  constructor(private db: AngularFirestore, private route: ActivatedRoute) { 
+  constructor(private db: AngularFirestore, private route: ActivatedRoute, public app: AppComponent) { 
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.search = params['s'].trim().toLowerCase();
     });
-    this.searchUsers();      
+    this.searchUsers(); 
+    this.app.setTitle("Your search for " + this.search);      
   }
 
   searchUsers() {
