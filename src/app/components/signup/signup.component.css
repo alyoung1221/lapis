@@ -1,31 +1,20 @@
 :host {
-  --input: #96C8DA;
+  --input-border: #96C8DA;
   --checked: #96C8DA;
   --select-width: 210px;
 }
-/*Login/Sign-Up*/
-.signup, .login {
-  background-color: #fafafa;
+section {
+  padding: 20px 40px 0 40px;
 }
-#sign-up a, a#sign-up {
-  border-bottom: 0.75px solid var(--input);
+.form-container:last-of-type {
+  display: none;
 }
-.login-container, .signup-container {
-  background: #fff;
-  border: 1px solid #ccc;
-  margin: 0 auto;
+button {
+  min-width: 150px;
+  padding: 13px 38px;
 }
-#sign-up, #login label, #password {
-  font-weight: 400;
-}
-.login-options > * {
-  float: right;
-}
-.login-options p {
-  margin-top: 15px;
-}
-button[type="submit"] {
-  border-radius: 30px;
+#submit {
+  display: none;
 }
 button[type="submit"] + span {
   font-weight: 300;

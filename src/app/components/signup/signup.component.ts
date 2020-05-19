@@ -12,11 +12,11 @@ export class SignupComponent implements OnInit {
   registered: boolean;
   userEmail: string;
   userFirst: string;
-  userLast: string;
-  userAge: Date;
+  userLast: string;  
   userGender: string;
-  userLocation: string;
-  userInterests: string;
+  userAge: Date;
+  userBio: string;
+  userHobbies: string;
 
   constructor(
     public fbAuth: AngularFireAuth, // Inject Firebase auth service.
@@ -27,38 +27,43 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  signUp(email, password, first, last, dob, state, interests) {
-    return this.fbAuth.auth.createUserWithEmailAndPassword(email, password)
+  signUp(email, password, fname, lname, gender, dob, bio, hobbies) {
+    if (email != "" && password != "" && fname != "" && lname != "" && gender != "" && dob != "") {
+      return this.fbAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.registered = true;
         console.log(result.user);
         this.userEmail = email;
-        this.userFirst = first;
-        this.userLast = last;
+        this.userFirst = fname;
+        this.userLast = lname;
+		    this.userGender = gender;
         this.userAge = dob;
-        this.userLocation = state;
-        this.userInterests = interests;
+        this.userBio = bio;
+        this.userHobbies = hobbies;
         this.createUserEntry();
         this.router.navigateByUrl('/profile');
       }).catch((error) => {
         this.registered = false;
         console.log(error.message);
       });
+    }
   }
 
   createUserEntry() {
     console.log(this.fbAuth.authState.subscribe(data => {
       this.db.collection('users').doc(data.uid).set({
+        id: data.uid,
+        email: this.userEmail,
         first: this.userFirst,
         last: this.userLast,
-        email: this.userEmail,
+        gender: this.userGender,
         age: this.userAge,
         picture: 'https://firebasestorage.googleapis.com/v0/b/hobbyhub390.appspot.com/o/sample_pictures%2Fdefault_picture.png?alt=media&token=6dfc7fc7-7a5f-41dc-be90-94137adb0ef7',
-        location: this.userLocation,
-        gender: '',
+        location: '',
         major: '',
-        hobbies: this.userInterests,
-        friends: [],
+        bio: this.userBio,
+        hobbies: this.userHobbies,
+        friends: []
       });
       this.db.collection('friends').doc(data.uid).set({
         sent: [],
@@ -70,5 +75,4 @@ export class SignupComponent implements OnInit {
       });
     }));
   }
-
 }
