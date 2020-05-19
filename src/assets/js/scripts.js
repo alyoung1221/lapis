@@ -218,10 +218,11 @@ $(function() {
 		interests.push(new Interest("Skincare", "SC"));
 		interests.push(new Interest("Food", "FD"));
 		interests.push(new Interest("Fashion", "FS"));
-		interests.push(new Interest("Games", "GA"));
+		interests.push(new Interest("Gaming", "GA"));
 		interests.push(new Interest("Movies", "MV"));
 		interests.push(new Interest("Blogging", "BG"));
-		interests.push(new Interest("Travel", "TR"));	
+		interests.push(new Interest("Travel", "TR"));
+    	interests.push(new Interest("Photography", "PT"));		
 		
 		return interests;
 	}

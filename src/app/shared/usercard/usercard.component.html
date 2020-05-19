@@ -6,7 +6,7 @@
   </div>
   <div class="user-right">
     <li class="user-name">{{ user.first }}</li>
-    <li class="user-hobbies">Likes {{ user.hobbies }}</li>
+    <li class="user-hobbies" *ngIf="user.hobbies != ''">Likes {{ user.hobbies }}</li>
   </div>
   <div></div>
 </ul>

@@ -147,7 +147,8 @@ export class EditComponent implements OnInit {
 		var interests = $("[name='interests[]']:checked").map(function() { 
       return $(this).val(); 
     }).get().join(", ");
-		$("[name='interests']").val(interests);
+    $("[name='interests']").val(interests);
+    console.log($("[name='interests']").val());
   }
 
   validateCheckbox(i) {
@@ -182,10 +183,11 @@ export class EditComponent implements OnInit {
 		interests.push("Skincare");
 		interests.push("Food");
 		interests.push("Fashion");
-		interests.push("Games");
+		interests.push("Gaming");
 		interests.push("Movies");
 		interests.push("Blogging");
-		interests.push("Travel");	
+    interests.push("Travel");	
+    interests.push("Photography");	
 		
 		return interests;
   }

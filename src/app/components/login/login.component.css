@@ -1,10 +1,13 @@
+:host {
+	--input-border: #96C8DA;
+}
 .login-container {
 	padding: 50px 40px 0 40px;
 }
 #login input {
 	background-color: transparent;
 	border: 0;
-	border-bottom: .9px solid #C3C3C3;
+	border-bottom: .75px solid #C3C3C3;
 	font-size: .95em;
 	font-weight: 300;
 	width: 280px;

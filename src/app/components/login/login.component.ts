@@ -18,11 +18,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.app.setTitle("Login");
-    /*this.fb.authState.subscribe(data => {
+    this.fb.authState.subscribe(data => {
       if (data) {
         this.router.navigateByUrl("/profile");
       }
-    });*/
+    });
     this.loginForm = new FormGroup({
       email: new FormControl(null),
       password: new FormControl(null),

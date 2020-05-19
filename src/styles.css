@@ -7,7 +7,7 @@
 
 :root {
   --main-color: #26619C;
-  --input-border: #96C8DA;
+  --input-border: #CAD6E6;
   --input-circle: #26619C;
   --checked: #96C8DA;
   --select-width: 195px;
@@ -111,12 +111,6 @@ label {
   color: red;
   border-color: red !important;
 }
-.error {
-  margin-top: 20px;
-}
-[name="gender"] + .error {
-  margin-top: 0;
-}
 button, input[type="button"] {
   background-color: transparent;
   border: 0;
@@ -136,6 +130,9 @@ div > div.flatpickr-months > div > div > select,div > div.flatpickr-months > div
 .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month { 
   font-size: .9em;
 }
+.form-control {
+  margin-top: 15px;
+}
 input, button, .dropdown {
   font-family: Poppins;
   background: transparent;
@@ -154,26 +151,20 @@ button, input[type="button"] {
 }
 .form-container input {
   margin-top: 20px;
+  border-bottom: 0.75px solid #c3c3c3;
+  width: 300px;
 }
 .form-container > div {
   margin-top: 30px;
   margin-right: 50px;
   min-width: 300px;
 }
-.form-container input {
-  width: 100%;
-    background-color: transparent;
-    border: 0;
-    border-bottom: 0.9px solid #c3c3c3;
-    font-size: 1em;
-    font-weight: 300;
-  }
 textarea {
   background: transparent;
   border: 1px solid #CAD6E6; 
   padding: 5px 8px;
-  width: 400px; 
-  height: 120px;
+  width: 500px; 
+  height: 160px;
   font-size: .95em;
   resize: none;
 }
@@ -210,6 +201,11 @@ textarea {
   }
   .options input:checked + label:before, .options input:hover + label:before, #shared li:before, label.checked:before {
     font-weight: 900;
+  }
+  #search input[type="text"], #search input[type="button"] {
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    padding: 10px 15px;
   }
   #interests ul li:before, .options label:before {
 		content: '\f111';
@@ -311,8 +307,8 @@ textarea {
     font-size: 1em;
     border: 1px solid var(--input-border);
   }
-  button:hover, .button:focus {
-    background: var(--checked);
+  button:hover {
+    background: var(--input-border);
     color: #fff;
   }
   
@@ -360,18 +356,18 @@ section h3 {
 .section-container {
   padding: 50px 0px;
 }
-.section-container a:not(.edit), .section-container button {
+.section-container a:not(.edit) {
   display: inline-block;
   width: 100%;
   height: 100%;
   padding: 20px 0;
-  border: 0;
   color: #888;
   cursor: pointer;
   font-weight: 400;
   text-decoration: none;
+  cursor: pointer;
 }
-.section-container a:not(.edit):hover, .section-container button:hover {
+.section-container a:not(.edit):hover {
   color: var(--main-color);
   background-color: #ecf3fc;
   border-left: 6px solid var(--main-color);
@@ -391,10 +387,6 @@ section h3 {
 .userlist-container {
   display: flex;
   flex-wrap: wrap;
-  grid-area: friends;
-}
-.suggestion-container {
-  grid-area: suggestions;
 }
 .right-container {
   flex: 3;
@@ -439,18 +431,18 @@ section h3 {
 }
 
 /*Range Slider*/
-  #slider-range > span:nth-child(2), #slider-range > span:nth-child(3) {
-    top: -8.5px;
-    height: 20px;
-    width: 20px;
-    border: 0;
-    background-color: #A9D9EB;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  #slider-range > span:nth-child(2):hover, #slider-range > span:nth-child(3):hover, #slider-range > span:nth-child(2):active, #slider-range > span:nth-child(3):active {
-    background-color: #96C8DA;
-  }
+#slider-range > span:nth-child(2), #slider-range > span:nth-child(3) {
+  top: -8.5px;
+  height: 20px;
+  width: 20px;
+  border: 0;
+  background-color: #A9D9EB;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#slider-range > span:nth-child(2):hover, #slider-range > span:nth-child(3):hover, #slider-range > span:nth-child(2):active, #slider-range > span:nth-child(3):active {
+  background-color: #96C8DA;
+}
 
 @media (max-width: 800px) {
   .section-container {

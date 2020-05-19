@@ -1,7 +1,6 @@
 :host {
   --input-border: #96C8DA;
   --checked: #96C8DA;
-  --select-width: 210px;
 }
 section {
   padding: 20px 40px 0 40px;
