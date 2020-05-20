@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  users: any;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  searchUsers() {
+    return true;
+  }
+
+  advancedSearch() {
+    return true;
   }
 
 }
