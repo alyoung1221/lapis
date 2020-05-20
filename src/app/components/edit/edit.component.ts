@@ -87,7 +87,6 @@ export class EditComponent implements OnInit {
       this.userBio = bio;
 
       console.log(this.fbAuth.authState.subscribe(data => {                   
-        this.updateSuggestions();
         this.db.collection('users').doc(data.uid).update({
           first: this.userFirst,
           last: this.userLast,
@@ -96,9 +95,9 @@ export class EditComponent implements OnInit {
           bio: this.userBio,
           hobbies: this.userInterests,
           picture: 'https://firebasestorage.googleapis.com/v0/b/hobbyhub390.appspot.com/o/sample_pictures%2Fdefault_picture.png?alt=media&token=6dfc7fc7-7a5f-41dc-be90-94137adb0ef7',
-        }).then(() => {
-          this.router.navigateByUrl('/profile');
         });
+        this.updateSuggestions(interests);
+        this.router.navigateByUrl('/profile');
       }));
     }      
   }
@@ -175,20 +174,21 @@ export class EditComponent implements OnInit {
     return users;
   }
 
-  updateSuggestions() {
+  updateSuggestions(interests) {
     this.db.collection("users").get().toPromise().then(snapshot => {
       this.db.collection('suggestions').doc(this.profile.id).update({ 
         suggestions: []
       }).then(() => {
         console.log("called");
       });
+      console.log(interests);
       snapshot.forEach(doc => {
         var hobbies = typeof(doc.data().hobbies) == "object" ? doc.data() : doc.data().hobbies.split(", ");
         var found = false; 
         var i = 0; 
         
         while (!found && i < hobbies.length) {
-          if (this.profile.hobbies.includes(hobbies[i]) && doc.data().id != this.profile.id) {
+          if (interests.includes(hobbies[i]) && doc.data().id != this.profile.id) {
             var id = doc.data().id;
             this.db.collection("suggestions").doc(this.profile.id).update({ 
               suggestions: firebase.firestore.FieldValue.arrayUnion(id)
