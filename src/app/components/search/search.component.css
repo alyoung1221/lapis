@@ -49,3 +49,16 @@ h2 {
     .all-users {
         margin-left: 40px;
     }
+
+@media screen and (max-width: 940px) {
+    #main {
+        padding: 50px 0 0 0;
+    }
+    #filters {
+        padding: 20px;
+        margin: 20px;
+    }
+    .all-users {
+        margin-left: 0;
+    }
+}
