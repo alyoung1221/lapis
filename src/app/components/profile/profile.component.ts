@@ -80,20 +80,4 @@ export class ProfileComponent implements OnInit {
       this.profile.hobbies = user.hobbies;
     }));
   }
-
-  deleteUser() {  
-    this.db.collection('friends').doc(firebase.auth().currentUser.uid).delete();
-    this.db.collection('suggestions').doc(firebase.auth().currentUser.uid).delete();
-    this.db.collection('users').doc(firebase.auth().currentUser.uid).delete().catch(function(error) {
-      // An error happened.
-      window.alert(error);
-    });
-    // User deleted.
-    firebase.auth().currentUser.delete().then(function() {
-      firebase.auth().signOut();
-    }).catch(function(error) {
-      // An error happened.
-      window.alert(error);
-    });
-  }
 }
