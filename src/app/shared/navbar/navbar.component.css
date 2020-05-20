@@ -46,7 +46,7 @@ nav a {
     margin-right: 0;
   }
 }
-@media screen and (min-width: 700px) and (max-width: 1000px) {
+@media screen and (min-width: 700px) and (max-width: 950px) {
   .flex-container {
     justify-content: space-between;
   }
