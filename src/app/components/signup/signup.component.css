@@ -1,5 +1,6 @@
 :host {
   --input-border: #96C8DA;
+  --input-circle: #96C8DA;
   --checked: #96C8DA;
 }
 section {
