@@ -1,36 +1,84 @@
-<div class="authBlock">
-  <h3>Sign Up</h3>
-  <div class="formGroup">
-    <input
-      type="text"
-      class="formControl"
-      placeholder="Email"
-      #userEmail
-      required
-    />
-  </div>
-  <div class="formGroup">
-    <input
-      type="password"
-      class="formControl"
-      placeholder="Password"
-      #userPassword
-      required
-    />
-  </div>
-  <!-- Calling SignIn Api from AuthenticationService -->
-  <div class="formGroup">
-    <input
-      type="button"
-      class="btn btnPrimary"
-      value="Sign Up"
-      (click)="signUp(userEmail.value, userPassword.value)"
-    />
-  </div>
-</div>
-<div class="message" *ngIf="registered">
-  You have been successfully registered.
-</div>
-<div class="message" *ngIf="registered == false">
-  Sorry, there was an error and you have not been successfully registered.
-</div>
+<section>
+    <form method="post" id="sign-up">
+        <div class="form-container">
+            <div>
+                <label>First Name*</label>
+                <input type="text" id="fname" name="fname" title="Please enter your first name." maxlength="60" #userFirst required>
+             </div>   
+             <div>
+                <label>Last Name*</label>
+                <input type="text" id="lname" name="lname" title="Please enter your last name." maxlength="60" #userLast required>
+             </div>           
+        </div>
+        <div class="form-container">
+            <div>
+                <label>E-mail* (this will be your username)</label>
+                <input type="email" id="email" name="email" title="Please enter your e-mail." maxlength="60" #userEmail required>
+            </div>
+			<div>
+			  <label for="gender">Gender*</label><br>
+			  <label class="input-wrapper radio" tabindex="0">Female
+				<input type="radio" name="gender" value="F" #userGender required>
+				<span class="checkmark"></span>
+			  </label>
+			  &nbsp;
+			  <label class="input-wrapper radio" tabindex="0">Male
+				<input type="radio" name="gender" value="M" #userGender required>
+				<span class="checkmark"></span>
+			  </label>
+			</div>
+        </div>
+        <div class="form-container" style="margin-top: 20px;">
+            <div>
+                <label for="dob">Date of Birth*</label>
+                <input type="date" id="dob" name="dob" title="Please select your date of birth." #userDOB required>
+            </div>
+            <div>
+                <label for="password">Password*</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+        <div class="form-container">
+            <div>
+            </div>
+            <div>
+                <label for="password2">Confirm Password*</label>
+                <input type="password" id="password2" name="password2" #userPassword required>
+            </div>
+        </div>
+        <div class="form-container" id="last">
+            <h2>Customize Profile</h2>
+            <div>
+                <label for="bio">Bio*&nbsp;<span class="indicator">(<span id="maxLength">200</span> characters)</span></label>
+                <br>
+                <textarea id="bio" name="bio" placeholder="Write a short description of yourself here..." required #userBio></textarea>                        
+            </div>
+            <div>
+                <label for="interests">Select interests (up to 10)</label>
+                <div class="options">
+                    <input type="checkbox" name="interests[]" id="B" value="Baking">	
+                    <label for="B" title="Baking">Baking</label>					
+                    <input type="checkbox" name="interests[]" id="CK" value="Cooking">
+                    <label for="CK" title="Cooking">Cooking</label>	
+                    <input type="checkbox" name="interests[]" id="R" value="Reading">		
+                    <label for="R" title="Reading">Reading</label>			
+                    <input type="checkbox" name="interests[]" id="S" value="Skiing">
+                    <label for="S" title="Skiing">Skiing</label>	
+                    <input type="checkbox" name="interests[]" id="V" value="Volleyball">	
+                    <label for="V" title="Volleyball">Volleyball</label>	
+                    <input type="checkbox" name="interests[]" id="Z" value="Zip Lining">	
+                    <label for="Z" title="Zip Lining">Zip Lining</label>
+                </div>    
+                <input type="hidden" name="interests" #userInterests>            
+            </div>
+        </div>
+        <br><br>
+        <button type="submit" id="next" name="next">Next</button>
+        <button type="submit" id="submit" name="submit" (click)="signUp(userEmail.value, userPassword.value, userFirst.value, userLast.value, userGender.value, userDOB.value, userBio.value, userInterests.value)">Sign Up</button>
+        <div class="message">
+            <p *ngIf="registered">You have been successfully registered.</p>
+            <p *ngIf="registered == false">Sorry, there was an error and you have not been successfully registered.</p>
+        </div>
+        <p id="sign-up">Already have an account? <a routerLink="/login">Sign in</a></p>
+    </form>
+</section>

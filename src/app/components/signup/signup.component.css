@@ -1,7 +1,22 @@
-.authBlock {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 100px);
+:host {
+  --input-border: #96C8DA;
+  --input-circle: #96C8DA;
+  --checked: #96C8DA;
+}
+section {
+  padding: 20px 40px 0 40px;
+}
+#last {
+  display: none;
+}
+button {
+  min-width: 150px;
+  padding: 13px 38px;
+}
+#submit {
+  display: none;
+}
+button[type="submit"] + span {
+  font-weight: 300;
+  margin-left: 15px;
 }

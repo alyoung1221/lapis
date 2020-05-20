@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  margin: 20px 20px;
+  margin: 20px;
   transition: all 0.2s;
   border-radius: 15px;
   cursor: pointer;
@@ -24,17 +24,14 @@
 }
 
 .user-picture-container {
-  position: relative;
   width: 75px;
   height: 75px;
-  border-radius: 50%;
   overflow: hidden;
+  border-radius: 50%;
 }
 
 .user-picture {
-  position: absolute;
-  bottom: 0;
-  max-width: 100%;
+  width: 100%;
 }
 
 .user-name {

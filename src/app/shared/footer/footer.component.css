@@ -1,0 +1,11 @@
+
+/*Footer*/
+footer {
+  padding: 80px 40px 50px 40px;
+}
+footer > .flex-container {
+  justify-content: space-between;
+}
+footer nav a {
+  margin-right: 30px;
+}

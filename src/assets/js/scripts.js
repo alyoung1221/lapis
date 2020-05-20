@@ -1,226 +1,236 @@
-var ethnicities = []; 
-var interests = []; 
-var religions = [];
-var tbody = $("tbody").html();
+$(function() {
+	$("#date").html(new Date().getFullYear()); 
+	
+	/*Sign Up*/
+	$("#dob").flatpickr({
+		altInput: true,
+		altFormat: "F j, Y",
+		dateFormat: "Y-m-d",
+		maxDate: "today"
+	});
 
-$("[type='radio']").each(function(e) {
-	$(this).click(function(e) {
-        if (e.ctrlKey) {
-            this.checked = false;
-        }
-    });
-});
-$("#date").html(new Date().getFullYear());
+	$("#dob + input").attr("name", "dob");
 
-$("#plus").click(function(e) {
-	setMiles(e); 
-});
-$("#minus").click(function(e) {
-	setMiles(e); 
-});
-
-let timeout = null;
-
-$("[name='category']").click(function() {
-	switch($("[name='category']:checked").val()) {
-		case "interests": 
-			$("#search").attr("placeholder", "Search by interests...");
-			break;	
-		case "users": 
-			$("#search").attr("placeholder", "Search by users...");
-			break;
-		case "locations": 
-			$("#search").attr("placeholder", "Search by locations...");
-			break;						
-		default: 
-			$("#search").attr("placeholder", "Search...");
-			break;					
-		}
-		if ($("#search").val()) {
-			searchUsers();
+	jQuery.validator.setDefaults({
+		onfocusout: function(element) {
+			this.element(element);  
+		},
+		oninput: function(element) {
+			this.element(element);  
+		},
+		errorPlacement: function(error, element) {
+			if (error.text().includes("match")) {
+				error.insertAfter(element);
+			}
+			else {
+				return false;
+			}
 		}
 	});
-$("#search").keyup(function() {
-	clearTimeout(timeout);
-	timeout = setTimeout(function () {searchUsers();}, 500);	
-});
-		
-$("#search").on("input", function() {
-	if ($("#search").val() === "") {
-		$("tbody").empty();
-		$("#results").empty();
-	}
-});
-		
-function setMiles(e) {
-	if (e.target.id === "plus") {
-		document.querySelector("#miles").stepUp();
-	}
-	else {
-		document.querySelector("#miles").stepDown();
-	}
-}
-
-function searchUsers(type, e) {
-	var users = createUsers();
-	var selectedUsers = new Array(); 
 	
-	if (type === "advanced") {
-		e.preventDefault(); 
-		$("#advancedSearch").attr("class", "hidden");
-		
-		var ethnicities = $("input[name='ethnicities']:checked").val();
-		var interests = $("input[name='interests']:checked").val();
-		var religions = $("input[name='religions']:checked").val();
-
-		for (var i = 0; i < users.length; i++) {
-			var ethnicMatch = false; 
-			var interestMatch = false; 
-			var religionMatch = false; 
-			
-			for (var x = 0; x < ethnicities.length; x++) {
-				if (users[i].getEthnicities().includes(ethnicities[x]) || ethnicities[x] === "Any") {
-					ethnicMatch = true;
-				}
-			}
-			for (var y = 0; y < interests.length; y++) {
-				if (users[i].getInterests().includes(interests[y].toLowerCase())) {
-					interestMatch = true;
-				}
-			}
-			for (var z = 0; z < religions.length; z++) {
-				if (users[i].getReligion().includes(religions[z]) || religions[z] === "Any") {
-					religionMatch = true;
-				}
-			}
-			if (users[i].getGender() === $("input[name='gender']:checked").val() && (users[i].getAge() >= $("input[name='min']").val() && users[i].getAge() < $("input[name='max']").val()) && ethnicMatch && interestMatch && religionMatch) {
-				selectedUsers.push(users[i]); 
-			}
+	$("#sign-up").validate({
+	  rules: {
+		fname: "required",
+		lname: "required",
+		email: {
+			required: true,
+			email: true
+		},
+		gender: "required", 
+		dob: "required", 
+		password: {
+			required: true,
+			equalTo: "#password2"
+		},
+		password2: {
+			equalTo: "#password"
+		},
+	  },
+	  messages: {
+		password2: {
+			equalTo: "The password does not match."
 		}
-		if (selectedUsers.length > 0) {				
-			for (var a = 0; a < selectedUsers.length; a++) {
-				var tr = document.createElement("tr");
-				tr.innerHTML = "\n";
-					
-				for (var y = 0; y < 2; y++) {
-					var td = document.createElement("td");
-					
-					if (y == 0) {
-						td.innerHTML = "\n<img src='" + selectedUsers[a].getProfile() + "' class='profile'>\n"; 
-					}
-					else {
-						td.innerHTML = "\n" + selectedUsers[a].getUser() + "\n<br>" + selectedUsers[a].getAge() + "\n<br>" + selectedUsers[a].getEthnicities(); 
-					}
-					tr.append(td);
-				}
-				$("tbody").eq(0).append(tr);
+	  }
+	});
+	
+	$("#next").click(function() {
+		if ($("#sign-up").valid()) {
+			$(".form-container:not(:last-of-type)").css("display", "none");
+			$("#last").css("display", "block");
+			$("#next").css("display", "none");
+			$("#submit").css("display", "inline-block");
+		}
+	});
+
+	$("[type='radio']").each(function(e) {
+		$(this).click(function(e) {
+			if (e.ctrlKey) {
+				this.checked = false;
 			}
-			$("#results").html("<br><a href='advanced-search.html'>Return to search</a>");		
+		});
+	});
+
+	$(".dropdown").dropdown();
+
+	function loadMore() {
+		var interests = getInterests();	
+		var numInterests = $("[name='interests[]']").length;
+		
+		if ($("[name='interests[]']").length < interests.length) {
+			numInterests += (numInterests + 6 < interests.length) ? 6 : interests.length - numInterests;
+			
+			for (var i = $("[name='interests[]']").length; i < numInterests; i++) { 
+				var checkbox = "<input type='checkbox' name='interests[]' id='" + interests[i].getAbbr() +  "' value='" + interests[i].getName() + "'>";
+				var label = $("<label for='" + interests[i].getAbbr() + "'>" + interests[i].getName() + "</label>");
+				label.attr("title", interests[i].getName());
+				$(".options").append(checkbox, label);
+				$("[name='interests[]'] + label").last().hide().fadeIn();
+			}
+
+			$("[name='interests[]']").each(function(index) {
+				$(this).change(function() {
+					validateCheckbox($(this));
+					
+					if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
+						loadMore();
+					}
+					if ($("[name='interests[]']:checked").length < 10) {
+						selectedInterests();
+					}
+				});
+			});
+		}
+	}
+
+	$("[name='interests[]']").each(function(index) {
+		$(this).change(function() {
+			validateCheckbox($(this));
+
+			if (index + 1 == $("[name='interests[]']").length && $("[name='interests[]']:checked").length < 10) {
+				loadMore();
+			}
+			if ($("[name='interests[]']:checked").length < 10) {
+				selectedInterests();
+			}
+		});
+	});
+
+	function selectedInterests() {
+		var interests = $("[name='interests[]']:checked").map(function() { return this.value; }).get().join(", ");
+		$("[name='interests']").val(interests);
+	};
+	
+	function validateCheckbox(input) {	
+		if ($("[name='interests[]']:checked").length > 10) {
+			alert("Please select up to 10 interests.");
+			input.prop("checked", false);
+		}
+	}
+
+	$("#reset").click(function() {
+		$("[name='gender']:checked").prop("checked", false);
+		$("#slider-range").slider("destroy");
+		rangeSlider();
+		$(".dropdown").dropdown("restore defaults");
+	});
+
+	$("#edit").validate({
+		rules: {
+			fname: "required",
+			lname: "required",
+			state: "required",
+			gender: "required",
+			bio: "required"
+		}
+	});
+	
+	$("form").submit(function() {
+		if ($("[name='gender']:checked").length < 1) {
+			$("[name='gender']").next().addClass("error");
+		}
+		if ($("#state option:selected").val() == "") {
+			$("body, html").animate({
+				scrollTop: $("#state").offset().top
+			});
+			$("#state").next("div").focus();
+			$("#state").parent().addClass("error");
 		}
 		else {
-			$("#results").html("<h3>Sorry, no results found.<br>Try another search.</h3><br><a href='advanced-search.html'>Return to search</a>");		
+			$("#state").parent().removeClass("error");
 		}
-	}
-	else {
-		var searchTerm = $("#search").val().toLowerCase();
-		var category = $("[name='category']:checked").val(); 
-		$("tbody").removeClass("flex-container");
-		$("tbody").html("");
-		$("#results").html("");
-		$("#advancedSearch").addClass("hidden");
-		
-		for (var i = 0; i < users.length; i++) {
-			switch(category) {
-				case "interests": 
-					if (users[i].getInterests().toLowerCase().includes(searchTerm)) {
-						selectedUsers.push(users[i]);
-					}
-				break;	
-				case "users": 
-					if (users[i].getUser().toLowerCase().includes(searchTerm)) {
-						selectedUsers.push(users[i]);
-					}
-					break;		
-				case "locations": 
-					if (users[i].getCity().toLowerCase().includes(searchTerm)) {
-						selectedUsers.push(users[i]);
-					}
-					break;				
-				default: 
-					if (users[i].toString().toLowerCase().includes(searchTerm)) {
-						selectedUsers.push(users[i]);
-					}
-					break;	
-			}
-		}
+	});
 
-		if (selectedUsers.length > 0) {
-			for (var a = 0; a < selectedUsers.length; a++) {
-				var tr = document.createElement("tr");
-				tr.innerHTML = "\n";
-					
-				for (var y = 0; y < 2; y++) {
-					var td = document.createElement("td");
-					
-					if (y == 0) {
-						td.innerHTML = "\n<img src='" + selectedUsers[a].getProfile() + "' class='profile'>\n"; 
-					}
-					else {
-						td.innerHTML = "\n" + selectedUsers[a].getUser() + "\n<br>" + selectedUsers[a].getAge() + "\n<br>" + selectedUsers[a].getEthnicities(); 
-					}
-					tr.append(td);
-				}
-				if (selectedUsers.length > 1 && a != selectedUsers.length - 1) {
-					tr.append(document.createElement("br"));
-					tr.append(document.createElement("hr"));
-				}
-				$("tbody").eq(0).append(tr);
-			}
+	$("#state").change(function() {
+		if ($("#state").val() != "") {
+			$("#state").parent().removeClass("error");
 		}
-		else {
-			$("#results").html("<h3>Sorry, no results found. Try another search.</h3>");		
-		}
-			
-		if ($("#search").val() === "") {
-			$("tbody").addClass("flex-container");
-			$("tbody").html(tbody);
-			$("#results").empty();
-			$("#advancedSearch").removeClass("hidden");
-		}
-	}
-}
-
-function createUsers() {
-	var users = new Array();
+	});
 	
-	users.push(new User("Elle Brookes", "F", 20, "images/female.jpg", "White, Asian", "cooking, reading", "Christian", "VA"));
-	users.push(new User("Samantha Jones", "F", 21, "images/female.jpg", "White", "cooking, reading", "Christian", "WA"));
-	users.push(new User("Lani Greene", "F", 23, "images/female.jpg", "Native Hawaiian, Pacific", "baking, reading", "N/A", "MI"));
-	users.push(new User("David James", "M", 30, "images/male.jpg", "White, Pacific", "volleyball, zip lining", "Catholic", "NY"));
-	users.push(new User("Paul Tran", "M", 25, "images/male.jpg", "Asian", "volleyball, skiing", "N/A", "FL"));
-	users.push(new User("Ben Jones", "M", 22, "images/male.jpg", "Hispanic", "skiing, zip lining", "Catholic", "NC"));
+	$("[name='gender']").on("input", function() {
+		if ($("[name='gender']:checked").length > 0) {
+			$("[name='gender']").next().removeClass("error");
+		}
+	});
 
-	return users;
-}
-
-function User(name, gender, age, profile, ethnicities, interests, religion, city) {
-	this.name = name;	
-	this.gender = gender;
-	this.age = age;	
-	this.profile = profile;
-	this.ethnicities = ethnicities;
-	this.interests = interests;
-	this.religion = religion;
-	this.city = city;
-	this.getUser = function() {return this.name;};  
-	this.getGender = function() {return this.gender;};  
-	this.getAge = function() {return this.age;};  
-	this.getProfile = function() {return this.profile;};
-	this.getEthnicities = function() {return this.ethnicities;};  	
-	this.getInterests = function() {return this.interests;};  
-	this.getReligion = function() {return this.religion;};  
-	this.getCity = function() {return this.city;};  
-	this.toString = function() {
-		return this.name + " " + this.ethnicities + " " + this.interests + " " + this.religion + " " + this.city;
+	if ($("#bio").length > 0) {
+		$("#bio").restrictLength($("#maxLength"));
 	}
-}
+
+	function rangeSlider() {
+		$("#slider-range").slider({
+			range: true,
+			min: 18,
+			max: 70,
+			values: [25, 45],
+			slide: function(event, ui) {
+				$("#age").val(ui.values[0] + " - " + ui.values[1]);
+				$("input[name='min']").val(ui.values[0]);
+				$("input[name='max']").val(ui.values[1]);				
+			}
+		});
+		$("#age").val($("#slider-range").slider("values", 0) + " - " + $("#slider-range").slider("values", 1));
+		$("input[name='min']").val($("#slider-range").slider("values", 0));
+		$("input[name='max']").val($("#slider-range").slider("values", 1));	
+	}
+
+	rangeSlider();
+
+	function getInterests() {
+		var interests = [];
+		
+		interests.push(new Interest("Baking", "BK"));
+		interests.push(new Interest("Cooking", "CK"));
+		interests.push(new Interest("Reading", "RD"));
+		interests.push(new Interest("Skiing", "SKI"));
+		interests.push(new Interest("Volleyball", "VB")); 
+		interests.push(new Interest("Zip Lining", "ZL"));
+		interests.push(new Interest("Music", "MUS"));
+		interests.push(new Interest("Art", "ART"));
+		interests.push(new Interest("Sewing", "SW"));
+		interests.push(new Interest("Writing", "WR"));
+		interests.push(new Interest("Ice Skating", "IS"));
+		interests.push(new Interest("Latte Art", "LA"));
+		interests.push(new Interest("Swing Dancing", "SD"));
+		interests.push(new Interest("Ballet", "BL"));
+		interests.push(new Interest("Biking", "BI"));
+		interests.push(new Interest("Singing", "SG"));	
+		interests.push(new Interest("Herbology", "HB"));
+		interests.push(new Interest("Skincare", "SC"));
+		interests.push(new Interest("Food", "FD"));
+		interests.push(new Interest("Fashion", "FS"));
+		interests.push(new Interest("Gaming", "GA"));
+		interests.push(new Interest("Movies", "MV"));
+		interests.push(new Interest("Blogging", "BG"));
+		interests.push(new Interest("Travel", "TR"));
+    	interests.push(new Interest("Photography", "PT"));		
+		
+		return interests;
+	}
+
+	function Interest(name, abbr) {
+		this.name = name;	
+		this.abbr = abbr;
+		this.getName = function() {return this.name;};  
+		this.getAbbr = function() {return this.abbr;}; 
+	}
+});

@@ -6,20 +6,19 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="src/app/navbar/navbar.component.css">
+  <link href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/transition.css"> 
 </head>
 <body>
   <app-root></app-root>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
   <script src="https://kit.fontawesome.com/b217619af5.js" crossorigin="anonymous"></script>
-  <script>
-    flatpickr('#dob', {
-      altInput: true,
-      altFormat: "F j, Y",
-      dateFormat: "Y-m-d"
-    });
-  </script>
 </body>
 </html>

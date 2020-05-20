@@ -1,0 +1,64 @@
+:host {
+    --input-border: #96C8DA;
+    --checked: #96C8DA;
+    --select-width: 200px;
+}
+#main {
+    padding: 50px 50px 0 40px;
+}
+h2 {
+    margin-bottom: 70px;
+}
+#filters > * {
+    font-size: .97em;
+}
+#ageContainer {
+    margin-top: 20px;
+}
+#ageContainer label {
+    display: inline;
+}
+#slider-range {
+    height: 1px;
+    width: 240px;
+    margin-top: 20px;
+    border: 0;
+    border-bottom: 1px solid #DDD;
+}
+#slider-range > div {
+    background: transparent;
+}
+#age, #age:hover {
+    padding: 10px 0 !important;
+    font-size: 100%;
+    font-weight: 300;
+}	
+#filters button {
+    border: 1px solid #A9D9EB;
+    margin-right: 30px;
+}
+#filters button:hover {
+    background: #A9D9EB;
+    color: #FFF;
+}
+
+/*Results*/
+    .card-container {
+        margin-bottom: 85px;
+    }
+    .all-users {
+        margin-left: 40px;
+    }
+
+@media screen and (max-width: 940px) {
+    #main {
+        padding: 50px 0 0 0;
+    }
+    #filters {
+        padding: 20px;
+        margin: 20px;
+    }
+    .all-users {
+        margin-left: 0;
+    }
+}

@@ -1,12 +1,12 @@
-<ul class="user-container">
+<ul class="user-container" (click)="goToUser(user.id)">
   <div class="user-left">
     <li class="user-picture-container">
       <img class="user-picture" src="{{ user.picture }}" />
     </li>
   </div>
   <div class="user-right">
-    <li class="user-name">{{ user.name }}</li>
-    <li class="user-hobbies">Likes {{ user.hobbies }}</li>
+    <li class="user-name">{{ user.first }}</li>
+    <li class="user-hobbies" *ngIf="user.hobbies != ''">Likes {{ user.hobbies }}</li>
   </div>
   <div></div>
 </ul>

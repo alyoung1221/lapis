@@ -1,0 +1,8 @@
+<div class="main-container">
+    <h2>{{ urlParam }}</h2>
+    <div class="flex-container">
+        <div class="card-container" *ngFor="let user of userList">
+            <app-usercard [user]=user></app-usercard>
+        </div>
+    </div>
+</div>
