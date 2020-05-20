@@ -45,12 +45,12 @@
         <div>
           <label for="gender">Gender*</label><br>
           <label class="input-wrapper radio" style="display: inline;" tabindex="0">Female
-            <input type="radio" name="gender" value="F" [(ngModel)]="profile.gender" #userGender required>
+            <input type="radio" name="gender" value="F" [(ngModel)]="profile.gender" #userGender="ngModel" required>
             <span class="checkmark"></span>
           </label>
           &nbsp;
           <label class="input-wrapper radio" style="display: inline;" tabindex="0">Male
-            <input type="radio" name="gender" value="M" [(ngModel)]="profile.gender" #userGender required>
+            <input type="radio" name="gender" value="M" [(ngModel)]="profile.gender" #userGender="ngModel" required>
             <span class="checkmark"></span>
           </label>
         </div>
@@ -115,7 +115,7 @@
         </div>
       </div>
       <br>
-      <label for="interests">Interests (select up to 10)</label>
+      <label for="interests" style="margin-top: 15px;">Interests (select up to 10)</label>
       <div class="options">
         <ng-container *ngIf="profile.hobbies.length > 0">
           <ng-container *ngFor="let hobby of profile.hobbies.split(', '); index as i ">
@@ -144,7 +144,7 @@
         </ng-container>   					
       </div>
       <input type="hidden" name="interests" value="{{ profile.hobbies }}" #userInterests> 
-      <br>
+      <br><br>
       <label for="bio">Bio*&nbsp;<span class="indicator">(<span id="maxLength" *ngIf="!profile.bio">200</span> <span id="maxLength" *ngIf="profile.bio">{{ 200 - profile.bio.length}}</span> characters)</span></label>
       <br>
       <textarea id="bio" name="bio" [(ngModel)]="profile.bio" placeholder="Write a short description of yourself here..." #userBio required></textarea>

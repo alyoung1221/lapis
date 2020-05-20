@@ -6,6 +6,7 @@ import { FriendsService } from '../../services/friends.service';
 import { SuggestionsService } from '../../services/suggestions.service';
 import { FriendrequestService } from 'src/app/services/friendrequest.service';
 import { Router } from '@angular/router';
+import firebase from 'firebase';
 
 @Component({
   selector: 'app-profile',
@@ -56,6 +57,7 @@ export class ProfileComponent implements OnInit {
         if (this.profile.suggestions) {
           this.suggestionsLoaded = true;
         }
+        console.log(this.profile.suggestions);
         this.profile.requests.received = this.requests.getReceivedFriendRequests(data.uid);
         this.profile.requests.sent = this.requests.getSentFriendRequests(data.uid);
         console.log('USER ID: ' + data.uid);

@@ -146,31 +146,30 @@ button, input[type="button"] {
   font-size: 95%;
   cursor: pointer;
 }
-.form-container {
-  margin-top: 40px;
-}
-.form-container input {
-  margin-top: 20px;
-  border-bottom: 0.75px solid #c3c3c3;
-  width: 300px;
-}
 .form-container > div {
-  margin-top: 30px;
+  margin-top: 50px;
   margin-right: 50px;
   min-width: 300px;
+}
+.form-container input {
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 0.9px solid #c3c3c3;
+  font-size: 1em;
+  font-weight: 300;
 }
 textarea {
   background: transparent;
   border: 1px solid #CAD6E6; 
   padding: 5px 8px;
 	width: 420px;
-	height: 120px;
+	height: 100px;
   font-size: .95em;
   resize: none;
 }
 .ui.selection.dropdown {
   min-width: var(--select-width);
-  max-width: 270px;
   background: transparent;
 }
 
@@ -387,8 +386,13 @@ section h3 {
 .userlist-container {
   display: flex;
   flex-wrap: wrap;
+  grid-area: friends;
+}
+.suggestion-container {
+  grid-area: suggestions;
 }
 .right-container {
+  padding: 50px;
   flex: 3;
 }
 .profile-name {
@@ -443,7 +447,7 @@ section h3 {
 #slider-range > span:nth-child(2):hover, #slider-range > span:nth-child(3):hover, #slider-range > span:nth-child(2):active, #slider-range > span:nth-child(3):active {
   background-color: #96C8DA;
 }
-
+  
 @media (max-width: 800px) {
   .section-container {
     margin: 0 auto;

@@ -2,6 +2,8 @@ import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-signup',
@@ -22,9 +24,11 @@ export class SignupComponent implements OnInit {
     public fbAuth: AngularFireAuth, // Inject Firebase auth service.
     public db: AngularFirestore, // Inject our Firebase database to the app.
     public router: Router, // Injects Angular Router so we can navigate after.
+    public app: AppComponent
   ) { }
 
   ngOnInit() {
+    this.app.setTitle("Sign Up");
   }
 
   signUp(email, password, fname, lname, gender, dob, bio, hobbies) {
@@ -73,6 +77,33 @@ export class SignupComponent implements OnInit {
       this.db.collection('suggestions').doc(data.uid).set({
         suggestions: [],
       });
+      this.updateSuggestions(data.uid, this.userHobbies);
     }));
+  }
+
+  updateSuggestions(id, userHobbies) {
+    console.log(id);
+    console.log(userHobbies);
+    this.db.collection("users").get().toPromise().then(snapshot => {
+      snapshot.forEach(doc => {
+        var hobbies = typeof(doc.data().hobbies) == "object" ? doc.data() : doc.data().hobbies.split(", ");
+        var found = false; 
+        var i = 0; 
+
+        while (!found && i < hobbies.length) {
+          if (userHobbies.includes(hobbies[i]) && doc.data().id != id) {
+            console.log(doc.data().id);
+            console.log(hobbies[i]);
+            this.db.collection('suggestions').doc(id).update({ 
+              suggestions: firebase.firestore.FieldValue.arrayUnion(doc.data().id)
+            }).then(() => {
+              console.log("success");
+            });
+            found = true;
+          }
+          i++;
+        } 
+      });
+    });
   }
 }
