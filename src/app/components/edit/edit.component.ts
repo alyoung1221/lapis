@@ -3,6 +3,7 @@ import { AppComponent } from '../../app.component';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import firebase from 'firebase';
 
 @Component({
   selector: 'app-edit',
@@ -85,7 +86,8 @@ export class EditComponent implements OnInit {
       this.userInterests = interests;
       this.userBio = bio;
 
-      console.log(this.fbAuth.authState.subscribe(data => {
+      console.log(this.fbAuth.authState.subscribe(data => {                   
+        this.updateSuggestions();
         this.db.collection('users').doc(data.uid).update({
           first: this.userFirst,
           last: this.userLast,
@@ -160,6 +162,47 @@ export class EditComponent implements OnInit {
     }
   }
 
+  getHobbies() {
+    var users = [];
+    this.db.collection("users").get().toPromise().then(snapshot => {
+      snapshot.forEach(doc => {
+        var hobbies = typeof(doc.data().hobbies) == "object" ? this.toString(doc.data().hobbies, "array") : doc.data().hobbies;
+        if (hobbies.toLowerCase().includes(this.profile.hobbies.toLowerCase())) {
+          users.push(doc.data());
+        }
+      });
+    });
+    return users;
+  }
+
+  updateSuggestions() {
+    this.db.collection("users").get().toPromise().then(snapshot => {
+      this.db.collection('suggestions').doc(this.profile.id).update({ 
+        suggestions: []
+      }).then(() => {
+        console.log("called");
+      });
+      snapshot.forEach(doc => {
+        var hobbies = typeof(doc.data().hobbies) == "object" ? doc.data() : doc.data().hobbies.split(", ");
+        var found = false; 
+        var i = 0; 
+        
+        while (!found && i < hobbies.length) {
+          if (this.profile.hobbies.includes(hobbies[i]) && doc.data().id != this.profile.id) {
+            var id = doc.data().id;
+            this.db.collection("suggestions").doc(this.profile.id).update({ 
+              suggestions: firebase.firestore.FieldValue.arrayUnion(id)
+            }).then(() => {
+              console.log("success");
+            });
+            found = true;
+          } 
+          i++;
+        }
+      });
+    });
+  }
+
   getInterests() {
 		var interests = [];
 		
@@ -190,5 +233,22 @@ export class EditComponent implements OnInit {
     interests.push("Photography");	
 		
 		return interests;
+  }
+
+  toString(array, type) {
+    var arrayString = "";
+
+    if (type == "input") {
+      array.each(function() {
+        arrayString += $(this).val() + " ";
+      });
+    }
+    else {
+      array.forEach(function() {
+        arrayString += this;
+      })
+    }
+
+    return arrayString;
   }
 }

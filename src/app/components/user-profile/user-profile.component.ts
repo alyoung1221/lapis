@@ -45,7 +45,6 @@ export class UserProfileComponent implements OnInit {
     document.get().subscribe((userData => {
       const user = userData.data();
       this.profile.hobbies = user.hobbies.length > 0 ? user.hobbies.split(", ").sort() : user.hobbies;
-      console.log(this.profile.hobbies);
     }));
   }
 
