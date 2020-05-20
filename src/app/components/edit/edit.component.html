@@ -45,12 +45,12 @@
         <div>
           <label for="gender">Gender*</label><br>
           <label class="input-wrapper radio" style="display: inline;" tabindex="0">Female
-            <input type="radio" name="gender" value="F" [(ngModel)]="profile.gender" #userGender required>
+            <input type="radio" name="gender" value="F" [(ngModel)]="profile.gender" #userGender="ngModel" required>
             <span class="checkmark"></span>
           </label>
           &nbsp;
           <label class="input-wrapper radio" style="display: inline;" tabindex="0">Male
-            <input type="radio" name="gender" value="M" [(ngModel)]="profile.gender" #userGender required>
+            <input type="radio" name="gender" value="M" [(ngModel)]="profile.gender" #userGender="ngModel" required>
             <span class="checkmark"></span>
           </label>
         </div>
