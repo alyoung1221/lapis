@@ -9,3 +9,4 @@ Jacques Liautaud (Product Owner), Addie Gaegler (Project Manager), Benyam Getahu
 #### **[This project was selected as a finalist in the Spring 2020 Patriot Pitch competition.](https://sites.google.com/view/patriot-pitch/spring-2020/program)**
 
 #### As of May 20, 2020, this project is no longer in development.
+#### Original Location: https://gitlab.com/it390-group3/group-project-main-branch
